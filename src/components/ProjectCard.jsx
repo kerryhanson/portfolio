@@ -1,0 +1,48 @@
+import { Link } from 'react-router-dom'
+import { ArrowUpRight } from 'lucide-react'
+import ProjectImage from './ProjectImage'
+
+export default function ProjectCard({ project, featured = false }) {
+  return (
+    <Link
+      to={`/projects/${project.slug}`}
+      className="group theme-card rounded-2xl overflow-hidden flex flex-col h-full"
+    >
+      <ProjectImage
+        project={project}
+        aspectRatio={featured ? '16/10' : '16/9'}
+        className="rounded-none border-0 border-b theme-border"
+      />
+
+      <div className="flex flex-col flex-1 p-6 gap-3">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <h3 className="text-lg font-semibold theme-text group-hover:text-[var(--color-accent-text)] transition-colors">
+              {project.title}
+            </h3>
+            <p className="text-sm theme-text-muted mt-0.5">{project.subtitle}</p>
+          </div>
+          <ArrowUpRight
+            size={18}
+            className="shrink-0 theme-text-subtle group-hover:text-[var(--color-accent)] transition-colors mt-1"
+          />
+        </div>
+
+        <p className="text-sm theme-text-muted leading-relaxed line-clamp-2 flex-1">
+          {project.summary}
+        </p>
+
+        <div className="flex flex-wrap gap-1.5 pt-1">
+          {project.tags.slice(0, 3).map((tag) => (
+            <span
+              key={tag}
+              className="text-xs px-2.5 py-0.5 rounded-full theme-accent-bg-subtle theme-accent-text font-medium"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </Link>
+  )
+}
