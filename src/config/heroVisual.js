@@ -4,7 +4,26 @@
 export const HERO_VISUAL_MODE = 'flow-diagram'
 
 /**
- * Custom hero image path (place file in public/). Leave null to show placeholder.
- * Example: '/images/hero-custom.png'
+ * Hero slider slides — one image per step (Research, Design, Impact).
+ * Place files in public/ and set image paths. Leave null to show placeholders.
  */
-export const HERO_IMAGE_SRC = null
+export const HERO_SLIDES = [
+  {
+    id: 'research',
+    label: 'Research',
+    image: null,
+    imageAlt: 'User research and discovery',
+  },
+  {
+    id: 'design',
+    label: 'Design',
+    image: null,
+    imageAlt: 'Product and interaction design',
+  },
+  {
+    id: 'impact',
+    label: 'Impact',
+    image: null,
+    imageAlt: 'Measurable outcomes and analytics',
+  },
+]

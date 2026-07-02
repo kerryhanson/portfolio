@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Award, Sparkles } from 'lucide-react'
+import { ArrowRight, Astroid, Award } from 'lucide-react'
 import { profile } from '../data/profile'
 import { getFeaturedProjects } from '../data/projects'
 import ProjectCard from '../components/ProjectCard'
@@ -15,7 +15,7 @@ export default function HomePage() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full theme-accent-bg-subtle text-sm font-medium theme-accent-text">
-              <Sparkles size={14} />
+              <Astroid size={14} />
               Senior UX Designer
             </div>
 

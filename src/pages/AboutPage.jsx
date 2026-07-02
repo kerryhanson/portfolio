@@ -2,9 +2,9 @@ import {
   Award,
   Briefcase,
   GraduationCap,
+  Link2,
   Mail,
   Phone,
-  Linkedin,
   Wrench,
 } from 'lucide-react'
 import { profile } from '../data/profile'
@@ -59,7 +59,7 @@ export default function AboutPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm theme-link"
             >
-              <Linkedin size={15} />
+              <Link2 size={15} />
               LinkedIn
             </a>
           </div>

@@ -1,4 +1,4 @@
-import { Mail, Linkedin } from 'lucide-react'
+import { Link2, Mail } from 'lucide-react'
 import { profile } from '../data/profile'
 
 export default function Footer() {
@@ -23,7 +23,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-sm theme-text-muted theme-link"
           >
-            <Linkedin size={15} />
+            <Link2 size={15} />
             LinkedIn
           </a>
         </div>

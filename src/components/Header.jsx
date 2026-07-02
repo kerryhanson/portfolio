@@ -19,7 +19,7 @@ export default function Header() {
           <span className="w-8 h-8 rounded-lg theme-accent-bg flex items-center justify-center text-white text-sm font-bold">
             KH
           </span>
-          <span className="font-semibold theme-text hidden sm:block">Kerry Hanson</span>
+          <span className="font-semibold theme-text">Kerry Hanson</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
