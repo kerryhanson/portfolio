@@ -13,17 +13,20 @@ export const HERO_SLIDES = [
     label: 'Research',
     image: null,
     imageAlt: 'User research and discovery',
+    imageSizes: '(min-width: 1024px) 50vw, 100vw',
   },
   {
     id: 'design',
     label: 'Design',
     image: null,
     imageAlt: 'Product and interaction design',
+    imageSizes: '(min-width: 1024px) 50vw, 100vw',
   },
   {
     id: 'impact',
     label: 'Impact',
     image: null,
     imageAlt: 'Measurable outcomes and analytics',
+    imageSizes: '(min-width: 1024px) 50vw, 100vw',
   },
 ]

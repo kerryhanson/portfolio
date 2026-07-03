@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft, Calendar, User, Wrench } from 'lucide-react'
 import { getProjectBySlug, projects } from '../data/projects'
+import { DecorativeIcon } from '../components/a11y'
 import ProjectImage from '../components/ProjectImage'
 import PlaceholderImage from '../components/PlaceholderImage'
 import ProjectCard from '../components/ProjectCard'
@@ -11,12 +12,12 @@ export default function ProjectPage() {
 
   if (!project) {
     return (
-      <div className="max-w-6xl mx-auto px-6 py-20 text-center">
+      <section className="max-w-6xl mx-auto px-6 py-20 text-center">
         <h1 className="text-2xl font-bold theme-text mb-4">Project not found</h1>
         <Link to="/" className="theme-link text-sm">
           ← Back to home
         </Link>
-      </div>
+      </section>
     )
   }
 
@@ -26,71 +27,77 @@ export default function ProjectPage() {
 
   return (
     <article>
-      {/* Hero */}
-      <div className="theme-bg-subtle border-b theme-border-subtle">
+      <header className="theme-bg-subtle border-b theme-border-subtle">
         <div className="max-w-6xl mx-auto px-6 pt-8 pb-12">
           <Link
             to="/"
             className="inline-flex items-center gap-1.5 text-sm theme-text-muted theme-link mb-8"
           >
-            <ArrowLeft size={15} />
+            <DecorativeIcon icon={ArrowLeft} size={15} />
             Back to projects
           </Link>
 
           <div className="grid lg:grid-cols-2 gap-10 items-start">
             <div className="space-y-5">
-              <div className="flex flex-wrap gap-2">
+              <ul className="flex flex-wrap gap-2 list-none p-0 m-0">
                 {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs px-2.5 py-0.5 rounded-full theme-accent-bg-subtle theme-accent-text font-medium"
-                  >
-                    {tag}
-                  </span>
+                  <li key={tag}>
+                    <span className="text-xs px-2.5 py-0.5 rounded-full theme-accent-bg-subtle theme-accent-text font-medium">
+                      {tag}
+                    </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
               <h1 className="text-3xl sm:text-4xl font-bold theme-text tracking-tight leading-tight">
                 {project.title}
               </h1>
               <p className="text-lg theme-text-muted">{project.subtitle}</p>
 
-              <div className="flex flex-wrap gap-6 pt-2 text-sm theme-text-muted">
-                <span className="flex items-center gap-1.5">
-                  <User size={15} className="theme-accent" />
-                  {project.role}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Calendar size={15} className="theme-accent" />
-                  {project.timeline}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Wrench size={15} className="theme-accent" />
-                  {project.tools.join(', ')}
-                </span>
-              </div>
+              <dl className="flex flex-wrap gap-6 pt-2 text-sm theme-text-muted">
+                <div className="flex items-center gap-1.5">
+                  <DecorativeIcon icon={User} size={15} className="theme-accent" />
+                  <dt className="sr-only">Role</dt>
+                  <dd className="m-0">{project.role}</dd>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <DecorativeIcon icon={Calendar} size={15} className="theme-accent" />
+                  <dt className="sr-only">Timeline</dt>
+                  <dd className="m-0">{project.timeline}</dd>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <DecorativeIcon icon={Wrench} size={15} className="theme-accent" />
+                  <dt className="sr-only">Tools</dt>
+                  <dd className="m-0">{project.tools.join(', ')}</dd>
+                </div>
+              </dl>
             </div>
 
             <ProjectImage
               project={project}
+              loading="eager"
               className="rounded-xl border theme-border theme-shadow-lg overflow-hidden"
               iconSize={40}
+              sizes="(min-width: 1024px) 50vw, 100vw"
             />
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Content */}
-      <div className="max-w-6xl mx-auto px-6 py-16">
+      <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 space-y-12">
-            <section>
-              <h2 className="text-xl font-semibold theme-text mb-4">Overview</h2>
+            <section aria-labelledby="overview-heading">
+              <h2 id="overview-heading" className="text-xl font-semibold theme-text mb-4">
+                Overview
+              </h2>
               <p className="theme-text-muted leading-relaxed">{project.summary}</p>
             </section>
 
-            <section>
-              <h2 className="text-xl font-semibold theme-text mb-4">The challenge</h2>
+            <section aria-labelledby="challenge-heading">
+              <h2 id="challenge-heading" className="text-xl font-semibold theme-text mb-4">
+                The challenge
+              </h2>
               <p className="theme-text-muted leading-relaxed">{project.challenge}</p>
             </section>
 
@@ -100,21 +107,26 @@ export default function ProjectPage() {
               className="theme-shadow"
             />
 
-            <section>
-              <h2 className="text-xl font-semibold theme-text mb-4">Approach</h2>
-              <ul className="space-y-3">
+            <section aria-labelledby="approach-heading">
+              <h2 id="approach-heading" className="text-xl font-semibold theme-text mb-4">
+                Approach
+              </h2>
+              <ol className="space-y-3 list-none p-0 m-0">
                 {project.approach.map((item, i) => (
                   <li
                     key={i}
                     className="text-sm theme-text-muted leading-relaxed flex items-start gap-3"
                   >
-                    <span className="flex items-center justify-center w-6 h-6 rounded-full theme-accent-bg-subtle theme-accent-text text-xs font-semibold shrink-0 mt-0.5">
+                    <span
+                      aria-hidden="true"
+                      className="flex items-center justify-center w-6 h-6 rounded-full theme-accent-bg-subtle theme-accent-text text-xs font-semibold shrink-0 mt-0.5"
+                    >
                       {i + 1}
                     </span>
                     {item}
                   </li>
                 ))}
-              </ul>
+              </ol>
             </section>
 
             <div className="grid sm:grid-cols-2 gap-4">
@@ -122,15 +134,19 @@ export default function ProjectPage() {
               <PlaceholderImage label="Prototype / UI" aspectRatio="4/3" />
             </div>
 
-            <section>
-              <h2 className="text-xl font-semibold theme-text mb-4">Outcomes</h2>
-              <ul className="space-y-3">
+            <section aria-labelledby="outcomes-heading">
+              <h2 id="outcomes-heading" className="text-xl font-semibold theme-text mb-4">
+                Outcomes
+              </h2>
+              <ul className="space-y-3 list-none p-0 m-0">
                 {project.outcomes.map((outcome, i) => (
                   <li
                     key={i}
                     className="theme-card rounded-xl p-4 text-sm theme-text-muted leading-relaxed flex items-start gap-2"
                   >
-                    <span className="theme-accent font-bold shrink-0">✓</span>
+                    <span aria-hidden="true" className="theme-accent font-bold shrink-0">
+                      ✓
+                    </span>
                     {outcome}
                   </li>
                 ))}
@@ -144,22 +160,23 @@ export default function ProjectPage() {
             />
           </div>
 
-          {/* Sidebar */}
           <aside className="space-y-6">
-            <div className="theme-card rounded-2xl p-6 sticky top-24">
-              <h3 className="font-semibold theme-text mb-4">Project details</h3>
+            <section className="theme-card rounded-2xl p-6 sticky top-24" aria-labelledby="details-heading">
+              <h2 id="details-heading" className="font-semibold theme-text mb-4">
+                Project details
+              </h2>
               <dl className="space-y-4 text-sm">
                 <div>
                   <dt className="theme-text-subtle mb-0.5">Role</dt>
-                  <dd className="theme-text font-medium">{project.role}</dd>
+                  <dd className="theme-text font-medium m-0">{project.role}</dd>
                 </div>
                 <div>
                   <dt className="theme-text-subtle mb-0.5">Timeline</dt>
-                  <dd className="theme-text font-medium">{project.timeline}</dd>
+                  <dd className="theme-text font-medium m-0">{project.timeline}</dd>
                 </div>
                 <div>
                   <dt className="theme-text-subtle mb-0.5">Tools</dt>
-                  <dd className="flex flex-wrap gap-1.5 mt-1">
+                  <dd className="flex flex-wrap gap-1.5 mt-1 m-0">
                     {project.tools.map((tool) => (
                       <span
                         key={tool}
@@ -171,14 +188,15 @@ export default function ProjectPage() {
                   </dd>
                 </div>
               </dl>
-            </div>
+            </section>
           </aside>
         </div>
 
-        {/* Related projects */}
         {related.length > 0 && (
-          <section className="mt-20 pt-16 border-t theme-border">
-            <h2 className="text-2xl font-bold theme-text mb-8">More projects</h2>
+          <section className="mt-20 pt-16 border-t theme-border" aria-labelledby="related-heading">
+            <h2 id="related-heading" className="text-2xl font-bold theme-text mb-8">
+              More projects
+            </h2>
             <div className="grid sm:grid-cols-2 gap-6">
               {related.map((p) => (
                 <ProjectCard key={p.id} project={p} />
@@ -186,7 +204,7 @@ export default function ProjectPage() {
             </div>
           </section>
         )}
-      </div>
+      </section>
     </article>
   )
 }

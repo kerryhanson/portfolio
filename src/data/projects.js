@@ -28,6 +28,7 @@ export const projects = [
     imageAlt: 'Stratus enterprise curriculum catalog dashboard and course management views',
     imageWidth: 1024,
     imageHeight: 527,
+    imageSizes: '(min-width: 1024px) 50vw, (min-width: 640px) 100vw, 100vw',
   },
   {
     id: 'canvas-design-system',

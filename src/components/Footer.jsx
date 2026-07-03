@@ -1,3 +1,4 @@
+import { DecorativeIcon } from './a11y'
 import { Link2, Mail } from 'lucide-react'
 import { profile } from '../data/profile'
 
@@ -9,12 +10,12 @@ export default function Footer() {
           © {new Date().getFullYear()} {profile.name}. All rights reserved.
         </p>
 
-        <div className="flex items-center gap-4">
+        <nav className="flex items-center gap-4" aria-label="Contact">
           <a
             href={`mailto:${profile.email}`}
             className="flex items-center gap-1.5 text-sm theme-text-muted theme-link"
           >
-            <Mail size={15} />
+            <DecorativeIcon icon={Mail} size={15} />
             Email
           </a>
           <a
@@ -23,10 +24,10 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-sm theme-text-muted theme-link"
           >
-            <Link2 size={15} />
+            <DecorativeIcon icon={Link2} size={15} />
             LinkedIn
           </a>
-        </div>
+        </nav>
       </div>
     </footer>
   )

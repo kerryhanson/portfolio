@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import { DecorativeIcon } from './a11y'
 import ThemeSelector from './ThemeSelector'
 
 const navLinks = [
@@ -16,17 +17,21 @@ export default function Header() {
     <header className="sticky top-0 z-40 border-b theme-border theme-nav-bg backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
-          <span className="w-8 h-8 rounded-lg theme-accent-bg flex items-center justify-center text-white text-sm font-bold">
+          <span
+            aria-hidden="true"
+            className="w-8 h-8 rounded-lg theme-accent-bg flex items-center justify-center text-white text-sm font-bold"
+          >
             KH
           </span>
           <span className="font-semibold theme-text">Kerry Hanson</span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-1" aria-label="Main">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
+              aria-current={location.pathname === link.to ? 'page' : undefined}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 location.pathname === link.to
                   ? 'theme-accent-bg-subtle theme-accent-text'
@@ -48,19 +53,26 @@ export default function Header() {
             onClick={() => setMenuOpen(!menuOpen)}
             className="p-2 rounded-lg theme-btn-ghost"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
           >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            <DecorativeIcon icon={menuOpen ? X : Menu} size={20} />
           </button>
         </div>
       </div>
 
       {menuOpen && (
-        <nav className="md:hidden border-t theme-border theme-surface px-6 py-4 flex flex-col gap-1">
+        <nav
+          id="mobile-nav"
+          className="md:hidden border-t theme-border theme-surface px-6 py-4 flex flex-col gap-1"
+          aria-label="Mobile"
+        >
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
               onClick={() => setMenuOpen(false)}
+              aria-current={location.pathname === link.to ? 'page' : undefined}
               className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                 location.pathname === link.to
                   ? 'theme-accent-bg-subtle theme-accent-text'

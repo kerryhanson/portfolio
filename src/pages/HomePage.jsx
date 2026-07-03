@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Astroid, Award } from 'lucide-react'
+import { ArrowRight, Award, Target } from 'lucide-react'
 import { profile } from '../data/profile'
 import { getFeaturedProjects } from '../data/projects'
+import { DecorativeIcon } from '../components/a11y'
 import ProjectCard from '../components/ProjectCard'
 import HeroVisual from '../components/HeroVisual'
 
@@ -10,16 +11,18 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="max-w-6xl mx-auto px-6 pt-16 pb-20">
+      <section className="max-w-6xl mx-auto px-6 pt-16 pb-20" aria-labelledby="hero-heading">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full theme-accent-bg-subtle text-sm font-medium theme-accent-text">
-              <Astroid size={14} />
+          <header className="space-y-6">
+            <p className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full theme-accent-bg-subtle text-sm font-medium theme-accent-text">
+              <DecorativeIcon icon={Target} size={14} />
               Senior UX Designer
-            </div>
+            </p>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight theme-text leading-[1.1]">
+            <h1
+              id="hero-heading"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight theme-text leading-[1.1]"
+            >
               Designing enterprise experiences that{' '}
               <span className="theme-accent">work for people</span>
             </h1>
@@ -29,13 +32,13 @@ export default function HomePage() {
               for complex platforms in higher education and enterprise.
             </p>
 
-            <div className="flex flex-wrap gap-3 pt-2">
+            <nav className="flex flex-wrap gap-3 pt-2" aria-label="Primary actions">
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl theme-btn-primary text-sm font-medium"
               >
                 About me
-                <ArrowRight size={16} />
+                <DecorativeIcon icon={ArrowRight} size={16} />
               </Link>
               <a
                 href={`mailto:${profile.email}`}
@@ -43,24 +46,26 @@ export default function HomePage() {
               >
                 Get in touch
               </a>
-            </div>
+            </nav>
 
-            <div className="flex items-center gap-2 pt-2 theme-text-muted text-sm">
-              <Award size={16} className="theme-accent shrink-0" />
+            <p className="flex items-center gap-2 pt-2 theme-text-muted text-sm">
+              <DecorativeIcon icon={Award} size={16} className="theme-accent shrink-0" />
               UX Certified (UXC) — Nielsen Norman Group, 2021
-            </div>
-          </div>
+            </p>
+          </header>
 
           <HeroVisual />
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <section className="theme-bg-subtle border-y theme-border-subtle">
+      <section
+        className="theme-bg-subtle border-y theme-border-subtle"
+        aria-labelledby="featured-heading"
+      >
         <div className="max-w-6xl mx-auto px-6 py-20">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+          <header className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
             <div>
-              <h2 className="text-3xl font-bold theme-text tracking-tight">
+              <h2 id="featured-heading" className="text-3xl font-bold theme-text tracking-tight">
                 Featured projects
               </h2>
               <p className="theme-text-muted mt-2 max-w-lg">
@@ -68,7 +73,7 @@ export default function HomePage() {
                 AI-enabled workflows, and user research.
               </p>
             </div>
-          </div>
+          </header>
 
           <div className="grid sm:grid-cols-2 gap-6">
             {featured.map((project, i) => (
@@ -80,9 +85,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="max-w-6xl mx-auto px-6 py-20 text-center">
-        <h2 className="text-2xl sm:text-3xl font-bold theme-text tracking-tight mb-4">
+      <section className="max-w-6xl mx-auto px-6 py-20 text-center" aria-labelledby="connect-heading">
+        <h2 id="connect-heading" className="text-2xl sm:text-3xl font-bold theme-text tracking-tight mb-4">
           Let's connect
         </h2>
         <p className="theme-text-muted max-w-md mx-auto mb-8">
@@ -94,7 +98,7 @@ export default function HomePage() {
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl theme-btn-primary text-sm font-medium"
         >
           {profile.email}
-          <ArrowRight size={16} />
+          <DecorativeIcon icon={ArrowRight} size={16} />
         </a>
       </section>
     </>

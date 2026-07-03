@@ -1,0 +1,63 @@
+# Kerry Hanson Portfolio — Cursor Rules
+
+## Project overview
+
+Personal UX designer portfolio built with React 19, Vite 7, React Router, Tailwind CSS v4, and Lucide React. Deployed on Vercel.
+
+## Stack and conventions
+
+- Use JavaScript (`.jsx` / `.js`), not TypeScript.
+- Use Tailwind utility classes plus existing `theme-*` CSS utilities from `src/index.css`.
+- Use Lucide React for icons. Brand icons (e.g. LinkedIn) are not available in lucide-react 1.x — use generic icons like `Link2`.
+- Prefer functional components and hooks. Keep components focused and colocated under `src/components/`, pages under `src/pages/`.
+
+## Theming
+
+- Four themes: `light`, `soft`, `dusk`, `dark` — defined via `[data-theme]` CSS variables in `src/index.css`.
+- Always use theme-aware classes (`theme-text`, `theme-surface`, `theme-accent`, `theme-border`, etc.) instead of hardcoded colors so all themes stay in sync.
+- Theme state lives in `src/context/ThemeContext.jsx` and persists to `localStorage`.
+
+## Content and data
+
+- Profile/resume content: `src/data/profile.js`
+- Project case studies: `src/data/projects.js` — add optional `image`, `imageAlt`, `imageWidth`, `imageHeight` for real screenshots
+- Hero slider config: `src/config/heroVisual.js` — set `HERO_VISUAL_MODE` to `'placeholder'` or `'flow-diagram'`; configure slide images in `HERO_SLIDES`
+- Static assets go in `public/` (e.g. `public/images/`)
+
+## UI patterns
+
+- Use `PlaceholderImage` for image slots without assets yet; use `ProjectImage` for project cards/pages (handles image vs placeholder).
+- Hover effects on cards only for clickable links (`a.theme-card`), not static content cards.
+- Interactive menus (theme selector, mobile nav) must work on tap — use click/toggle, not hover-only.
+- Avoid layout shift: reserve fixed space for elements that change size on active/hover states.
+
+## Hero slider
+
+- Research / Design / Impact tabs in `HeroFlowDiagram.jsx` control slide pagination.
+- Auto-cycles every 10 seconds; timer resets on manual navigation.
+- Pagination icons: `SquareUserRound`, `LayoutDashboard`, `Rocket`.
+
+## Scope and quality
+
+- Minimize diff scope — only change what the task requires.
+- Match existing naming, file structure, and styling patterns.
+- Do not commit or push unless explicitly asked.
+- Run `npm run build` to verify changes compile before finishing.
+
+## Code & Component Quality
+
+- Write clean, modular, and reusable components. Avoid monolithic files.
+- Use semantic HTML tags exclusively (`<main>`, `<section>`, `<nav>`, `<article>`, `<header>`, `<footer>`) instead of generic nested `<div>` wrappers.
+- Optimize images using lazy loading and responsive source sets.
+
+## Accessibility (WCAG 2.2) Mandate
+
+- Every interactive element must have a clear `:focus-visible` state.
+- All icons (Lucide) must include `aria-hidden="true"` if decorative, or explicit labels if functional.
+- Ensure full keyboard navigation support for custom interactive components or carousels.
+- Include proper `aria-*` attributes for dynamic UI states (e.g., mobile menu toggle).
+
+## Deployment
+
+- Vercel serves the Vite build from `dist/`.
+- `vercel.json` includes SPA rewrites for client-side routing — preserve when editing config.

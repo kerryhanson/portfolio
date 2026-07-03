@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Palette } from 'lucide-react'
 import { themes, useTheme } from '../context/ThemeContext'
+import { DecorativeIcon } from './a11y'
 
 export default function ThemeSelector() {
   const { theme, setTheme } = useTheme()
@@ -16,8 +17,18 @@ export default function ThemeSelector() {
       }
     }
 
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setOpen(false)
+      }
+    }
+
     document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
+    document.addEventListener('keydown', handleEscape)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('keydown', handleEscape)
+    }
   }, [open])
 
   return (
@@ -29,12 +40,14 @@ export default function ThemeSelector() {
         aria-label="Select color theme"
         aria-haspopup="listbox"
         aria-expanded={open}
+        aria-controls="theme-selector-listbox"
       >
-        <Palette size={15} strokeWidth={1.75} />
+        <DecorativeIcon icon={Palette} size={15} strokeWidth={1.75} />
         <span className="hidden sm:inline">{themes.find((t) => t.id === theme)?.label}</span>
       </button>
 
       <div
+        id="theme-selector-listbox"
         className={`absolute right-0 top-full mt-2 w-48 py-1.5 rounded-xl theme-surface theme-shadow-lg border theme-border transition-all duration-150 z-50 ${
           open ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
@@ -58,6 +71,7 @@ export default function ThemeSelector() {
             }`}
           >
             <span
+              aria-hidden="true"
               className="w-4 h-4 rounded-full border theme-border shrink-0"
               style={{
                 background:
