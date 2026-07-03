@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Internal design system reference — not for public search indexing
+Disallow: /workshop

@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { DecorativeIcon } from './a11y'
-import ThemeSelector from './ThemeSelector'
+import ConfigMenu from './ConfigMenu'
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -42,12 +42,12 @@ export default function Header() {
             </Link>
           ))}
           <div className="ml-2 pl-2 border-l theme-border">
-            <ThemeSelector />
+            <ConfigMenu />
           </div>
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeSelector />
+          <ConfigMenu />
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}

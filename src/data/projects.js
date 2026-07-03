@@ -64,7 +64,7 @@ export const projects = [
     featured: true,
     tags: ['AI/ML', 'Prototyping', 'Workflow Design', 'Enterprise'],
     summary:
-      'Designed UX for multiple AI-powered authoring tools that streamlined internal course creation workflows and improved efficiency for academic stakeholders.',
+      'Contributed to UX for multiple AI-powered authoring tools that streamlined internal course creation workflows and improved efficiency for academic stakeholders.',
     challenge:
       'Internal course creation involved repetitive, time-consuming tasks that slowed academic teams and created bottlenecks in content production pipelines.',
     approach: [
