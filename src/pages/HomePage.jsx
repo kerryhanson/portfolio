@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Award, Target } from 'lucide-react'
+import { ArrowRight, Award, ChevronDown, Target } from 'lucide-react'
 import { profile } from '../data/profile'
 import { getFeaturedProjects } from '../data/projects'
 import { DecorativeIcon } from '../components/a11y'
@@ -11,9 +11,16 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="max-w-6xl mx-auto px-6 pt-16 pb-20" aria-labelledby="hero-heading">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <header className="space-y-6">
+      <a href="#featured-projects" className="skip-link">
+        Skip to featured projects
+      </a>
+
+      <section
+        className="max-w-6xl mx-auto px-6 pt-10 pb-10 md:pt-16 md:pb-16"
+        aria-labelledby="hero-heading"
+      >
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+          <header className="space-y-5 md:space-y-6">
             <p className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full theme-accent-bg-subtle text-sm font-medium theme-accent-text">
               <DecorativeIcon icon={Target} size={14} />
               Senior UX Designer
@@ -33,22 +40,28 @@ export default function HomePage() {
             </p>
 
             <nav className="flex flex-wrap gap-3 pt-2" aria-label="Primary actions">
-              <Link
-                to="/about"
+              <a
+                href="#featured-projects"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl theme-btn-primary text-sm font-medium"
               >
-                About me
+                View work
                 <DecorativeIcon icon={ArrowRight} size={16} />
+              </a>
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl theme-btn-ghost text-sm font-medium"
+              >
+                About me
               </Link>
               <a
                 href={`mailto:${profile.email}`}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl theme-btn-ghost text-sm font-medium"
+                className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl theme-btn-ghost text-sm font-medium"
               >
                 Get in touch
               </a>
             </nav>
 
-            <p className="flex items-center gap-2 pt-2 theme-text-muted text-sm">
+            <p className="hidden sm:flex items-center gap-2 pt-2 theme-text-muted text-sm">
               <DecorativeIcon icon={Award} size={16} className="theme-accent shrink-0" />
               UX Certified (UXC) — Nielsen Norman Group, 2021
             </p>
@@ -56,13 +69,22 @@ export default function HomePage() {
 
           <HeroVisual />
         </div>
+
+        <a
+          href="#featured-projects"
+          className="md:hidden flex items-center justify-center gap-1.5 mt-8 pt-2 text-sm font-medium theme-text-muted hover:text-[var(--color-text)] transition-colors"
+        >
+          Featured projects
+          <DecorativeIcon icon={ChevronDown} size={16} className="theme-accent" />
+        </a>
       </section>
 
       <section
-        className="theme-bg-subtle border-y theme-border-subtle"
+        id="featured-projects"
+        className="theme-bg-subtle border-y theme-border-subtle scroll-mt-20"
         aria-labelledby="featured-heading"
       >
-        <div className="max-w-6xl mx-auto px-6 py-20">
+        <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
           <header className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
             <div>
               <h2 id="featured-heading" className="text-3xl font-bold theme-text tracking-tight">
@@ -76,10 +98,8 @@ export default function HomePage() {
           </header>
 
           <div className="grid sm:grid-cols-2 gap-6">
-            {featured.map((project, i) => (
-              <div key={project.id} className={i === 0 ? 'sm:col-span-2' : ''}>
-                <ProjectCard project={project} featured={i === 0} />
-              </div>
+            {featured.map((project) => (
+              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
         </div>

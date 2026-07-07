@@ -14,11 +14,7 @@ export default function ProjectCard({ project, featured = false }) {
           project={project}
           aspectRatio={featured ? '16/10' : '16/9'}
           className="rounded-none border-0 border-b theme-border"
-          sizes={
-            featured
-              ? '(min-width: 640px) 100vw, 100vw'
-              : '(min-width: 640px) 50vw, 100vw'
-          }
+          sizes="(min-width: 640px) 50vw, 100vw"
         />
 
         <section className="flex flex-col flex-1 p-6 gap-3">

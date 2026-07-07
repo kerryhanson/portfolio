@@ -19,7 +19,6 @@ function GenericCard() {
             <h3 className="text-lg font-semibold theme-text">Card title</h3>
             <p className="text-sm theme-text-muted mt-0.5">Supporting subtitle</p>
           </div>
-          <DecorativeIcon icon={ArrowUpRight} size={18} className="theme-text-subtle shrink-0 mt-1" />
         </header>
         <p className="text-sm theme-text-muted leading-relaxed line-clamp-2 flex-1">
           Brief summary text that describes the content without referencing specific portfolio projects.
@@ -65,6 +64,7 @@ export default function WorkshopComponentsPage() {
           description="Interactive card with hover elevation. Only anchor elements use hover lift."
           code={`<Link className="group theme-card rounded-2xl overflow-hidden flex flex-col h-full">
   ...
+  <DecorativeIcon icon={ArrowUpRight} className="group-hover:text-[var(--color-accent)]" />
 </Link>`}
         >
           <div className="max-w-md">
@@ -75,10 +75,19 @@ export default function WorkshopComponentsPage() {
                 className="rounded-none border-0 border-b theme-border"
               />
               <div className="p-6">
-                <h3 className="text-lg font-semibold theme-text group-hover:text-[var(--color-accent-text)] transition-colors">
-                  Linked card title
-                </h3>
-                <p className="text-sm theme-text-muted mt-1">Hover to see accent and shadow shift.</p>
+                <header className="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="text-lg font-semibold theme-text group-hover:text-[var(--color-accent-text)] transition-colors">
+                      Linked card title
+                    </h3>
+                    <p className="text-sm theme-text-muted mt-1">Hover to see accent and shadow shift.</p>
+                  </div>
+                  <DecorativeIcon
+                    icon={ArrowUpRight}
+                    size={18}
+                    className="shrink-0 theme-text-subtle group-hover:text-[var(--color-accent)] transition-colors mt-1"
+                  />
+                </header>
               </div>
             </Link>
           </div>

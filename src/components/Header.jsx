@@ -3,15 +3,51 @@ import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { DecorativeIcon } from './a11y'
 import ConfigMenu from './ConfigMenu'
+import useFeaturedInView from '../hooks/useFeaturedInView'
 
 const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
+  { label: 'Home', to: '/' },
+  { label: 'Work', to: '/', hash: 'featured-projects' },
+  { label: 'About', to: '/about' },
 ]
 
+function getNavTarget(link) {
+  if (link.hash) {
+    return { pathname: link.to, hash: `#${link.hash}` }
+  }
+  return link.to
+}
+
+function isNavActive(link, pathname, hash, featuredInView) {
+  if (link.hash) {
+    return pathname === '/' && (hash === `#${link.hash}` || featuredInView)
+  }
+  if (link.to === '/') {
+    return pathname === '/' && !hash && !featuredInView
+  }
+  return pathname === link.to
+}
+
 export default function Header() {
-  const location = useLocation()
+  const { pathname, hash } = useLocation()
+  const featuredInView = useFeaturedInView()
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const linkClassName = (link) => {
+    const active = isNavActive(link, pathname, hash, featuredInView)
+    return `px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+      active
+        ? 'theme-accent-bg-subtle theme-accent-text'
+        : 'theme-text-muted hover:text-[var(--color-text)] hover:bg-[var(--color-bg-subtle)]'
+    }`
+  }
+
+  const mobileLinkClassName = (link) => {
+    const active = isNavActive(link, pathname, hash, featuredInView)
+    return `px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+      active ? 'theme-accent-bg-subtle theme-accent-text' : 'theme-text-muted'
+    }`
+  }
 
   return (
     <header className="sticky top-0 z-40 border-b theme-border theme-nav-bg backdrop-blur-md">
@@ -29,14 +65,10 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-1" aria-label="Main">
           {navLinks.map((link) => (
             <Link
-              key={link.to}
-              to={link.to}
-              aria-current={location.pathname === link.to ? 'page' : undefined}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                location.pathname === link.to
-                  ? 'theme-accent-bg-subtle theme-accent-text'
-                  : 'theme-text-muted hover:text-[var(--color-text)] hover:bg-[var(--color-bg-subtle)]'
-              }`}
+              key={link.label}
+              to={getNavTarget(link)}
+              aria-current={isNavActive(link, pathname, hash, featuredInView) ? 'page' : undefined}
+              className={linkClassName(link)}
             >
               {link.label}
             </Link>
@@ -69,15 +101,11 @@ export default function Header() {
         >
           {navLinks.map((link) => (
             <Link
-              key={link.to}
-              to={link.to}
+              key={link.label}
+              to={getNavTarget(link)}
               onClick={() => setMenuOpen(false)}
-              aria-current={location.pathname === link.to ? 'page' : undefined}
-              className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                location.pathname === link.to
-                  ? 'theme-accent-bg-subtle theme-accent-text'
-                  : 'theme-text-muted'
-              }`}
+              aria-current={isNavActive(link, pathname, hash, featuredInView) ? 'page' : undefined}
+              className={mobileLinkClassName(link)}
             >
               {link.label}
             </Link>

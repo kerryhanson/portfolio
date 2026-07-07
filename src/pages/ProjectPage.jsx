@@ -75,6 +75,7 @@ export default function ProjectPage() {
 
             <ProjectImage
               project={project}
+              matchImageAspectRatio
               loading="eager"
               className="rounded-xl border theme-border theme-shadow-lg overflow-hidden"
               iconSize={40}
@@ -100,13 +101,13 @@ export default function ProjectPage() {
               </h2>
               <p className="theme-text-muted leading-relaxed">{project.challenge}</p>
             </section>
-
+            <div className="grid sm:grid-cols-1"> 
             <PlaceholderImage
               label="Process / research image"
               aspectRatio="16/9"
               className="theme-shadow"
             />
-
+            </div>
             <section aria-labelledby="approach-heading">
               <h2 id="approach-heading" className="text-xl font-semibold theme-text mb-4">
                 Approach

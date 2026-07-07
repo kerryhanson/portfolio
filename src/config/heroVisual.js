@@ -4,7 +4,7 @@
 export const HERO_VISUAL_MODE = 'flow-diagram'
 
 /**
- * Hero slider slides — one image per step (Research, Design, Impact).
+ * Hero slider slides — one image per step (Research, Design, Measure).
  * Place files in public/ and set image paths. Leave null to show placeholders.
  */
 export const HERO_SLIDES = [
@@ -24,7 +24,7 @@ export const HERO_SLIDES = [
   },
   {
     id: 'impact',
-    label: 'Impact',
+    label: 'Measure',
     image: null,
     imageAlt: 'Measurable outcomes and analytics',
     imageSizes: '(min-width: 1024px) 50vw, 100vw',

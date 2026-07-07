@@ -4,13 +4,16 @@ import { ImageIcon } from 'lucide-react'
 export default function PlaceholderImage({
   label = 'Image placeholder',
   aspectRatio = '16/9',
+  fill = false,
   className = '',
   iconSize = 32,
 }) {
   return (
     <figure
-      className={`relative overflow-hidden rounded-xl border theme-border m-0 ${className}`}
-      style={{ aspectRatio }}
+      className={`relative overflow-hidden rounded-xl border theme-border m-0 ${
+        fill ? 'w-full h-full' : ''
+      } ${className}`}
+      style={fill ? undefined : { aspectRatio }}
     >
       <span
         aria-hidden="true"

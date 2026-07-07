@@ -128,7 +128,7 @@ function HeroSlider({ activeIndex, onPrev, onNext }) {
   return (
     <section
       ref={sliderRef}
-      className="group relative aspect-square theme-bg-subtle"
+      className="group relative aspect-[4/3] md:aspect-square theme-bg-subtle"
       aria-roledescription="carousel"
       aria-label="Portfolio highlight images"
       tabIndex={0}
@@ -157,13 +157,13 @@ function HeroSlider({ activeIndex, onPrev, onNext }) {
               sizes={slide.imageSizes ?? '(min-width: 1024px) 50vw, 100vw'}
               loading={i === 0 ? 'eager' : 'lazy'}
               fetchPriority={i === 0 ? 'high' : undefined}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-cover"
             />
           ) : (
             <PlaceholderImage
               label={`${slide.label} image`}
-              aspectRatio="1/1"
-              className="rounded-none border-0 h-full"
+              fill
+              className="rounded-none border-0"
               iconSize={36}
             />
           )}
@@ -178,7 +178,7 @@ function HeroSlider({ activeIndex, onPrev, onNext }) {
           type="button"
           onClick={onPrev}
           aria-label="Previous slide"
-          className="pointer-events-auto flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-70 transition-opacity duration-200 hover:theme-accent-bg-subtle [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-within:opacity-100 focus-visible:opacity-100"
+          className="pointer-events-auto cursor-pointer flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-70 transition-opacity duration-200 hover:theme-accent-bg-subtle [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-within:opacity-100 focus-visible:opacity-100"
         >
           <DecorativeIcon icon={ChevronLeft} size={18} className="theme-text" />
         </button>
@@ -187,7 +187,7 @@ function HeroSlider({ activeIndex, onPrev, onNext }) {
           type="button"
           onClick={onNext}
           aria-label="Next slide"
-          className="pointer-events-auto flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-70 transition-opacity duration-200 hover:theme-accent-bg-subtle [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-within:opacity-100 focus-visible:opacity-100"
+          className="pointer-events-auto cursor-pointer flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-70 transition-opacity duration-200 hover:theme-accent-bg-subtle [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-within:opacity-100 focus-visible:opacity-100"
         >
           <DecorativeIcon icon={ChevronRight} size={18} className="theme-text" />
         </button>
