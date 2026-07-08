@@ -3,6 +3,8 @@ import { ArrowLeft, Calendar, User, Wrench } from 'lucide-react'
 import { getProjectBySlug, projects } from '../data/projects'
 import { DecorativeIcon } from '../components/a11y'
 import ProjectImage from '../components/ProjectImage'
+import ProjectDetailImage from '../components/ProjectDetailImage'
+import ProjectDetailCarousel from '../components/ProjectDetailCarousel'
 import PlaceholderImage from '../components/PlaceholderImage'
 import ProjectCard from '../components/ProjectCard'
 
@@ -87,7 +89,7 @@ export default function ProjectPage() {
 
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2 space-y-12">
+          <div className="lg:col-span-2 flex flex-col gap-12">
             <section aria-labelledby="overview-heading">
               <h2 id="overview-heading" className="text-xl font-semibold theme-text mb-4">
                 Overview
@@ -95,45 +97,68 @@ export default function ProjectPage() {
               <p className="theme-text-muted leading-relaxed">{project.summary}</p>
             </section>
 
-            <section aria-labelledby="challenge-heading">
-              <h2 id="challenge-heading" className="text-xl font-semibold theme-text mb-4">
-                The challenge
-              </h2>
-              <p className="theme-text-muted leading-relaxed">{project.challenge}</p>
-            </section>
-            <div className="grid sm:grid-cols-1"> 
-            <PlaceholderImage
-              label="Process / research image"
-              aspectRatio="16/9"
-              className="theme-shadow"
-            />
-            </div>
-            <section aria-labelledby="approach-heading">
-              <h2 id="approach-heading" className="text-xl font-semibold theme-text mb-4">
-                Approach
-              </h2>
-              <ol className="space-y-3 list-none p-0 m-0">
-                {project.approach.map((item, i) => (
-                  <li
-                    key={i}
-                    className="text-sm theme-text-muted leading-relaxed flex items-start gap-3"
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="flex items-center justify-center w-6 h-6 rounded-full theme-accent-bg-subtle theme-accent-text text-xs font-semibold shrink-0 mt-0.5"
-                    >
-                      {i + 1}
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ol>
+            <section aria-labelledby="challenge-heading" className="flex flex-col gap-6">
+              <div>
+                <h2 id="challenge-heading" className="text-xl font-semibold theme-text mb-4">
+                  The challenge
+                </h2>
+                <p className="theme-text-muted leading-relaxed">{project.challenge}</p>
+              </div>
+              <PlaceholderImage
+                label="Process / research image"
+                aspectRatio="16/9"
+                className="theme-shadow"
+              />
             </section>
 
-            <div className="grid sm:grid-cols-2 gap-4">
-              <PlaceholderImage label="Wireframe / design" aspectRatio="4/3" />
-              <PlaceholderImage label="Prototype / UI" aspectRatio="4/3" />
-            </div>
+            <section aria-labelledby="approach-heading" className="flex flex-col gap-6">
+              <div>
+                <h2 id="approach-heading" className="text-xl font-semibold theme-text mb-4">
+                  Approach
+                </h2>
+                <ol className="space-y-3 list-none p-0 m-0">
+                  {project.approach.map((item, i) => (
+                    <li
+                      key={i}
+                      className="text-sm theme-text-muted leading-relaxed flex items-start gap-3"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="flex items-center justify-center w-6 h-6 rounded-full theme-accent-bg-subtle theme-accent-text text-xs font-semibold shrink-0 mt-0.5"
+                      >
+                        {i + 1}
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              {project.approachImage ? (
+                <figure className="m-0">
+                  <ProjectDetailImage
+                    src={project.approachImage}
+                    alt={project.approachImageAlt ?? 'Wireframe / prototype'}
+                    width={project.approachImageWidth ?? 1024}
+                    height={project.approachImageHeight ?? 576}
+                    aspectRatio="16/9"
+                    fixedAspectRatio
+                    className="theme-shadow"
+                  />
+                  {project.approachImageCaption && (
+                    <figcaption className="mt-3 text-sm theme-text-muted text-center">
+                      {project.approachImageCaption}
+                    </figcaption>
+                  )}
+                </figure>
+              ) : (
+                <PlaceholderImage
+                  label="Wireframe / prototype"
+                  aspectRatio="16/9"
+                  className="theme-shadow"
+                />
+              )}
+            </section>
 
             <section aria-labelledby="outcomes-heading">
               <h2 id="outcomes-heading" className="text-xl font-semibold theme-text mb-4">
@@ -154,9 +179,10 @@ export default function ProjectPage() {
               </ul>
             </section>
 
-            <PlaceholderImage
-              label="Final design / results image"
+            <ProjectDetailCarousel
+              images={project.finalDesignImages}
               aspectRatio="16/9"
+              ariaLabel="Final design"
               className="theme-shadow-lg"
             />
           </div>

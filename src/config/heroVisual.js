@@ -11,8 +11,10 @@ export const HERO_SLIDES = [
   {
     id: 'research',
     label: 'Research',
-    image: null,
-    imageAlt: 'User research and discovery',
+    image: '/images/hero/research.jpg',
+    imageAlt: 'Affinity diagram of user research sticky notes organized by theme',
+    imageWidth: 1000,
+    imageHeight: 1000,
     imageSizes: '(min-width: 1024px) 50vw, 100vw',
   },
   {

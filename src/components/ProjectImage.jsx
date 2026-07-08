@@ -29,7 +29,9 @@ export default function ProjectImage({
           srcSet={project.imageSrcSet}
           sizes={project.imageSizes ?? sizes}
           loading={loading}
-          className="absolute inset-0 w-full h-full object-cover"
+          className={`absolute inset-0 w-full h-full ${
+            matchImageAspectRatio ? 'object-contain' : 'object-cover'
+          }`}
         />
       </figure>
     )
