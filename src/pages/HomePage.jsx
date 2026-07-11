@@ -30,7 +30,7 @@ export default function HomePage() {
               id="hero-heading"
               className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight theme-text leading-[1.1]"
             >
-              Designing enterprise experiences that{' '}
+              Designing experiences that{' '}
               <span className="theme-accent">work for people</span>
             </h1>
 

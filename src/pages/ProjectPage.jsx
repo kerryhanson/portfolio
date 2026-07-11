@@ -5,7 +5,6 @@ import { DecorativeIcon } from '../components/a11y'
 import ProjectImage from '../components/ProjectImage'
 import ProjectDetailImage from '../components/ProjectDetailImage'
 import ProjectDetailCarousel from '../components/ProjectDetailCarousel'
-import PlaceholderImage from '../components/PlaceholderImage'
 import ProjectCard from '../components/ProjectCard'
 
 export default function ProjectPage() {
@@ -104,11 +103,24 @@ export default function ProjectPage() {
                 </h2>
                 <p className="theme-text-muted leading-relaxed">{project.challenge}</p>
               </div>
-              <PlaceholderImage
-                label="Process / research image"
-                aspectRatio="16/9"
-                className="theme-shadow"
-              />
+              {project.processImage && (
+                <figure className="m-0">
+                  <ProjectDetailImage
+                    src={project.processImage}
+                    alt={project.processImageAlt ?? 'Process / research'}
+                    width={project.processImageWidth ?? 1024}
+                    height={project.processImageHeight ?? 576}
+                    aspectRatio="16/9"
+                    fixedAspectRatio
+                    className="theme-shadow"
+                  />
+                  {project.processImageCaption && (
+                    <figcaption className="mt-3 text-sm theme-text-muted text-center">
+                      {project.processImageCaption}
+                    </figcaption>
+                  )}
+                </figure>
+              )}
             </section>
 
             <section aria-labelledby="approach-heading" className="flex flex-col gap-6">
@@ -120,7 +132,7 @@ export default function ProjectPage() {
                   {project.approach.map((item, i) => (
                     <li
                       key={i}
-                      className="text-sm theme-text-muted leading-relaxed flex items-start gap-3"
+                      className="theme-text-muted leading-relaxed flex items-start gap-3"
                     >
                       <span
                         aria-hidden="true"
@@ -134,7 +146,7 @@ export default function ProjectPage() {
                 </ol>
               </div>
 
-              {project.approachImage ? (
+              {project.approachImage && (
                 <figure className="m-0">
                   <ProjectDetailImage
                     src={project.approachImage}
@@ -151,14 +163,54 @@ export default function ProjectPage() {
                     </figcaption>
                   )}
                 </figure>
-              ) : (
-                <PlaceholderImage
-                  label="Wireframe / prototype"
-                  aspectRatio="16/9"
-                  className="theme-shadow"
-                />
               )}
             </section>
+
+            {project.insights?.length > 0 && (
+              <section aria-labelledby="insights-heading" className="flex flex-col gap-8">
+                <div>
+                  <h2 id="insights-heading" className="text-xl font-semibold theme-text mb-4">
+                    Insights
+                  </h2>
+                  {project.insightsIntro && (
+                    <p className="theme-text-muted leading-relaxed">{project.insightsIntro}</p>
+                  )}
+                </div>
+
+                <div className="space-y-6">
+                  {project.insights.map((insight, i) => (
+                    <article key={i} className="theme-card rounded-xl p-6 space-y-4">
+                      <h3 className="font-semibold theme-text leading-snug">{insight.title}</h3>
+                      <ul className="space-y-2.5 list-none p-0 m-0">
+                        {insight.findings.map((finding, j) => (
+                          <li
+                            key={j}
+                            className="theme-text-muted leading-relaxed flex items-start gap-2.5 text-sm"
+                          >
+                            <span aria-hidden="true" className="theme-accent shrink-0 mt-1.5">
+                              •
+                            </span>
+                            {finding}
+                          </li>
+                        ))}
+                      </ul>
+                      {insight.quote && (
+                        <blockquote className="border-l-2 theme-border theme-accent pl-4 m-0 mt-8">
+                          <p className="text-sm theme-text-muted italic leading-relaxed m-0">
+                            {insight.quote.text}
+                          </p>
+                          {insight.quote.attribution && (
+                            <footer className="text-xs theme-text-subtle mt-2 not-italic">
+                              — {insight.quote.attribution}
+                            </footer>
+                          )}
+                        </blockquote>
+                      )}
+                    </article>
+                  ))}
+                </div>
+              </section>
+            )}
 
             <section aria-labelledby="outcomes-heading">
               <h2 id="outcomes-heading" className="text-xl font-semibold theme-text mb-4">
@@ -168,7 +220,7 @@ export default function ProjectPage() {
                 {project.outcomes.map((outcome, i) => (
                   <li
                     key={i}
-                    className="theme-card rounded-xl p-4 text-sm theme-text-muted leading-relaxed flex items-start gap-2"
+                    className="theme-card rounded-xl p-4 theme-text-muted leading-relaxed flex items-start gap-2"
                   >
                     <span aria-hidden="true" className="theme-accent font-bold shrink-0">
                       ✓
@@ -178,13 +230,6 @@ export default function ProjectPage() {
                 ))}
               </ul>
             </section>
-
-            <ProjectDetailCarousel
-              images={project.finalDesignImages}
-              aspectRatio="16/9"
-              ariaLabel="Final design"
-              className="theme-shadow-lg"
-            />
           </div>
 
           <aside className="space-y-6">
@@ -218,6 +263,15 @@ export default function ProjectPage() {
             </section>
           </aside>
         </div>
+
+        {project.finalDesignImages?.length > 0 && (
+          <ProjectDetailCarousel
+            images={project.finalDesignImages}
+            aspectRatio="16/9"
+            ariaLabel="Final design"
+            className="mt-12 theme-shadow-lg"
+          />
+        )}
 
         {related.length > 0 && (
           <section className="mt-20 pt-16 border-t theme-border" aria-labelledby="related-heading">

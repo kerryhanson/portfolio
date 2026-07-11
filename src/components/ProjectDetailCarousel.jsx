@@ -63,6 +63,8 @@ export default function ProjectDetailCarousel({
               alt={img.alt ?? placeholderLabel}
               width={img.width}
               height={img.height}
+              srcSet={img.srcSet}
+              sizes={img.sizes ?? '(min-width: 1024px) 1104px, 100vw'}
               loading={i === 0 ? 'eager' : 'lazy'}
               className="w-full h-full object-contain"
             />
@@ -78,7 +80,7 @@ export default function ProjectDetailCarousel({
               type="button"
               onClick={goPrev}
               aria-label="Previous image"
-              className="pointer-events-auto cursor-pointer flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-80 transition-opacity duration-200 hover:theme-accent-bg-subtle focus-visible:opacity-100"
+              className="pointer-events-auto cursor-pointer flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-70 transition-opacity duration-200 hover:theme-accent-bg-subtle [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-visible:opacity-100 focus-visible:opacity-100"
             >
               <DecorativeIcon icon={ChevronLeft} size={18} className="theme-text" />
             </button>
@@ -86,7 +88,7 @@ export default function ProjectDetailCarousel({
               type="button"
               onClick={goNext}
               aria-label="Next image"
-              className="pointer-events-auto cursor-pointer flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-80 transition-opacity duration-200 hover:theme-accent-bg-subtle focus-visible:opacity-100"
+              className="pointer-events-auto cursor-pointer flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-70 transition-opacity duration-200 hover:theme-accent-bg-subtle [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-visible:opacity-100 focus-visible:opacity-100"
             >
               <DecorativeIcon icon={ChevronRight} size={18} className="theme-text" />
             </button>

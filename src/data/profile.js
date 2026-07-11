@@ -70,10 +70,10 @@ Passionate about modernizing UX practice through AI-enabled workflows that accel
           title: 'UX Designer (Enterprise Platforms)',
           period: 'December 2023 – June 2026',
           highlights: [
-            'Led end-to-end UX strategy, research, and product design for a greenfield enterprise curriculum catalog and course authoring platform serving 50+ schools and hundreds of internal users.',
+            'Led UX for a modular enterprise curriculum platform connecting catalog discovery with curriculum and course authoring for 50+ schools and hundreds of internal users.',
             'Modernized the UX practice by integrating AI into research synthesis, code-based prototyping, and MVP validation — reducing research synthesis time by 60% and design/prototyping time by 50%.',
-            'Planned and facilitated UX research with faculty and academic coaches for Capella\'s FlexPath learning model.',
-            'Designed UX for multiple AI-powered authoring tools that streamlined internal course creation workflows.',
+            'Planned and facilitated multi-method UX research on Capella\'s FlexPath Competency Map and competency-based grading, combining coach interviews, learner surveys, and CX support analytics.',
+            'Designed UX for curriculum and course authoring modules, including AI-assisted content generation workflows that streamlined internal curriculum production.',
             'Led the evolution of the Canvas design system used across Strayer, Capella, and JWMI, training 30+ learning technologists.',
             'Contributed to enterprise Canvas usability benchmarking and established UX standards across the organization.',
           ],
@@ -83,7 +83,7 @@ Passionate about modernizing UX practice through AI-enabled workflows that accel
           period: 'July 2017 – December 2023',
           highlights: [
             'Led UX research and usability testing for digital learning products across multiple initiatives.',
-            'Designed core interaction patterns and features for a quiz authoring platform used to create thousands of interactive learning activities.',
+            'Designed interaction patterns and templates for an interactive media authoring platform—quizzes, video, card sorting, branching, and more—used to create thousands of formative learning activities across FlexPath, Guided Path, and Strayer courses.',
             'Redesigned the learner feedback survey, increasing response rates and improving instructional design insights.',
             'Designed and developed accessible web applications using wireframes, prototypes, and HTML/CSS.',
             'Conducted UX and accessibility audits that improved consistency and usability across digital learning products.',

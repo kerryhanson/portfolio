@@ -178,7 +178,7 @@ function HeroSlider({ activeIndex, onPrev, onNext }) {
           type="button"
           onClick={onPrev}
           aria-label="Previous slide"
-          className="pointer-events-auto cursor-pointer flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-70 transition-opacity duration-200 hover:theme-accent-bg-subtle [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-within:opacity-100 focus-visible:opacity-100"
+          className="pointer-events-auto cursor-pointer flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-70 transition-opacity duration-200 hover:theme-accent-bg-subtle [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-visible:opacity-100 focus-visible:opacity-100"
         >
           <DecorativeIcon icon={ChevronLeft} size={18} className="theme-text" />
         </button>
@@ -187,7 +187,7 @@ function HeroSlider({ activeIndex, onPrev, onNext }) {
           type="button"
           onClick={onNext}
           aria-label="Next slide"
-          className="pointer-events-auto cursor-pointer flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-70 transition-opacity duration-200 hover:theme-accent-bg-subtle [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-within:opacity-100 focus-visible:opacity-100"
+          className="pointer-events-auto cursor-pointer flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-70 transition-opacity duration-200 hover:theme-accent-bg-subtle [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-visible:opacity-100 focus-visible:opacity-100"
         >
           <DecorativeIcon icon={ChevronRight} size={18} className="theme-text" />
         </button>
