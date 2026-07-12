@@ -3,6 +3,7 @@ import { ArrowLeft } from 'lucide-react'
 import ConfigMenu from '../components/ConfigMenu'
 import { DecorativeIcon } from '../components/a11y'
 import { workshopNav } from '../config/workshopNav'
+import { showConfigMenu } from '../config/siteConfig'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import WorkshopSidebar from './components/WorkshopSidebar'
 
@@ -43,7 +44,7 @@ export default function WorkshopLayout() {
               <p className="text-sm font-semibold theme-text truncate">{currentLabel}</p>
             </div>
           </div>
-          <ConfigMenu />
+          {showConfigMenu && <ConfigMenu />}
         </div>
 
         <nav

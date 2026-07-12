@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { DecorativeIcon } from './a11y'
 import ConfigMenu from './ConfigMenu'
 import useFeaturedInView from '../hooks/useFeaturedInView'
+import { showConfigMenu } from '../config/siteConfig'
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -73,13 +74,15 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <div className="ml-2 pl-2 border-l theme-border">
-            <ConfigMenu />
-          </div>
+          {showConfigMenu && (
+            <div className="ml-2 pl-2 border-l theme-border">
+              <ConfigMenu />
+            </div>
+          )}
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
-          <ConfigMenu />
+          {showConfigMenu && <ConfigMenu />}
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
