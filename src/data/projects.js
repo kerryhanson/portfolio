@@ -335,42 +335,65 @@ export const projects = [
       'Collage of published learning activities: a step-based presentation module, a math skills self-assessment quiz, and an interactive worksheet with learner text inputs',
     processImageWidth: 1024,
     processImageHeight: 576,
-    processImageCaption: 'Formative activities across presentations, quizzes, and interactive worksheets',
+    processImageCaption: 'Legacy assessments interactive media activities',
     approachImage: '/images/projects/quiz-authoring-platform-approach.png',
     approachImageAlt:
       'Learner-facing activity screens combining video, imagery, and quiz questions with immediate formative feedback on correct and incorrect responses',
     approachImageWidth: 1024,
     approachImageHeight: 576,
     approachImageCaption: 'Video, imagery, and formative assessment patterns validated with learners',
+    finalDesignImages: [
+      finalDesignImage({
+        src: '/images/projects/quiz-authoring-platform-final.png',
+        alt: 'Published learning activities side by side: APA Breakout narrative module with step navigation and Choosing Materials for Play Therapy scenario-based assessment',
+      }),
+      finalDesignImage({
+        src: '/images/projects/quiz-authoring-platform-final-2.png',
+        alt: 'Published learning activities side by side: Non-Directive Play Therapy Techniques presentation module and Communicating a Team Contract open-response assessment',
+      }),
+    ],
   },
   {
     id: 'learner-feedback-survey',
     slug: 'learner-feedback-survey',
     title: 'Learner Feedback Survey',
-    subtitle: 'Redesigning learner insights collection',
+    subtitle: 'In-context feedback for interactive media',
     featured: true,
-    tags: ['UX Research', 'Survey Design', 'Data Quality', 'Learning'],
+    tags: ['UX Strategy', 'Survey Design', 'Interactive Media', 'Higher Ed', 'Data Quality'],
     summary:
-      'Redesigned the learner feedback survey, increasing response rates and improving the quality of learner insights used to inform instructional design decisions.',
+      'Led the UX strategy and redesign of learner feedback collection for interactive media—replacing a broad, easy-to-miss footer link with targeted, in-context prompts at activity completion. Partnered with product, engineering, and academic stakeholders to improve response rates and the quality of insights used to evaluate learning experiences.',
     challenge:
-      'Low survey response rates and poor data quality limited the instructional design team\'s ability to make evidence-based improvements to learning products.',
+      'The legacy approach cast too wide a net. Because feedback wasn\'t tied to specific interactive media, the team couldn\'t gather meaningful insights about individual activities. Visibility was also a problem: the survey link lived in the footer, was easy to overlook, and learners often never saw it—leading to very low response rates and limited qualitative or satisfaction data.',
     approach: [
-      'Analyzed existing survey performance and identified drop-off points.',
-      'Redesigned the survey flow, question structure, and visual presentation for clarity and engagement.',
-      'Tested redesigned flows with learners to validate improvements before launch.',
+      'Defined a UX strategy to target feedback to specific interactive media rather than generic, site-wide prompts.',
+      'Redesigned the experience with a prominent completion CTA presented immediately after learners finished an activity.',
+      'Partnered with product, engineering, and academic stakeholders on requirements, implementation, and rollout planning.',
+      'Ran initial pilot tests tracking targeted media on a quarterly basis to measure response rates and feedback quality.',
     ],
     outcomes: [
-      'Increased survey response rates significantly.',
-      'Improved quality and actionability of learner insights for instructional design.',
+      'Pilot response rates increased from nearly nothing to 10.3% for targeted interactive media.',
+      'Captured qualitative feedback and satisfaction ratings that were previously unavailable at the activity level.',
+      'Established a model for future interactive media audits and continued UX exploration around KPI inclusion in business strategy.',
     ],
     role: 'Interactive Designer',
-    timeline: '2019 – 2020',
+    timeline: '2021 – 2022',
     tools: ['Figma', 'FigJam'],
     image: '/images/projects/learner-feedback-survey.jpg',
-    imageAlt: 'Learner feedback survey illustration with speech bubbles and star ratings',
+    imageAlt:
+      'Learner feedback survey with completion prompt, star ratings, and speech bubbles representing in-context interactive media feedback',
     imageWidth: 672,
     imageHeight: 366,
     imageSizes: '(min-width: 640px) 50vw, 100vw',
+    finalDesignImages: [
+      finalDesignImage({
+        src: '/images/projects/learner-feedback-survey-final.png',
+        alt: 'End-of-activity completion prompt asking whether the interactive media experience was helpful, with a prominent Tell us what you think call to action',
+      }),
+      finalDesignImage({
+        src: '/images/projects/learner-feedback-survey-final-2.png',
+        alt: 'Learner feedback modal with five-star rating, comments field, and submit and cancel actions',
+      }),
+    ],
   },
 ]
 

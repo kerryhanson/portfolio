@@ -40,7 +40,7 @@ export default function ProjectCard({ project, featured = false }) {
             {project.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="text-xs px-2.5 py-0.5 rounded-full theme-accent-bg-subtle theme-accent-text font-medium"
+                className="text-xs px-2.5 py-1.5 rounded-full theme-badge font-medium"
               >
                 {tag}
               </span>

@@ -6,10 +6,15 @@ import ProjectImage from '../components/ProjectImage'
 import ProjectDetailImage from '../components/ProjectDetailImage'
 import ProjectDetailCarousel from '../components/ProjectDetailCarousel'
 import ProjectCard from '../components/ProjectCard'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 export default function ProjectPage() {
   const { slug } = useParams()
   const project = getProjectBySlug(slug)
+
+  useDocumentMeta({
+    title: project ? `${project.title} — Kerry Hanson` : 'Project not found — Kerry Hanson',
+  })
 
   if (!project) {
     return (
@@ -40,10 +45,10 @@ export default function ProjectPage() {
 
           <div className="grid lg:grid-cols-2 gap-10 items-start">
             <div className="space-y-5">
-              <ul className="flex flex-wrap gap-2 list-none p-0 m-0">
+              <ul className="flex flex-wrap gap-2 list-none p-0 m-0 mb-2">
                 {project.tags.map((tag) => (
                   <li key={tag}>
-                    <span className="text-xs px-2.5 py-0.5 rounded-full theme-accent-bg-subtle theme-accent-text font-medium">
+                    <span className="text-xs px-2.5 py-1.5 rounded-full theme-badge font-medium">
                       {tag}
                     </span>
                   </li>
@@ -200,7 +205,7 @@ export default function ProjectPage() {
                             {insight.quote.text}
                           </p>
                           {insight.quote.attribution && (
-                            <footer className="text-xs theme-text-subtle mt-2 not-italic">
+                            <footer className="text-sm theme-text-muted mt-2 not-italic">
                               — {insight.quote.attribution}
                             </footer>
                           )}

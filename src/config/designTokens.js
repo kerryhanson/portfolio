@@ -8,8 +8,10 @@ export const colorTokens = [
   { name: 'Text subtle', var: '--color-text-subtle', utility: 'theme-text-subtle', role: 'Hints, placeholders' },
   { name: 'Accent', var: '--color-accent', utility: 'theme-accent / theme-accent-bg', role: 'Links, CTAs, emphasis' },
   { name: 'Accent hover', var: '--color-accent-hover', utility: 'theme-link:hover', role: 'Interactive hover states' },
-  { name: 'Accent subtle', var: '--color-accent-subtle', utility: 'theme-accent-bg-subtle', role: 'Badges, active nav' },
+  { name: 'Accent subtle', var: '--color-accent-subtle', utility: 'theme-accent-bg-subtle', role: 'Active nav, config highlights' },
   { name: 'Accent text', var: '--color-accent-text', utility: 'theme-accent-text', role: 'Text on accent backgrounds' },
+  { name: 'Badge bg', var: '--color-badge-bg', utility: 'theme-badge', role: 'Project tag/badge background — darker than accent-subtle' },
+  { name: 'Badge text', var: '--color-badge-text', utility: 'theme-badge', role: 'Project tag/badge text — lighter/brighter than accent-text' },
   { name: 'Border', var: '--color-border', utility: 'theme-border', role: 'Dividers, outlines' },
   { name: 'Border subtle', var: '--color-border-subtle', utility: 'theme-border-subtle', role: 'Low-contrast separators' },
   { name: 'Shadow', var: '--color-shadow', utility: 'theme-shadow', role: 'Card elevation' },
@@ -38,9 +40,9 @@ export const typographyScale = [
   { name: 'Heading 3', class: 'text-lg font-semibold', sample: 'Card title', usage: 'Cards, list items' },
   { name: 'Body large', class: 'text-lg leading-relaxed', sample: 'Introductory paragraph text for key messages.', usage: 'Hero subcopy' },
   { name: 'Body', class: 'text-base leading-relaxed', sample: 'Standard paragraph text used across pages and case studies.', usage: 'Default body' },
-  { name: 'Body small', class: 'text-sm leading-relaxed', sample: 'Supporting detail and metadata.', usage: 'Summaries, captions' },
-  { name: 'Label', class: 'text-xs font-medium tracking-wide uppercase', sample: 'Label text', usage: 'Badges, placeholders' },
-  { name: 'Caption', class: 'text-xs theme-text-subtle', sample: 'Caption or helper text', usage: 'Hints, footnotes' },
+  { name: 'Body small', class: 'text-sm leading-relaxed', sample: 'Supporting detail and metadata.', usage: 'Summaries, captions, attributions (minimum readable size)' },
+  { name: 'Label', class: 'text-xs font-medium tracking-wide uppercase', sample: 'Label text', usage: 'Uppercase badges only — not for essential reading content' },
+  { name: 'Caption', class: 'text-sm theme-text-muted', sample: 'Caption or helper text', usage: 'Hints, footnotes — use text-sm with theme-text-muted, not text-subtle at 12px' },
 ]
 
 export const portfolioIcons = [

@@ -5,8 +5,11 @@ import Footer from './Footer'
 export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col theme-bg">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <Header />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1 scroll-mt-20" tabIndex={-1}>
         <Outlet />
       </main>
       <Footer />

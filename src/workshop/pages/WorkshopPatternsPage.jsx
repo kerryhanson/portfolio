@@ -94,7 +94,7 @@ export default function WorkshopPatternsPage() {
 </nav>`}
         >
           <ul className="text-sm theme-text-muted space-y-2 list-disc pl-5">
-            <li>Auto-advances every 10 seconds; timer resets on manual navigation</li>
+            <li>Auto-advances every 7 seconds; timer resets on manual navigation</li>
             <li>Arrow keys when the carousel section has focus</li>
             <li>Arrows fade in on hover (desktop) or stay partially visible (touch)</li>
             <li><code>aria-live</code> region announces slide changes to screen readers</li>

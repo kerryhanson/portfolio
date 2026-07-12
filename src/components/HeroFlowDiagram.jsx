@@ -1,11 +1,21 @@
 import { useEffect, useRef, useState } from 'react'
-import { ChevronLeft, ChevronRight, LayoutDashboard, Rocket, SquareUserRound } from 'lucide-react'
+import {
+  ChevronLeft,
+  ChevronRight,
+  LayoutDashboard,
+  Pause,
+  Play,
+  Rocket,
+  SquareUserRound,
+} from 'lucide-react'
 import { HERO_SLIDES } from '../config/heroVisual'
 import { DecorativeIcon, SrOnly } from './a11y'
 import PlaceholderImage from './PlaceholderImage'
 import ResponsiveImage from './ResponsiveImage'
+import useReducedMotion from '../hooks/useReducedMotion'
 
 const stepIcons = { research: SquareUserRound, design: LayoutDashboard, impact: Rocket }
+const AUTO_ADVANCE_MS = 7000
 
 const slides = HERO_SLIDES.map((slide) => ({
   ...slide,
@@ -62,7 +72,7 @@ function ExpertiseBanner({ activeIndex, onSelect }) {
                 id={`hero-tab-${step.id}`}
                 tabIndex={isActive ? 0 : -1}
                 onClick={() => onSelect(i)}
-                className="flex flex-col items-center gap-2 shrink-0 cursor-pointer group/step"
+                className="flex flex-col items-center gap-2 shrink-0 cursor-pointer group/step min-w-16"
               >
                 <span className="w-16 h-16 flex items-center justify-center">
                   <span
@@ -86,7 +96,7 @@ function ExpertiseBanner({ activeIndex, onSelect }) {
                   </span>
                 </span>
                 <span
-                  className={`text-xs font-semibold transition-colors min-w-[4.5rem] text-center ${
+                  className={`text-sm font-semibold transition-colors min-w-[4.5rem] text-center ${
                     isActive ? 'theme-accent-text' : 'theme-text-muted'
                   }`}
                 >
@@ -102,7 +112,25 @@ function ExpertiseBanner({ activeIndex, onSelect }) {
   )
 }
 
-function HeroSlider({ activeIndex, onPrev, onNext }) {
+function HeroCarouselControls({ isPaused, onTogglePause, showPauseControl }) {
+  if (!showPauseControl) return null
+
+  return (
+    <div className="flex items-center justify-center py-3 px-4 border-t theme-border">
+      <button
+        type="button"
+        onClick={onTogglePause}
+        aria-label={isPaused ? 'Resume automatic slide rotation' : 'Pause automatic slide rotation'}
+        aria-pressed={isPaused}
+        className="flex items-center justify-center min-w-11 min-h-11 rounded-full theme-surface border theme-border theme-shadow cursor-pointer"
+      >
+        <DecorativeIcon icon={isPaused ? Play : Pause} size={18} className="theme-text" />
+      </button>
+    </div>
+  )
+}
+
+function HeroSlider({ activeIndex, onPrev, onNext, reducedMotion }) {
   const sliderRef = useRef(null)
 
   useEffect(() => {
@@ -147,7 +175,7 @@ function HeroSlider({ activeIndex, onPrev, onNext }) {
           inert={i !== activeIndex || undefined}
           className={`absolute inset-0 transition-opacity duration-300 pointer-events-none ${
             i === activeIndex ? 'opacity-100' : 'opacity-0'
-          }`}
+          } ${reducedMotion ? 'transition-none' : ''}`}
         >
           {slide.image ? (
             <ResponsiveImage
@@ -178,7 +206,7 @@ function HeroSlider({ activeIndex, onPrev, onNext }) {
           type="button"
           onClick={onPrev}
           aria-label="Previous slide"
-          className="pointer-events-auto cursor-pointer flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-70 transition-opacity duration-200 hover:theme-accent-bg-subtle [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-visible:opacity-100 focus-visible:opacity-100"
+          className="theme-carousel-control pointer-events-auto cursor-pointer flex items-center justify-center min-w-11 min-h-11 rounded-full theme-surface border theme-border theme-shadow transition-opacity duration-200 hover:theme-accent-bg-subtle"
         >
           <DecorativeIcon icon={ChevronLeft} size={18} className="theme-text" />
         </button>
@@ -187,7 +215,7 @@ function HeroSlider({ activeIndex, onPrev, onNext }) {
           type="button"
           onClick={onNext}
           aria-label="Next slide"
-          className="pointer-events-auto cursor-pointer flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-70 transition-opacity duration-200 hover:theme-accent-bg-subtle [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-visible:opacity-100 focus-visible:opacity-100"
+          className="theme-carousel-control pointer-events-auto cursor-pointer flex items-center justify-center min-w-11 min-h-11 rounded-full theme-surface border theme-border theme-shadow transition-opacity duration-200 hover:theme-accent-bg-subtle"
         >
           <DecorativeIcon icon={ChevronRight} size={18} className="theme-text" />
         </button>
@@ -197,18 +225,27 @@ function HeroSlider({ activeIndex, onPrev, onNext }) {
 }
 
 export default function HeroFlowDiagram({ className = '' }) {
+  const reducedMotion = useReducedMotion()
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isPaused, setIsPaused] = useState(reducedMotion)
+
+  useEffect(() => {
+    setIsPaused(reducedMotion)
+  }, [reducedMotion])
 
   const goTo = (index) => setActiveIndex(index)
   const goPrev = () => setActiveIndex((i) => (i - 1 + slides.length) % slides.length)
   const goNext = () => setActiveIndex((i) => (i + 1) % slides.length)
 
   useEffect(() => {
+    if (reducedMotion || isPaused) return undefined
+
     const id = setInterval(() => {
       setActiveIndex((i) => (i + 1) % slides.length)
-    }, 10000)
+    }, AUTO_ADVANCE_MS)
+
     return () => clearInterval(id)
-  }, [activeIndex])
+  }, [activeIndex, isPaused, reducedMotion])
 
   return (
     <section
@@ -216,7 +253,17 @@ export default function HeroFlowDiagram({ className = '' }) {
       aria-label="UX expertise and portfolio highlights"
     >
       <ExpertiseBanner activeIndex={activeIndex} onSelect={goTo} />
-      <HeroSlider activeIndex={activeIndex} onPrev={goPrev} onNext={goNext} />
+      <HeroSlider
+        activeIndex={activeIndex}
+        onPrev={goPrev}
+        onNext={goNext}
+        reducedMotion={reducedMotion}
+      />
+      <HeroCarouselControls
+        isPaused={isPaused}
+        onTogglePause={() => setIsPaused((paused) => !paused)}
+        showPauseControl={!reducedMotion}
+      />
     </section>
   )
 }

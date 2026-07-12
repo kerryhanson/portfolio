@@ -83,7 +83,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="p-2 rounded-lg theme-btn-ghost"
+            className="p-2 min-w-11 min-h-11 rounded-lg theme-btn-ghost flex items-center justify-center"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"

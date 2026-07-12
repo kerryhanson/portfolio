@@ -16,6 +16,8 @@ Personal UX designer portfolio built with React 19, Vite 7, React Router, Tailwi
 - Four themes: `light`, `soft`, `dusk`, `dark` — defined via `[data-theme]` CSS variables in `src/index.css`.
 - Always use theme-aware classes (`theme-text`, `theme-surface`, `theme-accent`, `theme-border`, etc.) instead of hardcoded colors so all themes stay in sync.
 - Theme state lives in `src/context/ThemeContext.jsx` and persists to `localStorage`.
+- When adding or changing colors, update **all four themes** and verify WCAG 2.2 AA contrast (see Accessibility below).
+- Key tokens: `--color-text-muted`, `--color-text-subtle`, `--color-link`, `--color-btn-primary-fg`, `--color-indicator-inactive`, `--color-badge-bg`, `--color-badge-text`.
 
 ## Content and data
 
@@ -30,11 +32,12 @@ Personal UX designer portfolio built with React 19, Vite 7, React Router, Tailwi
 - Hover effects on cards only for clickable links (`a.theme-card`), not static content cards.
 - Interactive menus (theme selector, mobile nav) must work on tap — use click/toggle, not hover-only.
 - Avoid layout shift: reserve fixed space for elements that change size on active/hover states.
+- Carousels: use `theme-carousel-control` for prev/next buttons; provide pause for auto-advancing content; respect `useReducedMotion()`.
 
 ## Hero slider
 
 - Research / Design / Impact tabs in `HeroFlowDiagram.jsx` control slide pagination.
-- Auto-cycles every 10 seconds; timer resets on manual navigation.
+- Auto-cycles every 7 seconds with a visible pause/play control; auto-advance is disabled when `prefers-reduced-motion: reduce`.
 - Pagination icons: `SquareUserRound`, `LayoutDashboard`, `Rocket`.
 
 ## Scope and quality
@@ -50,12 +53,54 @@ Personal UX designer portfolio built with React 19, Vite 7, React Router, Tailwi
 - Use semantic HTML tags exclusively (`<main>`, `<section>`, `<nav>`, `<article>`, `<header>`, `<footer>`) instead of generic nested `<div>` wrappers.
 - Optimize images using lazy loading and responsive source sets.
 
-## Accessibility (WCAG 2.2) Mandate
+## Accessibility (WCAG 2.2 AA)
 
-- Every interactive element must have a clear `:focus-visible` state.
-- All icons (Lucide) must include `aria-hidden="true"` if decorative, or explicit labels if functional.
-- Ensure full keyboard navigation support for custom interactive components or carousels.
-- Include proper `aria-*` attributes for dynamic UI states (e.g., mobile menu toggle).
+This site targets **WCAG 2.2 Level AA**. Treat accessibility as a requirement, not a polish step.
+
+### Color & contrast
+
+- **Normal text** (below 18px / 14px bold): minimum **4.5:1** contrast against its background.
+- **Large text** (18px+ or 14px+ bold): minimum **3:1**.
+- **UI components / focus indicators**: minimum **3:1** (WCAG 1.4.11).
+- Never pair `theme-text-subtle` with essential reading content — reserve it for non-critical hints only.
+- Use `theme-text-muted` for captions, dates, and secondary copy; use `text-sm` (14px) minimum for readable content.
+- Use `theme-link` for links (includes underline); do not rely on color alone.
+- Primary buttons use `--color-btn-primary-fg` — dusk/dark themes use dark text on light accent backgrounds.
+- When adding tokens, verify contrast on **all four themes** against both `--color-bg` and `--color-surface`.
+
+### Typography
+
+- Body copy: `text-base` (16px) or `text-sm` (14px).
+- Do **not** use `text-xs` (12px) for essential content (captions, attributions, menu descriptions).
+- `text-xs` is acceptable only for uppercase badges/tags with sufficient contrast on badge backgrounds (`theme-badge`, not `theme-accent-bg-subtle`).
+
+### Interaction & keyboard
+
+- Every interactive element must have a visible `:focus-visible` state (global styles in `index.css`).
+- Touch targets: minimum **44×44px** preferred (`min-w-11 min-h-11`); WCAG 2.5.8 minimum is 24×24px.
+- All icons must use `DecorativeIcon` / `aria-hidden="true"` when decorative, or explicit `aria-label` when functional.
+- Custom widgets (carousels, menus) need full keyboard support and correct ARIA (`role`, `aria-label`, `aria-selected`, `aria-live`).
+- Site-wide skip link lives in `Layout.jsx` → `#main-content`. Workshop has its own skip link.
+
+### Motion
+
+- Use `useReducedMotion()` from `src/hooks/useReducedMotion.js` for auto-playing carousels and animations.
+- Global `prefers-reduced-motion: reduce` rules in `index.css` disable smooth scroll and transitions.
+- Auto-advancing content **must** include a pause control (WCAG 2.2.2).
+
+### Pages & structure
+
+- Set unique page titles via `useDocumentMeta()` on every route.
+- One `<h1>` per page; do not skip heading levels.
+- Images require descriptive `alt` text; decorative images use empty alt or `aria-hidden`.
+- Use `SrOnly` for screen-reader-only live regions and labels.
+
+### Before shipping UI changes
+
+1. Check contrast in all four themes for any new text/background pairings.
+2. Tab through the changed UI — focus order and visibility must make sense.
+3. Confirm touch targets on mobile-sized controls.
+4. Run `npm run build`.
 
 ## Deployment
 

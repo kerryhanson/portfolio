@@ -84,7 +84,7 @@ Passionate about modernizing UX practice through AI-enabled workflows that accel
           highlights: [
             'Led UX research and usability testing for digital learning products across multiple initiatives.',
             'Designed interaction patterns and templates for an interactive media authoring platform—quizzes, video, card sorting, branching, and more—used to create thousands of formative learning activities across FlexPath, Guided Path, and Strayer courses.',
-            'Redesigned the learner feedback survey, increasing response rates and improving instructional design insights.',
+            'Led UX strategy and redesign for learner feedback on interactive media—replacing a buried footer link with targeted completion prompts that raised pilot response rates to 10.3% and improved qualitative and satisfaction insights.',
             'Designed and developed accessible web applications using wireframes, prototypes, and HTML/CSS.',
             'Conducted UX and accessibility audits that improved consistency and usability across digital learning products.',
           ],

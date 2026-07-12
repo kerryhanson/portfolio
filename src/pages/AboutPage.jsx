@@ -10,8 +10,11 @@ import {
 import { profile } from '../data/profile'
 import { DecorativeIcon } from '../components/a11y'
 import ResponsiveImage from '../components/ResponsiveImage'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 export default function AboutPage() {
+  useDocumentMeta({ title: `About — Kerry Hanson` })
+
   return (
     <article className="max-w-6xl mx-auto px-6 py-16">
       <section className="grid lg:grid-cols-3 gap-12 mb-20" aria-labelledby="about-heading">

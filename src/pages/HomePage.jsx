@@ -1,27 +1,26 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Award, ChevronDown, Target } from 'lucide-react'
+import { ArrowRight, Award, Target } from 'lucide-react'
 import { profile } from '../data/profile'
 import { getFeaturedProjects } from '../data/projects'
 import { DecorativeIcon } from '../components/a11y'
 import ProjectCard from '../components/ProjectCard'
 import HeroVisual from '../components/HeroVisual'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 export default function HomePage() {
   const featured = getFeaturedProjects()
 
+  useDocumentMeta({ title: 'Kerry Hanson — UX Designer' })
+
   return (
     <>
-      <a href="#featured-projects" className="skip-link">
-        Skip to featured projects
-      </a>
-
       <section
         className="max-w-6xl mx-auto px-6 pt-10 pb-10 md:pt-16 md:pb-16"
         aria-labelledby="hero-heading"
       >
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           <header className="space-y-5 md:space-y-6">
-            <p className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full theme-accent-bg-subtle text-sm font-medium theme-accent-text">
+            <p className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full theme-badge text-sm font-medium">
               <DecorativeIcon icon={Target} size={14} />
               Senior UX Designer
             </p>
@@ -69,14 +68,6 @@ export default function HomePage() {
 
           <HeroVisual />
         </div>
-
-        <a
-          href="#featured-projects"
-          className="md:hidden flex items-center justify-center gap-1.5 mt-8 pt-2 text-sm font-medium theme-text-muted hover:text-[var(--color-text)] transition-colors"
-        >
-          Featured projects
-          <DecorativeIcon icon={ChevronDown} size={16} className="theme-accent" />
-        </a>
       </section>
 
       <section

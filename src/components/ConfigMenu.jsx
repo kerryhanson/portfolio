@@ -8,18 +8,18 @@ function ThemePicker({ onSelect }) {
   const { theme, setTheme } = useTheme()
 
   return (
-    <div role="listbox" aria-label="Color themes" className="py-1">
+    <div role="radiogroup" aria-label="Color themes" className="py-1">
       {themes.map((t) => (
         <button
           key={t.id}
           type="button"
-          role="option"
-          aria-selected={theme === t.id}
+          role="radio"
+          aria-checked={theme === t.id}
           onClick={() => {
             setTheme(t.id)
             onSelect?.()
           }}
-          className={`w-full text-left px-3 py-2 flex items-center gap-3 rounded-lg transition-colors ${
+          className={`w-full text-left px-3 py-2 flex items-center gap-3 rounded-lg transition-colors min-h-11 ${
             theme === t.id
               ? 'theme-accent-bg-subtle'
               : 'hover:bg-[var(--color-bg-subtle)]'
@@ -41,7 +41,7 @@ function ThemePicker({ onSelect }) {
           />
           <span>
             <span className="block text-sm font-medium theme-text">{t.label}</span>
-            <span className="block text-xs theme-text-subtle">{t.description}</span>
+            <span className="block text-sm theme-text-muted">{t.description}</span>
           </span>
         </button>
       ))}
@@ -83,13 +83,13 @@ export default function ConfigMenu() {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm transition-colors ${
+        className={`flex items-center gap-1.5 px-3 py-1.5 min-h-11 rounded-lg text-sm transition-colors ${
           open || inWorkshop
             ? 'theme-accent-bg-subtle theme-accent-text'
             : 'theme-btn-ghost'
         }`}
         aria-label="Config menu"
-        aria-haspopup="menu"
+        aria-haspopup="dialog"
         aria-expanded={open}
         aria-controls="config-menu"
       >
@@ -99,14 +99,14 @@ export default function ConfigMenu() {
 
       <div
         id="config-menu"
-        role="menu"
+        role="dialog"
         aria-label="Config"
         className={`absolute right-0 top-full mt-2 w-56 rounded-xl theme-surface theme-shadow-lg border theme-border transition-all duration-150 z-50 ${
           open ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
       >
         <div className="px-3 pt-3 pb-1">
-          <p className="text-xs font-semibold theme-text-subtle uppercase tracking-wide">
+          <p className="text-sm font-semibold theme-text-muted uppercase tracking-wide">
             Theme
           </p>
         </div>
@@ -119,9 +119,8 @@ export default function ConfigMenu() {
         <div className="px-1.5 pb-1.5">
           <Link
             to="/workshop"
-            role="menuitem"
             onClick={() => setOpen(false)}
-            className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
+            className={`flex items-center gap-3 px-3 py-2.5 min-h-11 rounded-lg text-sm transition-colors ${
               inWorkshop
                 ? 'theme-accent-bg-subtle theme-accent-text'
                 : 'theme-text hover:bg-[var(--color-bg-subtle)]'
@@ -135,7 +134,7 @@ export default function ConfigMenu() {
             </span>
             <span>
               <span className="block font-medium">Workshop</span>
-              <span className="block text-xs theme-text-subtle">Design system guide</span>
+              <span className="block text-sm theme-text-muted">Design system guide</span>
             </span>
           </Link>
         </div>

@@ -22,6 +22,9 @@ export default function WorkshopLayout() {
 
   return (
     <div className="min-h-screen flex flex-col theme-bg">
+      <a href="#workshop-main" className="skip-link">
+        Skip to main content
+      </a>
       <header className="sticky top-0 z-40 border-b theme-border theme-nav-bg backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
           <div className="flex items-center gap-4 min-w-0">
@@ -54,7 +57,7 @@ export default function WorkshopLayout() {
                   to={item.to}
                   end={item.end}
                   className={({ isActive }) =>
-                    `block px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${
+                    `block px-3 py-1.5 min-h-11 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
                       isActive
                         ? 'theme-accent-bg-subtle theme-accent-text'
                         : 'theme-text-muted hover:bg-[var(--color-bg-subtle)]'
@@ -72,7 +75,7 @@ export default function WorkshopLayout() {
       <div className="max-w-7xl mx-auto px-6 py-10 flex-1 w-full">
         <div className="flex gap-10">
           <WorkshopSidebar />
-          <main className="flex-1 min-w-0 max-w-3xl">
+          <main id="workshop-main" className="flex-1 min-w-0 max-w-3xl scroll-mt-20" tabIndex={-1}>
             <Outlet />
           </main>
         </div>

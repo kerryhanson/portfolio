@@ -80,7 +80,7 @@ export default function ProjectDetailCarousel({
               type="button"
               onClick={goPrev}
               aria-label="Previous image"
-              className="pointer-events-auto cursor-pointer flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-70 transition-opacity duration-200 hover:theme-accent-bg-subtle [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-visible:opacity-100 focus-visible:opacity-100"
+              className="theme-carousel-control pointer-events-auto cursor-pointer flex items-center justify-center min-w-11 min-h-11 rounded-full theme-surface border theme-border theme-shadow transition-opacity duration-200 hover:theme-accent-bg-subtle"
             >
               <DecorativeIcon icon={ChevronLeft} size={18} className="theme-text" />
             </button>
@@ -88,7 +88,7 @@ export default function ProjectDetailCarousel({
               type="button"
               onClick={goNext}
               aria-label="Next image"
-              className="pointer-events-auto cursor-pointer flex items-center justify-center w-9 h-9 rounded-full theme-surface border theme-border theme-shadow opacity-70 transition-opacity duration-200 hover:theme-accent-bg-subtle [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-visible:opacity-100 focus-visible:opacity-100"
+              className="theme-carousel-control pointer-events-auto cursor-pointer flex items-center justify-center min-w-11 min-h-11 rounded-full theme-surface border theme-border theme-shadow transition-opacity duration-200 hover:theme-accent-bg-subtle"
             >
               <DecorativeIcon icon={ChevronRight} size={18} className="theme-text" />
             </button>
@@ -98,7 +98,7 @@ export default function ProjectDetailCarousel({
 
       {showControls && (
         <div
-          className="flex items-center justify-center gap-2 py-3 px-4 border-t theme-border theme-bg-subtle"
+          className="flex items-center justify-center gap-2 py-3 px-4 border-t theme-border"
           role="tablist"
           aria-label={`${ariaLabel} slides`}
         >
@@ -111,7 +111,7 @@ export default function ProjectDetailCarousel({
                 aria-selected={i === activeIndex}
                 aria-label={`Show ${img.label}`}
                 onClick={() => setActiveIndex(i)}
-                className={`text-xs font-medium px-3 py-1.5 rounded-full transition-colors cursor-pointer ${
+                className={`text-sm font-medium min-h-11 px-3 py-1.5 rounded-full transition-colors cursor-pointer ${
                   i === activeIndex
                     ? 'theme-accent-bg-subtle theme-accent-text'
                     : 'theme-text-muted hover:text-[var(--color-text)] hover:bg-[var(--color-bg-subtle)]'
@@ -127,12 +127,17 @@ export default function ProjectDetailCarousel({
                 aria-selected={i === activeIndex}
                 aria-label={`Show image ${i + 1}: ${img.alt}`}
                 onClick={() => setActiveIndex(i)}
-                className={`h-2 rounded-full transition-all cursor-pointer ${
-                  i === activeIndex
-                    ? 'w-6 theme-accent-bg'
-                    : 'w-2 bg-[var(--color-border)] hover:bg-[var(--color-text-subtle)]'
-                }`}
-              />
+                className="flex items-center justify-center min-w-11 min-h-11 cursor-pointer rounded-full"
+              >
+                <span
+                  aria-hidden="true"
+                  className={`rounded-full transition-all ${
+                    i === activeIndex
+                      ? 'w-6 h-2.5 theme-accent-bg'
+                      : 'w-2.5 h-2.5 bg-[var(--color-indicator-inactive)]'
+                  }`}
+                />
+              </button>
             ),
           )}
         </div>
