@@ -20,10 +20,10 @@ export const HERO_SLIDES = [
   {
     id: 'design',
     label: 'Design',
-    image: '/images/projects/curriculum-catalog-approach.png',
+    image: '/images/hero/design.png',
     imageAlt: 'Low-fidelity wireframe layouts for desktop and mobile curriculum catalog views',
-    imageWidth: 1024,
-    imageHeight: 576,
+    imageWidth: 1574,
+    imageHeight: 1563,
     imageSizes: '(min-width: 1024px) 50vw, 100vw',
   },
   {
