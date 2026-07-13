@@ -11,7 +11,7 @@ export const HERO_SLIDES = [
   {
     id: 'research',
     label: 'Research',
-    image: '/images/hero/research.png',
+    image: '/images/hero/research.jpg',
     imageAlt: 'Affinity mapping session with sticky notes organized on a glass wall',
     imageWidth: 950,
     imageHeight: 950,
@@ -20,7 +20,7 @@ export const HERO_SLIDES = [
   {
     id: 'design',
     label: 'Design',
-    image: '/images/hero/design.png',
+    image: '/images/hero/design.jpg',
     imageAlt: 'Low-fidelity wireframe layouts for desktop and mobile curriculum catalog views',
     imageWidth: 1574,
     imageHeight: 1563,
@@ -29,7 +29,7 @@ export const HERO_SLIDES = [
   {
     id: 'impact',
     label: 'Measure',
-    image: '/images/hero/measure.png',
+    image: '/images/hero/measure.jpg',
     imageAlt: 'UX Venn diagram showing user experience at the intersection of business, users, and technology',
     imageWidth: 1024,
     imageHeight: 1024,

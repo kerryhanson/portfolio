@@ -1,7 +1,7 @@
 /**
  * Final design carousel images — export each slide at 1024px wide (1x) and 2048px wide (@2x),
  * 16:9 aspect ratio. Place files in public/images/projects/ using an @2x suffix for retina,
- * e.g. curriculum-catalog-final.png and curriculum-catalog-final@2x.png
+ * e.g. curriculum-catalog-final.jpg and curriculum-catalog-final@2x.jpg
  *
  * Pass retinaSrc only after the @2x file exists; otherwise the browser may request a missing asset.
  */
@@ -81,18 +81,18 @@ export const projects = [
     role: 'Lead UX Designer',
     timeline: '2025 – 2026',
     tools: ['Figma', 'Dovetail', 'Cursor', 'Miro'],
-    image: '/images/projects/curriculum-catalog.png',
+    image: '/images/projects/curriculum-catalog.jpg',
     imageAlt: 'Stratus enterprise curriculum catalog dashboard and course management views',
     imageWidth: 538,
     imageHeight: 300,
     imageSizes: '(min-width: 1024px) 50vw, (min-width: 640px) 100vw, 100vw',
-    processImage: '/images/projects/curriculum-catalog-process.png',
+    processImage: '/images/projects/curriculum-catalog-process.jpg',
     processImageAlt:
       'Stakeholder research video call alongside component color tokens and Atlas offering versions documentation',
     processImageWidth: 1024,
     processImageHeight: 576,
     processImageCaption: 'Stakeholder research, design standards, and platform documentation',
-    approachImage: '/images/projects/curriculum-catalog-approach.png',
+    approachImage: '/images/projects/curriculum-catalog-approach.jpg',
     approachImageAlt:
       'Stratus catalog dashboard wireframes showing desktop and mobile pinned offerings and courses layouts',
     approachImageWidth: 1024,
@@ -100,19 +100,19 @@ export const projects = [
     approachImageCaption: 'Platform catalog experience prototype',
     finalDesignImages: [
       finalDesignImage({
-        src: '/images/projects/curriculum-catalog-final.png',
+        src: '/images/projects/curriculum-catalog-final.jpg',
         alt: 'Stratus catalog dashboard displayed on a laptop showing pinned offerings and courses',
-        retinaSrc: retinaSrcFor('/images/projects/curriculum-catalog-final.png'),
+        retinaSrc: retinaSrcFor('/images/projects/curriculum-catalog-final.jpg'),
       }),
       finalDesignImage({
-        src: '/images/projects/curriculum-catalog-final-3.png',
+        src: '/images/projects/curriculum-catalog-final-3.jpg',
         alt: 'Stratus dashboard with welcome banner and pinned program offerings grid',
-        retinaSrc: retinaSrcFor('/images/projects/curriculum-catalog-final-3.png'),
+        retinaSrc: retinaSrcFor('/images/projects/curriculum-catalog-final-3.jpg'),
       }),
       finalDesignImage({
-        src: '/images/projects/curriculum-catalog-final-2.png',
+        src: '/images/projects/curriculum-catalog-final-2.jpg',
         alt: 'Stratus catalog offerings list and Master of Business Administration program detail views',
-        retinaSrc: retinaSrcFor('/images/projects/curriculum-catalog-final-2.png'),
+        retinaSrc: retinaSrcFor('/images/projects/curriculum-catalog-final-2.jpg'),
       }),
     ],
   },
@@ -160,13 +160,13 @@ export const projects = [
     imageWidth: 951,
     imageHeight: 535,
     imageSizes: '(min-width: 640px) 50vw, 100vw',
-    processImage: '/images/projects/canvas-design-system-process.png',
+    processImage: '/images/projects/canvas-design-system-process.jpg',
     processImageAlt:
       'Capella Courseroom course pages showing assignment instructions, module overview video, and career portfolio activity',
     processImageWidth: 1024,
     processImageHeight: 575,
     processImageCaption: 'Capella Courseroom course pages before design system adoption',
-    approachImage: '/images/projects/canvas-design-system-approach.png',
+    approachImage: '/images/projects/canvas-design-system-approach.jpg',
     approachImageAlt:
       'Callout Cards documentation, Canvas Pattern Library training session, and live Courseroom component walkthrough',
     approachImageWidth: 1024,
@@ -174,19 +174,19 @@ export const projects = [
     approachImageCaption: 'Canvas Pattern Library training and component documentation',
     finalDesignImages: [
       finalDesignImage({
-        src: '/images/projects/canvas-design-system-final.png',
+        src: '/images/projects/canvas-design-system-final.jpg',
         alt: 'Canvas design system components including content cards, media hooks, accordion, blockquote, and definition tooltip',
-        retinaSrc: retinaSrcFor('/images/projects/canvas-design-system-final.png'),
+        retinaSrc: retinaSrcFor('/images/projects/canvas-design-system-final.jpg'),
       }),
       finalDesignImage({
-        src: '/images/projects/canvas-design-system-final-2.png',
+        src: '/images/projects/canvas-design-system-final-2.jpg',
         alt: 'Canvas Pattern Library documentation pages for overview and images',
-        retinaSrc: retinaSrcFor('/images/projects/canvas-design-system-final-2.png'),
+        retinaSrc: retinaSrcFor('/images/projects/canvas-design-system-final-2.jpg'),
       }),
       finalDesignImage({
-        src: '/images/projects/canvas-design-system-final-3.png',
+        src: '/images/projects/canvas-design-system-final-3.jpg',
         alt: 'Canvas Pattern Library documentation pages for hook media and accessibility',
-        retinaSrc: retinaSrcFor('/images/projects/canvas-design-system-final-3.png'),
+        retinaSrc: retinaSrcFor('/images/projects/canvas-design-system-final-3.jpg'),
       }),
     ],
   },
@@ -229,13 +229,13 @@ export const projects = [
     imageWidth: 979,
     imageHeight: 533,
     imageSizes: '(min-width: 640px) 50vw, 100vw',
-    processImage: '/images/projects/ai-authoring-tools-process.png',
+    processImage: '/images/projects/ai-authoring-tools-process.jpg',
     processImageAlt:
       'Atlas curriculum and course management system showing browse, search, program navigation, and curriculum development workflows',
     processImageWidth: 1024,
     processImageHeight: 576,
     processImageCaption: 'Legacy curriculum authoring workflows before redesign',
-    approachImage: '/images/projects/ai-authoring-tools-approach.png',
+    approachImage: '/images/projects/ai-authoring-tools-approach.jpg',
     approachImageAlt:
       'Offering details form and manage courses step with core course cards and context notes in the authoring workflow',
     approachImageWidth: 1024,
@@ -243,14 +243,14 @@ export const projects = [
     approachImageCaption: 'Curriculum and course authoring module prototype',
     finalDesignImages: [
       finalDesignImage({
-        src: '/images/projects/ai-authoring-tools-final.png',
+        src: '/images/projects/ai-authoring-tools-final.jpg',
         alt: 'Stratus Manage Courses screen on a tablet showing MBA core courses with competencies and alignments',
-        retinaSrc: retinaSrcFor('/images/projects/ai-authoring-tools-final.png'),
+        retinaSrc: retinaSrcFor('/images/projects/ai-authoring-tools-final.jpg'),
       }),
       finalDesignImage({
-        src: '/images/projects/ai-authoring-tools-final-2.png',
+        src: '/images/projects/ai-authoring-tools-final-2.jpg',
         alt: 'Stratus Duplicate Course modal and Add Validations page with ACBSP accreditation standards for an MBA offering',
-        retinaSrc: retinaSrcFor('/images/projects/ai-authoring-tools-final-2.png'),
+        retinaSrc: retinaSrcFor('/images/projects/ai-authoring-tools-final-2.jpg'),
       }),
     ],
   },
@@ -297,7 +297,7 @@ export const projects = [
     imageWidth: 951,
     imageHeight: 535,
     imageSizes: '(min-width: 640px) 50vw, 100vw',
-    approachImage: '/images/projects/flexpath-research-approach.png',
+    approachImage: '/images/projects/flexpath-research-approach.jpg',
     approachImageAlt:
       'Research collage showing coach interviews, Qualtrics XM Discover support trends, and learner survey results on competency-based grading',
     approachImageWidth: 1024,
@@ -407,13 +407,13 @@ export const projects = [
     imageWidth: 906,
     imageHeight: 494,
     imageSizes: '(min-width: 640px) 50vw, 100vw',
-    processImage: '/images/projects/quiz-authoring-platform-process.png',
+    processImage: '/images/projects/quiz-authoring-platform-process.jpg',
     processImageAlt:
       'Collage of published learning activities: a step-based presentation module, a math skills self-assessment quiz, and an interactive worksheet with learner text inputs',
     processImageWidth: 1024,
     processImageHeight: 576,
     processImageCaption: 'Legacy assessments interactive media activities',
-    approachImage: '/images/projects/quiz-authoring-platform-approach.png',
+    approachImage: '/images/projects/quiz-authoring-platform-approach.jpg',
     approachImageAlt:
       'Learner-facing activity screens combining video, imagery, and quiz questions with immediate formative feedback on correct and incorrect responses',
     approachImageWidth: 1024,
@@ -421,11 +421,11 @@ export const projects = [
     approachImageCaption: 'Video, imagery, and formative assessment patterns validated with learners',
     finalDesignImages: [
       finalDesignImage({
-        src: '/images/projects/quiz-authoring-platform-final.png',
+        src: '/images/projects/quiz-authoring-platform-final.jpg',
         alt: 'Published learning activities side by side: APA Breakout narrative module with step navigation and Choosing Materials for Play Therapy scenario-based assessment',
       }),
       finalDesignImage({
-        src: '/images/projects/quiz-authoring-platform-final-2.png',
+        src: '/images/projects/quiz-authoring-platform-final-2.jpg',
         alt: 'Published learning activities side by side: Non-Directive Play Therapy Techniques presentation module and Communicating a Team Contract open-response assessment',
       }),
     ],
@@ -440,7 +440,7 @@ export const projects = [
     summary:
       'Led UX strategy and redesign to capture learner feedback at interactive media completion—targeted to individual activities rather than generic site-wide prompts. Partnered with product, engineering, and academic stakeholders through implementation and rollout.',
     challenge:
-      'The legacy approach cast too wide a net. Because feedback wasn\'t tied to specific interactive media, the team couldn\'t gather meaningful insights about individual activities. Visibility was also a problem: the survey link lived in the footer, was easy to overlook, and learners often never saw it—leading to very low response rates and limited qualitative or satisfaction data.',
+      'The legacy approach cast too wide a net. Because feedback wasn\'t tied to specific interactive media, the team couldn\'t gather meaningful insights about individual activities. Visibility was also a problem: the survey link lived in the footer, was easy to overlook—leading to very low response rates and limited qualitative or satisfaction data.',
     approach: [
       'Defined a UX strategy to target feedback to specific interactive media rather than generic, site-wide prompts.',
       'Redesigned the experience with a prominent completion CTA presented immediately after learners finished an activity.',
@@ -476,12 +476,8 @@ export const projects = [
     imageSizes: '(min-width: 640px) 50vw, 100vw',
     finalDesignImages: [
       finalDesignImage({
-        src: '/images/projects/learner-feedback-survey-final.png',
-        alt: 'End-of-activity completion prompt asking whether the interactive media experience was helpful, with a prominent Tell us what you think call to action',
-      }),
-      finalDesignImage({
-        src: '/images/projects/learner-feedback-survey-final-2.png',
-        alt: 'Learner feedback modal with five-star rating, comments field, and submit and cancel actions',
+        src: '/images/projects/learner-feedback-survey-final.jpg',
+        alt: 'Learner feedback flow showing the end-of-activity prompt asking whether the interactive media experience was helpful, alongside the rating modal with five stars, comments field, and submit actions',
       }),
     ],
   },

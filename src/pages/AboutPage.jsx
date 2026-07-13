@@ -20,7 +20,7 @@ export default function AboutPage() {
       <section className="grid lg:grid-cols-3 gap-12 mb-20" aria-labelledby="about-heading">
         <figure className="lg:col-span-1 m-0">
           <ResponsiveImage
-            src="/images/kerry-hanson-profile.png"
+            src="/images/kerry-hanson-profile.jpg"
             alt={`${profile.name} profile photo`}
             width={800}
             height={800}
