@@ -71,7 +71,7 @@ Passionate about modernizing UX practice through AI-enabled workflows that accel
           title: 'UX Designer (Enterprise Platforms)',
           period: 'December 2023 – June 2026',
           highlights: [
-            'Led UX for a modular enterprise curriculum platform connecting catalog discovery with curriculum and course authoring for 50+ schools and hundreds of internal users.',
+            'Led UX for a modular enterprise curriculum platform connecting catalog discovery with curriculum and course authoring for 7+ schools, 50+ academic programs and hundreds of internal users.',
             'Modernized the UX practice by integrating AI into research synthesis, code-based prototyping, and MVP validation — reducing research synthesis time by 60% and design/prototyping time by 50%.',
             'Planned and facilitated multi-method UX research on Capella\'s FlexPath Competency Map and competency-based grading, combining coach interviews, learner surveys, and CX support analytics.',
             'Designed UX for curriculum and course authoring modules, including AI-assisted content generation workflows that streamlined internal curriculum production.',
