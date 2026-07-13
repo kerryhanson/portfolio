@@ -1,11 +1,12 @@
 export const profile = {
   name: 'Kerry Hanson',
   title: 'Senior UX Designer',
-  tagline: 'Enterprise product design, UX strategy, and user research',
+  tagline:
+    '6+ years leading UX strategy, research, and product design for complex platforms in higher education and enterprise.',
   email: 'kerryhanson@gmail.com',
   phone: '612.280.5320',
   linkedin: 'https://www.linkedin.com/in/kerry-hanson-uxc-0a975547/',
-  summary: `Enterprise UX Designer with 9+ years of experience leading UX strategy, user research, and product design for complex enterprise platforms. Proven success delivering scalable, user-centered solutions that improve operational efficiency, product quality, and user experience through evidence-based design, systems thinking, and cross-functional collaboration.
+  summary: `Enterprise UX Designer with 6+ years of experience leading UX strategy, user research, and product design for complex enterprise platforms. Proven success delivering scalable, user-centered solutions that improve operational efficiency, product quality, and user experience through evidence-based design, systems thinking, and cross-functional collaboration.
 
 Passionate about modernizing UX practice through AI-enabled workflows that accelerate research, prototyping, and design validation while maintaining a strong focus on accessibility, usability, and measurable business outcomes.`,
 

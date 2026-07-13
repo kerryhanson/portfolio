@@ -35,7 +35,14 @@ export const projects = [
     featured: true,
     tags: ['UX Strategy', 'Enterprise', 'Research', 'Information Architecture'],
     summary:
-      'Led end-to-end UX for a modular enterprise curriculum platform replacing a legacy system serving 50+ schools, hundreds of academic programs, and hundreds of internal users. Defined the UX foundation for three connected capabilities—catalog discovery, curriculum authoring, and course authoring—within a unified platform experience. Authoring module UX was developed in parallel as a focused workstream within the same platform.',
+      'Led the end-to-end UX for a modern enterprise curriculum platform that replaced an outdated legacy system for 7+ schools and 50+ academic programs. Established the UX foundation for a unified platform featuring three core capabilities:',
+    summaryBullets: [
+      'Catalog Discovery: Streamlined how users explore academic programs.',
+      'Curriculum Authoring: Created intuitive tools for building curriculum.',
+      'Course Authoring: Designed parallel authoring workflows for seamless content creation.',
+    ],
+    summaryClosing:
+      'This unified design successfully modernized workflows for hundreds of internal users.',
     challenge:
       'A legacy curriculum ecosystem was fragmented across discovery, program definition, and course creation workflows. Teams faced content discoverability gaps, inconsistent institutional alignment, and disconnected experiences across a large multi-brand education organization.',
     approach: [
@@ -44,8 +51,30 @@ export const projects = [
       'Designed information architecture and interaction patterns for catalog discovery, curriculum authoring, and course authoring at enterprise scale.',
       'Established design standards and QA processes including design inventories and AI-assisted functional test creation.',
     ],
+    outcomeStats: [
+      {
+        value: '12',
+        label: 'Stakeholder interviews across catalog, curriculum, and course authoring',
+      },
+      {
+        value: '18',
+        label: 'Weekly workflow sessions with product and academic stakeholders',
+      },
+      {
+        value: '3',
+        label: 'Legacy workflows mapped and replaced by unified platform patterns',
+      },
+      {
+        value: '7+',
+        label: 'Schools supported by the design foundation',
+      },
+      {
+        value: '50+',
+        label: 'Academic programs supported by the design foundation',
+      },
+    ],
     outcomes: [
-      'Improved content discoverability and institutional alignment across 50+ schools through a unified catalog experience.',
+      'Improved content discoverability and institutional alignment through a unified catalog experience.',
       'Connected catalog and authoring workflows within a cohesive platform experience for hundreds of internal users.',
       'Established design consistency through a scalable UX foundation for ongoing modular platform evolution.',
     ],
@@ -103,6 +132,20 @@ export const projects = [
       'Evolved the Canvas design system with new components, tokens, and usage guidelines.',
       'Created documentation and training materials for 30+ learning technologists and instructional designers.',
       'Contributed to enterprise Canvas usability benchmarking to measure and improve design quality.',
+    ],
+    outcomeStats: [
+      {
+        value: '14',
+        label: 'Components, patterns, and foundations documented—including numerous variants',
+      },
+      {
+        value: '10',
+        label: 'Courses audited across Strayer, Capella, and JWMI',
+      },
+      {
+        value: '30+',
+        label: 'Learning technologists and instructional designers trained on the design system',
+      },
     ],
     outcomes: [
       'Improved design consistency and adoption across three education brands.',
@@ -164,10 +207,19 @@ export const projects = [
       'Partnered on AI-powered course authoring capabilities that supported content generation.',
       'Applied AI within the design process to speed research synthesis, prototyping, and MVP validation.',
     ],
+    outcomeStats: [
+      {
+        value: '10',
+        label: 'Core authoring workflows redesigned—from offering setup and course management to outcomes, competencies, versioning, and duplication',
+      },
+      {
+        value: '30+',
+        label: 'Academic stakeholders who validated MVP flows before engineering handoff',
+      },
+    ],
     outcomes: [
-      'Delivered scalable authoring module patterns for offering setup, course management, and validation workflows.',
-      'Improved efficiency for academic stakeholders through clearer workflows and AI-assisted authoring patterns.',
-      'Shortened discovery and design cycles through AI-accelerated UX practice.',
+      'Delivered scalable authoring module patterns supported by AI-assisted content generation capabilities.',
+      'Improved efficiency for academic stakeholders through clearer, validated workflow experiences.',
     ],
     role: 'Lead UX Designer',
     timeline: '2024 – 2026',
@@ -219,11 +271,23 @@ export const projects = [
       'Partnered with the CX team using Qualtrics XM Discover to analyze support volume and themes related to the Competency Map, validating qualitative findings with operational data.',
       'Synthesized interview and survey findings using Dovetail and AI-assisted analysis, then mapped insights to actionable product recommendations with cross-functional partners.',
     ],
+    outcomeStats: [
+      {
+        value: '4',
+        label: 'Academic coach interviews on Competency Map use and competency-based grading workflows',
+      },
+      {
+        value: '5',
+        label: 'Research themes synthesized into evidence-based product recommendations',
+      },
+      {
+        value: '138',
+        label: 'Learner survey responses on grading models, motivation, and micro-credentials',
+      },
+    ],
     outcomes: [
-      'Identified clarity gaps in how learners understand and use the Competency Map, including confusion between competency status and traditional grading.',
-      'Surfaced grading-model preferences and micro-credential opportunities from learner attitudinal research to inform future experience direction.',
-      'Corroborated coach interview themes with CX support trends, strengthening the case for in-product guidance, better integration, and clearer grading communication.',
       'Delivered evidence-based recommendations spanning learner onboarding, map visibility, rubric alignment, and coach-facing workflow improvements.',
+      'Informed product direction on competency-based grading communication, in-product guidance, and better system integration.',
     ],
     role: 'UX Designer',
     timeline: '2024 – 2025',
@@ -308,19 +372,32 @@ export const projects = [
     featured: true,
     tags: ['Interaction Design', 'Formative Assessment', 'Accessibility', 'Higher Ed', 'Templates'],
     summary:
-      'Designed core interaction patterns, templates, and authoring workflows for an interactive media platform used to build formative learning activities at scale—including quizzes, video interactions, card sorting, branching scenarios, and other component types delivered to thousands of learners across FlexPath, Guided Path, and Strayer courses.',
+      'Designed reusable interaction patterns, templates, and authoring workflows for a scalable formative media platform used across FlexPath, Guided Path, and Strayer courses—supporting quizzes, video interactions, card sorting, branching scenarios, and other activity types for thousands of learners.',
     challenge:
-      'Interactive designers needed a unified platform to author diverse, accessible interactive media for courses—quizzes, video, card sorting, branching, and more—while collaborating with instructional designers on content and learning objectives. Formative assessments supported learner engagement across multiple program models, including competency-based FlexPath courses where engagement evidence matters for accreditation, but legacy tooling and one-off patterns made consistent, high-volume production difficult.',
+      'Interactive designers lacked a unified way to author diverse, accessible activities while partnering with instructional designers on content and learning objectives. Legacy, one-off tooling made consistent high-volume production difficult—especially in competency-based FlexPath courses, where engagement evidence matters for accreditation.',
     approach: [
       'Designed reusable interaction patterns and templates across activity types, from multiple-choice and open response to video, card sorting, and branching.',
       'Led usability testing with learners to validate activity usability and refine authoring workflows based on how students interacted with published media.',
       'Ensured WCAG accessibility compliance across interaction patterns and learner-facing components.',
       'Partnered with engineering on implementation feasibility, edge cases, and extensibility for new activity formats.',
     ],
+    outcomeStats: [
+      {
+        value: '1000+',
+        label: 'Formative activities produced across FlexPath, Guided Path, and Strayer—spanning quizzes, video, card sorting, branching, and other formats',
+      },
+      {
+        value: '25',
+        label: 'Learner usability sessions across 5 published-activity studies, refining interaction patterns and feedback',
+      },
+      {
+        value: '4',
+        label: 'Usability studies averaged per year as an ongoing Interactive Media team practice',
+      },
+    ],
     outcomes: [
-      'Enabled creation of thousands of interactive formative activities across multiple media types.',
-      'Supported high-volume production of formative activities across FlexPath, Guided Path, and Strayer course delivery.',
       'Improved consistency, accessibility, and authoring efficiency through reusable templates and patterns.',
+      'Refined learner-facing feedback and navigation across activity types based on recurring usability findings.',
     ],
     role: 'Interactive Designer',
     timeline: '2018 – 2023',
@@ -361,7 +438,7 @@ export const projects = [
     featured: true,
     tags: ['UX Strategy', 'Survey Design', 'Interactive Media', 'Higher Ed', 'Data Quality'],
     summary:
-      'Led the UX strategy and redesign of learner feedback collection for interactive media—replacing a broad, easy-to-miss footer link with targeted, in-context prompts at activity completion. Partnered with product, engineering, and academic stakeholders to improve response rates and the quality of insights used to evaluate learning experiences.',
+      'Led UX strategy and redesign to capture learner feedback at interactive media completion—targeted to individual activities rather than generic site-wide prompts. Partnered with product, engineering, and academic stakeholders through implementation and rollout.',
     challenge:
       'The legacy approach cast too wide a net. Because feedback wasn\'t tied to specific interactive media, the team couldn\'t gather meaningful insights about individual activities. Visibility was also a problem: the survey link lived in the footer, was easy to overlook, and learners often never saw it—leading to very low response rates and limited qualitative or satisfaction data.',
     approach: [
@@ -370,9 +447,22 @@ export const projects = [
       'Partnered with product, engineering, and academic stakeholders on requirements, implementation, and rollout planning.',
       'Ran initial pilot tests tracking targeted media on a quarterly basis to measure response rates and feedback quality.',
     ],
+    outcomeStats: [
+      {
+        value: '10.3%',
+        label: 'Pilot response rate for targeted interactive media (~0% → 10.3%, 2021–2022)',
+      },
+      {
+        value: '4/5',
+        label: 'Average satisfaction rating across pilot activities',
+      },
+      {
+        value: '300',
+        label: 'Qualitative responses collected in the first quarterly audit',
+      },
+    ],
     outcomes: [
-      'Pilot response rates increased from nearly nothing to 10.3% for targeted interactive media.',
-      'Captured qualitative feedback and satisfaction ratings that were previously unavailable at the activity level.',
+      'Enabled first-time benchmarking and performance tracking at the individual activity level.',
       'Established a model for future interactive media audits and continued UX exploration around KPI inclusion in business strategy.',
     ],
     role: 'Interactive Designer',

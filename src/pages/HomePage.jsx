@@ -34,8 +34,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-lg theme-text-muted leading-relaxed max-w-lg">
-              {profile.tagline}. 9+ years leading UX strategy, research, and product design
-              for complex platforms in higher education and enterprise.
+              {profile.tagline}
             </p>
 
             <nav className="flex flex-wrap gap-3 pt-2" aria-label="Primary actions">

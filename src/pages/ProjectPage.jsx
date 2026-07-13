@@ -8,6 +8,14 @@ import ProjectDetailCarousel from '../components/ProjectDetailCarousel'
 import ProjectCard from '../components/ProjectCard'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
+function outcomeStatsGridClass(count) {
+  if (count <= 1) return 'grid-cols-1'
+  if (count === 2) return 'grid-cols-1 sm:grid-cols-2'
+  if (count === 3) return 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+  if (count === 4) return 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
+  return 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'
+}
+
 export default function ProjectPage() {
   const { slug } = useParams()
   const project = getProjectBySlug(slug)
@@ -98,7 +106,31 @@ export default function ProjectPage() {
               <h2 id="overview-heading" className="text-xl font-semibold theme-text mb-4">
                 Overview
               </h2>
-              <p className="theme-text-muted leading-relaxed">{project.summary}</p>
+              <div className="theme-text-muted leading-relaxed flex flex-col gap-4">
+                <p>{project.summary}</p>
+                {project.summaryBullets?.length > 0 && (
+                  <ul className="list-disc pl-6 space-y-2">
+                    {project.summaryBullets.map((item) => {
+                      const colonIndex = item.indexOf(':')
+                      const label = colonIndex === -1 ? item : item.slice(0, colonIndex)
+                      const text = colonIndex === -1 ? '' : item.slice(colonIndex + 1).trimStart()
+
+                      return (
+                        <li key={item}>
+                          {text ? (
+                            <>
+                              <span className="font-semibold theme-text">{label}:</span> {text}
+                            </>
+                          ) : (
+                            item
+                          )}
+                        </li>
+                      )
+                    })}
+                  </ul>
+                )}
+                {project.summaryClosing && <p>{project.summaryClosing}</p>}
+              </div>
             </section>
 
             <section aria-labelledby="challenge-heading" className="flex flex-col gap-6">
@@ -221,6 +253,28 @@ export default function ProjectPage() {
               <h2 id="outcomes-heading" className="text-xl font-semibold theme-text mb-4">
                 Outcomes
               </h2>
+              {project.outcomeStats?.length > 0 && (
+                <div
+                  className={`grid ${outcomeStatsGridClass(project.outcomeStats.length)} gap-4 mb-8 items-stretch`}
+                  role="list"
+                  aria-label="Impact metrics"
+                >
+                  {project.outcomeStats.map((stat) => (
+                    <div
+                      key={stat.label}
+                      role="listitem"
+                      className="theme-card rounded-xl p-5 text-center flex flex-col h-full"
+                    >
+                      <div className="min-h-12 sm:min-h-14 flex items-center justify-center shrink-0">
+                        <p className="text-3xl sm:text-4xl font-bold theme-accent tabular-nums leading-none">
+                          {stat.value}
+                        </p>
+                      </div>
+                      <p className="text-sm theme-text-muted leading-snug mt-2">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
               <ul className="space-y-3 list-none p-0 m-0">
                 {project.outcomes.map((outcome, i) => (
                   <li
