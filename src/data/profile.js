@@ -2,11 +2,11 @@ export const profile = {
   name: 'Kerry Hanson',
   title: 'Senior UX Designer',
   tagline:
-    '6+ years leading UX strategy, research, and product design for complex platforms in higher education and enterprise.',
+    '6+ years leading UX strategy, research, and product design for complex platforms in higher education and enterprise. Drawing on web, mobile, and product design experience across industries since 2000.',
   email: 'kerryhanson@gmail.com',
   phone: '612.280.5320',
   linkedin: 'https://www.linkedin.com/in/kerry-hanson-uxc-0a975547/',
-  summary: `Enterprise UX Designer with 6+ years of experience leading UX strategy, user research, and product design for complex enterprise platforms. Proven success delivering scalable, user-centered solutions that improve operational efficiency, product quality, and user experience through evidence-based design, systems thinking, and cross-functional collaboration.
+  summary: `Enterprise UX Designer with 6+ years of experience leading UX strategy, user research, and product design for complex enterprise platforms. Building on 20+ years of web, mobile, and product design across industries. Proven success delivering scalable, user-centered solutions that improve operational efficiency, product quality, and user experience through evidence-based design, systems thinking, and cross-functional collaboration.
 
 Passionate about modernizing UX practice through AI-enabled workflows that accelerate research, prototyping, and design validation while maintaining a strong focus on accessibility, usability, and measurable business outcomes.`,
 
@@ -110,10 +110,13 @@ Passionate about modernizing UX practice through AI-enabled workflows that accel
       location: 'Minneapolis, MN',
       roles: [
         {
-          title: 'Email Developer',
+          title: 'Email Developer (Contract)',
           period: 'October 2016 – November 2016',
           highlights: [
-            'Developed marketing email templates and landing pages within HubSpot\'s CRM for Thrivent\'s cuLearn program.',
+            'Developed responsive marketing email templates and landing pages in HubSpot for Thrivent\'s cuLearn program.',
+            'Built reusable email components and layouts aligned with brand standards for campaign deployment.',
+            'Collaborated with marketing stakeholders to translate content and campaign goals into production-ready HTML templates.',
+            'Tested and refined templates across email clients to improve rendering consistency and deliverability.',
           ],
         },
       ],
@@ -123,10 +126,13 @@ Passionate about modernizing UX practice through AI-enabled workflows that accel
       location: 'Plymouth, MN',
       roles: [
         {
-          title: 'UI/Web Designer',
+          title: 'UI/Web Designer (Contract)',
           period: 'June 2016 – September 2016',
           highlights: [
-            'UI design, HTML, and CSS for website updates in Demandware Commerce.',
+            'Designed and implemented UI updates for the e-commerce site in Demandware (Salesforce Commerce Cloud).',
+            'Produced HTML and CSS for category pages, promotional modules, and seasonal site refreshes.',
+            'Partnered with development team to balance brand standards, usability, and platform constraints.',
+            'Supported responsive layout updates to improve the mobile shopping experience.',
           ],
         },
       ],
@@ -136,10 +142,12 @@ Passionate about modernizing UX practice through AI-enabled workflows that accel
       location: 'Bloomington, MN',
       roles: [
         {
-          title: 'UX Designer',
+          title: 'UX Designer (Contract)',
           period: 'May 2016 – June 2016',
           highlights: [
-            'Wireframing and mockups for digital product initiatives.',
+            'Created wireframes and mockups to refine the e-commerce checkout flow for consumer-facing web experiences.',
+            'Translated business requirements into low- and mid-fidelity mockups for stakeholder review and iteration.',
+            'Contributed UX recommendations on checkout layout, step progression, and content hierarchy to reduce friction in the purchase path.',
           ],
         },
       ],
@@ -152,7 +160,11 @@ Passionate about modernizing UX practice through AI-enabled workflows that accel
           title: 'Design and Production Artist',
           period: 'August 2014 – August 2016',
           highlights: [
-            'Design and coding of email templates. Web and print design.',
+            'Contract role concurrent with Drebenstedt Consulting.',
+            'Designed and coded responsive HTML email templates for B2B marketing and product communications.',
+            'Created web and print assets supporting product launches, trade shows, and sales enablement materials.',
+            'Maintained brand consistency across digital and print deliverables in a regulated industrial products environment.',
+            'Partnered with marketing and engineering teams to produce accurate, production-ready creative assets.',
           ],
         },
       ],
@@ -165,7 +177,11 @@ Passionate about modernizing UX practice through AI-enabled workflows that accel
           title: 'UI Designer',
           period: 'August 2014 – August 2016',
           highlights: [
-            'Design and coding for Angular web applications.',
+            'Contract role concurrent with Colder Products Company.',
+            'Designed UI for Angular-based web applications, from wireframes through visual design and front-end implementation.',
+            'Built HTML, CSS, and Angular templates aligned with application architecture and client requirements.',
+            'Collaborated with developers and stakeholders to iterate on workflows, forms, and dashboard-style interfaces.',
+            'Delivered reusable UI patterns and component-style layouts to support ongoing product development.',
           ],
         },
       ],
@@ -178,7 +194,12 @@ Passionate about modernizing UX practice through AI-enabled workflows that accel
           title: 'UI Designer, Production, and Project Manager',
           period: 'May 2000 – July 2015',
           highlights: [
-            'Designed and maintained iOS, Android, and web applications for 30+ clients over 10+ years while managing production, contractors, and workflow improvements.',
+            'Designed and maintained iOS, Android, and web applications for 30+ clients across industries over 15 years.',
+            'Led end-to-end project delivery as designer, production artist, and project manager for agency and direct-client work.',
+            'Managed contractors and production workflows to improve turnaround time and quality control.',
+            'Created wireframes, visual design, and interactive prototypes for mobile and web products from concept through launch.',
+            'Built and maintained HTML/CSS front-end implementations alongside design deliverables.',
+            'Partnered with clients on requirements gathering, scope definition, and iterative design reviews.',
           ],
         },
       ],

@@ -1,13 +1,16 @@
-import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export default function useFeaturedInView() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
+  const navigate = useNavigate()
   const [featuredInView, setFeaturedInView] = useState(false)
+  const wasFeaturedInView = useRef(false)
 
   useEffect(() => {
     if (pathname !== '/') {
       setFeaturedInView(false)
+      wasFeaturedInView.current = false
       return
     }
 
@@ -25,6 +28,19 @@ export default function useFeaturedInView() {
     observer.observe(section)
     return () => observer.disconnect()
   }, [pathname])
+
+  useEffect(() => {
+    if (pathname !== '/' || hash !== '#featured-projects') {
+      wasFeaturedInView.current = featuredInView
+      return
+    }
+
+    if (wasFeaturedInView.current && !featuredInView) {
+      navigate({ pathname: '/' }, { replace: true })
+    }
+
+    wasFeaturedInView.current = featuredInView
+  }, [featuredInView, hash, pathname, navigate])
 
   return featuredInView
 }

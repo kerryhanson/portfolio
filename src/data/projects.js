@@ -7,7 +7,7 @@
  */
 const FINAL_DESIGN_IMAGE_SIZES = '(min-width: 1024px) 1104px, 100vw'
 
-function finalDesignImage({ src, alt, width = 1024, height = 576, retinaSrc }) {
+function finalDesignImage({ src, alt, caption, width = 1024, height = 576, retinaSrc }) {
   const srcSet = retinaSrc
     ? `${src} ${width}w, ${retinaSrc} ${width * 2}w`
     : `${src} ${width}w`
@@ -15,6 +15,7 @@ function finalDesignImage({ src, alt, width = 1024, height = 576, retinaSrc }) {
   return {
     src,
     alt,
+    caption,
     width,
     height,
     srcSet,
@@ -35,7 +36,7 @@ export const projects = [
     featured: true,
     tags: ['UX Strategy', 'Enterprise', 'Research', 'Information Architecture'],
     summary:
-      'Led the end-to-end UX for a modern enterprise curriculum platform that replaced an outdated legacy system for 7+ schools and 50+ academic programs. Established the UX foundation for a unified platform featuring three core capabilities:',
+      'Led the end-to-end UX for a modern enterprise curriculum platform that replaced an outdated legacy system for 7+ schools and 50+ academic programs. Established the UX foundation for the new  unified platform featuring three core capabilities:',
     summaryBullets: [
       'Catalog Discovery: Streamlined how users explore academic programs.',
       'Curriculum Authoring: Created intuitive tools for building curriculum.',
@@ -98,21 +99,104 @@ export const projects = [
     approachImageWidth: 1024,
     approachImageHeight: 576,
     approachImageCaption: 'Platform catalog experience prototype',
+    insightsIntro:
+      'Key findings from stakeholder interviews and workflow sessions across catalog, curriculum, and course authoring.',
+    insights: [
+      {
+        findings: [
+          'Authors need a single workspace for curriculum and course work—not a patchwork of legacy tools.',
+          'Findability is a major pain point in legacy systems; new users struggle most during onboarding.',
+          'Stakeholders switch between multiple systems to complete workflows that should be connected.',
+          'Pinning frequently used offerings and courses saves navigation time and reduces workflow errors.',
+        ],
+      },
+    ],
     finalDesignImages: [
       finalDesignImage({
         src: '/images/projects/curriculum-catalog-final.jpg',
         alt: 'Stratus catalog dashboard displayed on a laptop showing pinned offerings and courses',
+        caption: 'Stratus catalog dashboard with pinned offerings and courses',
         retinaSrc: retinaSrcFor('/images/projects/curriculum-catalog-final.jpg'),
       }),
       finalDesignImage({
         src: '/images/projects/curriculum-catalog-final-3.jpg',
         alt: 'Stratus dashboard with welcome banner and pinned program offerings grid',
+        caption: 'Welcome banner and pinned program offerings grid',
         retinaSrc: retinaSrcFor('/images/projects/curriculum-catalog-final-3.jpg'),
       }),
       finalDesignImage({
         src: '/images/projects/curriculum-catalog-final-2.jpg',
         alt: 'Stratus catalog offerings list and Master of Business Administration program detail views',
+        caption: 'Catalog offerings list and MBA program detail views',
         retinaSrc: retinaSrcFor('/images/projects/curriculum-catalog-final-2.jpg'),
+      }),
+    ],
+  },
+  {
+    id: 'curriculum-authoring-modules',
+    slug: 'curriculum-authoring-modules',
+    title: 'Curriculum Authoring Modules',
+    subtitle: 'Authoring module UX within the enterprise curriculum platform',
+    featured: true,
+    tags: ['AI/ML', 'Prototyping', 'Workflow Design', 'Enterprise'],
+    summary:
+      'As Lead UX Designer, shaped the curriculum and course authoring modules within a modular enterprise platform—replacing legacy workflows with clearer offering setup, course management, and validation flows. Contributed to UX for AI-powered course authoring capabilities that support content generation.',
+    challenge:
+      'Authoring teams needed clearer, more efficient ways to define offerings, manage courses, and align accreditation standards. Legacy tools were dense and inconsistent, creating rework and slowing curriculum production across a large multi-brand education organization.',
+    approach: [
+      'Defined UX strategy and interaction patterns for curriculum and course authoring modules at enterprise scale.',
+      'Mapped legacy authoring workflows and redesigned offering setup, course management, and validation experiences.',
+      'Partnered on AI-powered course authoring capabilities that support content generation.',
+      'Applied AI within the design process to speed research synthesis, prototyping, and MVP validation.',
+      'Attended weekly Power User sessions to demo prototypes and gathered async feedback through a shareable prototype shared across academic teams—validating flows with 30+ stakeholders before engineering handoff.',
+    ],
+    outcomeStats: [
+      {
+        value: '10',
+        label: 'Core authoring workflows redesigned—from offering setup and course management to outcomes, competencies, versioning, and duplication',
+      },
+      {
+        value: '30+',
+        label: 'Academic stakeholders who validated MVP flows before engineering handoff',
+      },
+    ],
+    outcomes: [
+      'Delivered scalable authoring module patterns supported by AI-assisted content generation capabilities.',
+      'Improved efficiency for academic stakeholders through clearer, validated workflow experiences.',
+    ],
+    role: 'Lead UX Designer',
+    timeline: '2025 – 2026',
+    tools: ['Figma', 'Cursor', 'ChatGPT', 'Dovetail'],
+    image: '/images/projects/ai-authoring-tools.jpg',
+    imageAlt: 'Personalized assignment form and Stratus course management dashboard for AI-powered authoring',
+    imageWidth: 979,
+    imageHeight: 533,
+    imageSizes: '(min-width: 640px) 50vw, 100vw',
+    processImage: '/images/projects/ai-authoring-tools-process.jpg',
+    processImageAlt:
+      'Atlas curriculum and course management system showing browse, search, program navigation, and curriculum development workflows',
+    processImageWidth: 1024,
+    processImageHeight: 576,
+    processImageCaption: 'Legacy curriculum authoring workflows before redesign',
+    approachImage: '/images/projects/ai-authoring-tools-approach.jpg',
+    approachImageAlt:
+      'Offering details form and manage courses step with core course cards and context notes in the authoring workflow',
+    approachImageWidth: 1024,
+    approachImageHeight: 576,
+    approachImageCaption:
+      'Curriculum and course authoring module prototype—demoed in weekly Power User sessions and shared for async feedback across academic teams',
+    finalDesignImages: [
+      finalDesignImage({
+        src: '/images/projects/ai-authoring-tools-final.jpg',
+        alt: 'Stratus Manage Courses screen on a tablet showing MBA core courses with competencies and alignments',
+        caption: 'Manage Courses screen with competencies and alignments',
+        retinaSrc: retinaSrcFor('/images/projects/ai-authoring-tools-final.jpg'),
+      }),
+      finalDesignImage({
+        src: '/images/projects/ai-authoring-tools-final-2.jpg',
+        alt: 'Stratus Duplicate Course modal and Add Validations page with ACBSP accreditation standards for an MBA offering',
+        caption: 'Duplicate Course workflow and accreditation validations',
+        retinaSrc: retinaSrcFor('/images/projects/ai-authoring-tools-final-2.jpg'),
       }),
     ],
   },
@@ -129,7 +213,7 @@ export const projects = [
       'Three education brands shared a learning platform but lacked consistent design patterns, documentation, and adoption practices — leading to fragmented user experiences and rework.',
     approach: [
       'Audited existing UI patterns and identified gaps across Strayer, Capella, and JWMI product surfaces.',
-      'Evolved the Canvas design system with new components, tokens, and usage guidelines.',
+      'Evolved the Canvas design system with new components, semantic tokens, and usage guidelines.',
       'Created documentation and training materials for 30+ learning technologists and instructional designers.',
       'Contributed to enterprise Canvas usability benchmarking to measure and improve design quality.',
     ],
@@ -176,81 +260,20 @@ export const projects = [
       finalDesignImage({
         src: '/images/projects/canvas-design-system-final.jpg',
         alt: 'Canvas design system components including content cards, media hooks, accordion, blockquote, and definition tooltip',
+        caption: 'Canvas course components—content cards, media hooks, and accordion patterns',
         retinaSrc: retinaSrcFor('/images/projects/canvas-design-system-final.jpg'),
       }),
       finalDesignImage({
         src: '/images/projects/canvas-design-system-final-2.jpg',
         alt: 'Canvas Pattern Library documentation pages for overview and images',
+        caption: 'Pattern Library documentation for overview and images',
         retinaSrc: retinaSrcFor('/images/projects/canvas-design-system-final-2.jpg'),
       }),
       finalDesignImage({
         src: '/images/projects/canvas-design-system-final-3.jpg',
         alt: 'Canvas Pattern Library documentation pages for hook media and accessibility',
+        caption: 'Pattern Library documentation for hook media and accessibility',
         retinaSrc: retinaSrcFor('/images/projects/canvas-design-system-final-3.jpg'),
-      }),
-    ],
-  },
-  {
-    id: 'curriculum-authoring-modules',
-    slug: 'curriculum-authoring-modules',
-    title: 'Curriculum Authoring Modules',
-    subtitle: 'Authoring module UX within the enterprise curriculum platform',
-    featured: true,
-    tags: ['AI/ML', 'Prototyping', 'Workflow Design', 'Enterprise'],
-    summary:
-      'As Lead UX Designer, shaped the curriculum and course authoring modules within a modular enterprise platform—replacing legacy workflows with clearer offering setup, course management, and validation flows. Contributed to UX for AI-powered course authoring capabilities that supported content generation.',
-    challenge:
-      'Authoring teams needed clearer, more efficient ways to define offerings, manage courses, and align accreditation standards. Legacy tools were dense and inconsistent, creating rework and slowing curriculum production across a large multi-brand education organization.',
-    approach: [
-      'Defined UX strategy and interaction patterns for curriculum and course authoring modules at enterprise scale.',
-      'Mapped legacy authoring workflows and redesigned offering setup, course management, and validation experiences.',
-      'Partnered on AI-powered course authoring capabilities that supported content generation.',
-      'Applied AI within the design process to speed research synthesis, prototyping, and MVP validation.',
-    ],
-    outcomeStats: [
-      {
-        value: '10',
-        label: 'Core authoring workflows redesigned—from offering setup and course management to outcomes, competencies, versioning, and duplication',
-      },
-      {
-        value: '30+',
-        label: 'Academic stakeholders who validated MVP flows before engineering handoff',
-      },
-    ],
-    outcomes: [
-      'Delivered scalable authoring module patterns supported by AI-assisted content generation capabilities.',
-      'Improved efficiency for academic stakeholders through clearer, validated workflow experiences.',
-    ],
-    role: 'Lead UX Designer',
-    timeline: '2024 – 2026',
-    tools: ['Figma', 'Cursor', 'ChatGPT', 'Dovetail'],
-    image: '/images/projects/ai-authoring-tools.jpg',
-    imageAlt: 'Personalized assignment form and Stratus course management dashboard for AI-powered authoring',
-    imageWidth: 979,
-    imageHeight: 533,
-    imageSizes: '(min-width: 640px) 50vw, 100vw',
-    processImage: '/images/projects/ai-authoring-tools-process.jpg',
-    processImageAlt:
-      'Atlas curriculum and course management system showing browse, search, program navigation, and curriculum development workflows',
-    processImageWidth: 1024,
-    processImageHeight: 576,
-    processImageCaption: 'Legacy curriculum authoring workflows before redesign',
-    approachImage: '/images/projects/ai-authoring-tools-approach.jpg',
-    approachImageAlt:
-      'Offering details form and manage courses step with core course cards and context notes in the authoring workflow',
-    approachImageWidth: 1024,
-    approachImageHeight: 576,
-    approachImageCaption: 'Curriculum and course authoring module prototype',
-    finalDesignImages: [
-      finalDesignImage({
-        src: '/images/projects/ai-authoring-tools-final.jpg',
-        alt: 'Stratus Manage Courses screen on a tablet showing MBA core courses with competencies and alignments',
-        retinaSrc: retinaSrcFor('/images/projects/ai-authoring-tools-final.jpg'),
-      }),
-      finalDesignImage({
-        src: '/images/projects/ai-authoring-tools-final-2.jpg',
-        alt: 'Stratus Duplicate Course modal and Add Validations page with ACBSP accreditation standards for an MBA offering',
-        retinaSrc: retinaSrcFor('/images/projects/ai-authoring-tools-final-2.jpg'),
       }),
     ],
   },
@@ -374,7 +397,7 @@ export const projects = [
     summary:
       'Designed reusable interaction patterns, templates, and authoring workflows for a scalable formative media platform used across FlexPath, Guided Path, and Strayer courses—supporting quizzes, video interactions, card sorting, branching scenarios, and other activity types for thousands of learners.',
     challenge:
-      'Interactive designers lacked a unified way to author diverse, accessible activities while partnering with instructional designers on content and learning objectives. Legacy, one-off tooling made consistent high-volume production difficult—especially in competency-based FlexPath courses, where engagement evidence matters for accreditation.',
+      'Interactive designers lacked a unified way to build diverse, accessible activities while working with instructional designers on content and learning goals. Legacy, one-off tools made it hard to produce activities consistently at scale—especially for FlexPath courses, where learners must complete interactive work and schools need proof of participation.',
     approach: [
       'Designed reusable interaction patterns and templates across activity types, from multiple-choice and open response to video, card sorting, and branching.',
       'Led usability testing with learners to validate activity usability and refine authoring workflows based on how students interacted with published media.',
@@ -419,14 +442,29 @@ export const projects = [
     approachImageWidth: 1024,
     approachImageHeight: 576,
     approachImageCaption: 'Video, imagery, and formative assessment patterns validated with learners',
+    insightsIntro:
+      'Key findings from a usability study with five FlexPath MBA learners, evaluating current-state quiz interactions and a revised feedback prototype.',
+    insights: [
+      {
+        findings: [
+          'Multi-page structure confused learners—many did not understand why quizzes were split across pages or how pages related to the full activity.',
+          'Quiz length and progress were hard to gauge; per-page question counts and submit labels led learners to misjudge how much remained or think they had finished early.',
+          'Side-panel feedback was clearer for all five participants—separating feedback from answer choices made it easier to notice and interpret than inline feedback under answers.',
+          'Instructions and page-status messaging needed stronger guidance; learners wanted more visible, actionable cues for progressing through multi-page activities.',
+          'Completion left learners uncertain they were done—several expected additional steps and were unclear whether academic engagement had been recorded.',
+        ],
+      },
+    ],
     finalDesignImages: [
       finalDesignImage({
         src: '/images/projects/quiz-authoring-platform-final.jpg',
         alt: 'Published learning activities side by side: APA Breakout narrative module with step navigation and Choosing Materials for Play Therapy scenario-based assessment',
+        caption: 'Published narrative module and scenario-based assessment activities',
       }),
       finalDesignImage({
         src: '/images/projects/quiz-authoring-platform-final-2.jpg',
         alt: 'Published learning activities side by side: Non-Directive Play Therapy Techniques presentation module and Communicating a Team Contract open-response assessment',
+        caption: 'Published presentation module and open-response assessment activities',
       }),
     ],
   },
@@ -434,13 +472,13 @@ export const projects = [
     id: 'learner-feedback-survey',
     slug: 'learner-feedback-survey',
     title: 'Learner Feedback Survey',
-    subtitle: 'In-context feedback for interactive media',
+    subtitle: 'In-context feedback for interactive media experiences',
     featured: true,
     tags: ['UX Strategy', 'Survey Design', 'Interactive Media', 'Higher Ed', 'Data Quality'],
     summary:
-      'Led UX strategy and redesign to capture learner feedback at interactive media completion—targeted to individual activities rather than generic site-wide prompts. Partnered with product, engineering, and academic stakeholders through implementation and rollout.',
+      'Led UX strategy and redesign of an in-context learner feedback survey presented at interactive media completion—targeting individual activities rather than a generic, site-wide survey. Partnered with product, engineering, and academic stakeholders through implementation and rollout.',
     challenge:
-      'The legacy approach cast too wide a net. Because feedback wasn\'t tied to specific interactive media, the team couldn\'t gather meaningful insights about individual activities. Visibility was also a problem: the survey link lived in the footer, was easy to overlook—leading to very low response rates and limited qualitative or satisfaction data.',
+      'The legacy survey cast too wide a net. Because it wasn\'t tied to specific interactive media, the team couldn\'t gather meaningful insights about individual activities. Visibility was also a problem: the survey link lived in the footer and was easy to overlook—leading to very low response rates and limited qualitative or satisfaction data.',
     approach: [
       'Defined a UX strategy to target feedback to specific interactive media rather than generic, site-wide prompts.',
       'Redesigned the experience with a prominent completion CTA presented immediately after learners finished an activity.',
@@ -478,6 +516,7 @@ export const projects = [
       finalDesignImage({
         src: '/images/projects/learner-feedback-survey-final.jpg',
         alt: 'Learner feedback flow showing the end-of-activity prompt asking whether the interactive media experience was helpful, alongside the rating modal with five stars, comments field, and submit actions',
+        caption: 'End-of-activity prompt and star-rating feedback modal',
       }),
     ],
   },

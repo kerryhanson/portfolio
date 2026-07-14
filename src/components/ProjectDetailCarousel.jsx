@@ -27,7 +27,9 @@ export default function ProjectDetailCarousel({
   const goPrev = () => setActiveIndex((i) => (i - 1 + images.length) % images.length)
   const goNext = () => setActiveIndex((i) => (i + 1) % images.length)
   const activeImage = images[activeIndex]
+  const activeCaption = activeImage.caption
   const showControls = images.length > 1
+  const showFooter = showControls || activeCaption
   const slideAspectRatio =
     useNativeAspectRatio && activeImage.width && activeImage.height
       ? `${activeImage.width} / ${activeImage.height}`
@@ -41,6 +43,7 @@ export default function ProjectDetailCarousel({
     >
       <SrOnly aria-live="polite" aria-atomic="true">
         Showing image {activeIndex + 1} of {images.length}: {activeImage.alt}
+        {activeCaption ? `. ${activeCaption}` : ''}
       </SrOnly>
 
       <div
@@ -96,49 +99,60 @@ export default function ProjectDetailCarousel({
         )}
       </div>
 
-      {showControls && (
-        <div
-          className="flex items-center justify-center gap-2 py-3 px-4 border-t theme-border"
-          role="tablist"
-          aria-label={`${ariaLabel} slides`}
-        >
-          {images.map((img, i) =>
-            img.label ? (
-              <button
-                key={img.src}
-                type="button"
-                role="tab"
-                aria-selected={i === activeIndex}
-                aria-label={`Show ${img.label}`}
-                onClick={() => setActiveIndex(i)}
-                className={`text-sm font-medium min-h-11 px-3 py-1.5 rounded-full transition-colors cursor-pointer ${
-                  i === activeIndex
-                    ? 'theme-accent-bg-subtle theme-accent-text'
-                    : 'theme-text-muted hover:text-[var(--color-text)] hover:bg-[var(--color-bg-subtle)]'
-                }`}
-              >
-                {img.label}
-              </button>
-            ) : (
-              <button
-                key={img.src}
-                type="button"
-                role="tab"
-                aria-selected={i === activeIndex}
-                aria-label={`Show image ${i + 1}: ${img.alt}`}
-                onClick={() => setActiveIndex(i)}
-                className="flex items-center justify-center min-w-11 min-h-11 cursor-pointer rounded-full"
-              >
-                <span
-                  aria-hidden="true"
-                  className={`rounded-full transition-all ${
-                    i === activeIndex
-                      ? 'w-6 h-2.5 theme-accent-bg'
-                      : 'w-2.5 h-2.5 bg-[var(--color-indicator-inactive)]'
-                  }`}
-                />
-              </button>
-            ),
+      {showFooter && (
+        <div className="border-t theme-border">
+          {activeCaption && (
+            <p className="px-4 pt-3 pb-1 text-sm theme-text-muted text-center m-0">
+              {activeCaption}
+            </p>
+          )}
+          {showControls && (
+            <div
+              className={`flex items-center justify-center gap-2 px-4 ${
+                activeCaption ? 'pb-3 pt-2' : 'py-3'
+              }`}
+              role="tablist"
+              aria-label={`${ariaLabel} slides`}
+            >
+              {images.map((img, i) =>
+                img.label ? (
+                  <button
+                    key={img.src}
+                    type="button"
+                    role="tab"
+                    aria-selected={i === activeIndex}
+                    aria-label={`Show ${img.label}`}
+                    onClick={() => setActiveIndex(i)}
+                    className={`text-sm font-medium min-h-11 px-3 py-1.5 rounded-full transition-colors cursor-pointer ${
+                      i === activeIndex
+                        ? 'theme-accent-bg-subtle theme-accent-text'
+                        : 'theme-text-muted hover:text-[var(--color-text)] hover:bg-[var(--color-bg-subtle)]'
+                    }`}
+                  >
+                    {img.label}
+                  </button>
+                ) : (
+                  <button
+                    key={img.src}
+                    type="button"
+                    role="tab"
+                    aria-selected={i === activeIndex}
+                    aria-label={`Show image ${i + 1}: ${img.alt}`}
+                    onClick={() => setActiveIndex(i)}
+                    className="flex items-center justify-center min-w-11 min-h-11 cursor-pointer rounded-full"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className={`rounded-full transition-all ${
+                        i === activeIndex
+                          ? 'w-6 h-2.5 theme-accent-bg'
+                          : 'w-2.5 h-2.5 bg-[var(--color-indicator-inactive)]'
+                      }`}
+                    />
+                  </button>
+                ),
+              )}
+            </div>
           )}
         </div>
       )}

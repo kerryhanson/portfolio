@@ -217,17 +217,19 @@ export default function ProjectPage() {
                 <div className="space-y-6">
                   {project.insights.map((insight, i) => (
                     <article key={i} className="theme-card rounded-xl p-6 space-y-4">
-                      <h3 className="font-semibold theme-text leading-snug">{insight.title}</h3>
-                      <ul className="space-y-2.5 list-none p-0 m-0">
+                      {insight.title && (
+                        <h3 className="font-semibold theme-text leading-snug">{insight.title}</h3>
+                      )}
+                      <ul className="space-y-3 list-none p-0 m-0">
                         {insight.findings.map((finding, j) => (
                           <li
                             key={j}
-                            className="theme-text-muted leading-relaxed flex items-start gap-2.5 text-sm"
+                            className="theme-text-muted leading-relaxed flex items-start gap-2"
                           >
-                            <span aria-hidden="true" className="theme-accent shrink-0 mt-1.5">
+                            <span aria-hidden="true" className="theme-accent font-bold shrink-0">
                               •
                             </span>
-                            {finding}
+                            <span>{finding}</span>
                           </li>
                         ))}
                       </ul>

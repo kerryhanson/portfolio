@@ -284,3 +284,49 @@ a.theme-card:hover {
 :focus:not(:focus-visible) {
   outline: none;
 }
+
+/* Home hero — decorative image in a right column pseudo-element (no text overlap) */
+.hero-section--visual {
+  --hero-bg-image: none;
+  --hero-bg-image-narrow: none;
+  --hero-bleed-right: max(0px, calc((100vw - 100%) / 2));
+}
+
+/* lg–xl: narrow portrait asset; hidden below 1024px */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero-section--visual::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: calc(-1 * var(--hero-bleed-right));
+    bottom: 0;
+    width: calc(38% + var(--hero-bleed-right));
+    background-image: var(--hero-bg-image-narrow);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: auto 100%;
+    pointer-events: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-section--visual::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 44%;
+    background-image: var(--hero-bg-image);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: auto 100%;
+    pointer-events: none;
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-section--visual::after {
+    width: 48%;
+  }
+}

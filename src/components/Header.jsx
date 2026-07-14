@@ -19,23 +19,23 @@ function getNavTarget(link) {
   return link.to
 }
 
-function isNavActive(link, pathname, hash, featuredInView) {
+function isNavActive(link, pathname, featuredInView) {
   if (link.hash) {
-    return pathname === '/' && (hash === `#${link.hash}` || featuredInView)
+    return pathname === '/' && featuredInView
   }
   if (link.to === '/') {
-    return pathname === '/' && !hash && !featuredInView
+    return pathname === '/' && !featuredInView
   }
   return pathname === link.to
 }
 
 export default function Header() {
-  const { pathname, hash } = useLocation()
+  const { pathname } = useLocation()
   const featuredInView = useFeaturedInView()
   const [menuOpen, setMenuOpen] = useState(false)
 
   const linkClassName = (link) => {
-    const active = isNavActive(link, pathname, hash, featuredInView)
+    const active = isNavActive(link, pathname, featuredInView)
     return `px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
       active
         ? 'theme-accent-bg-subtle theme-accent-text'
@@ -44,7 +44,7 @@ export default function Header() {
   }
 
   const mobileLinkClassName = (link) => {
-    const active = isNavActive(link, pathname, hash, featuredInView)
+    const active = isNavActive(link, pathname, featuredInView)
     return `px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
       active ? 'theme-accent-bg-subtle theme-accent-text' : 'theme-text-muted'
     }`
@@ -68,7 +68,7 @@ export default function Header() {
             <Link
               key={link.label}
               to={getNavTarget(link)}
-              aria-current={isNavActive(link, pathname, hash, featuredInView) ? 'page' : undefined}
+              aria-current={isNavActive(link, pathname, featuredInView) ? 'page' : undefined}
               className={linkClassName(link)}
             >
               {link.label}
@@ -107,7 +107,7 @@ export default function Header() {
               key={link.label}
               to={getNavTarget(link)}
               onClick={() => setMenuOpen(false)}
-              aria-current={isNavActive(link, pathname, hash, featuredInView) ? 'page' : undefined}
+              aria-current={isNavActive(link, pathname, featuredInView) ? 'page' : undefined}
               className={mobileLinkClassName(link)}
             >
               {link.label}

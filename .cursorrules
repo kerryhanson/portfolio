@@ -23,7 +23,7 @@ Personal UX designer portfolio built with React 19, Vite 7, React Router, Tailwi
 
 - Profile/resume content: `src/data/profile.js`
 - Project case studies: `src/data/projects.js` — add optional `image`, `imageAlt`, `imageWidth`, `imageHeight` for real screenshots
-- Hero slider config: `src/config/heroVisual.js` — set `HERO_VISUAL_MODE` to `'placeholder'` or `'flow-diagram'`; configure slide images in `HERO_SLIDES`
+- Hero slider config: `src/config/heroVisual.js` — default `none` (hidden); set `VITE_HERO_VISUAL_MODE=flow-diagram` or `placeholder` in `.env.local` to show; configure slide images in `HERO_SLIDES`
 - Config menu visibility: `src/config/siteConfig.js` — set `VITE_SHOW_CONFIG_MENU=true` in `.env.local` to show (hidden by default)
 - Site access gate: enabled by default (`Summer2026` unless `VITE_SITE_PASSWORD` is set). Set `VITE_SITE_ACCESS=false` to disable. Client-side only — not real security.
 - Static assets go in `public/` (e.g. `public/images/`)
