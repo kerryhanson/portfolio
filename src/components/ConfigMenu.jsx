@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Hammer, Settings } from 'lucide-react'
 import { themes, useTheme } from '../context/ThemeContext'
+import { HERO_VISUAL_MODES, useHeroVisual } from '../context/HeroVisualContext'
 import { DecorativeIcon } from './a11y'
 
 function ThemePicker({ onSelect }) {
@@ -43,6 +44,35 @@ function ThemePicker({ onSelect }) {
             <span className="block text-sm font-medium theme-text">{t.label}</span>
             <span className="block text-sm theme-text-muted">{t.description}</span>
           </span>
+        </button>
+      ))}
+    </div>
+  )
+}
+
+function HeroVisualPicker({ onSelect }) {
+  const { heroVisualMode, setHeroVisualMode } = useHeroVisual()
+
+  return (
+    <div role="radiogroup" aria-label="Home hero visual" className="py-1">
+      {HERO_VISUAL_MODES.map((mode) => (
+        <button
+          key={mode.id}
+          type="button"
+          role="radio"
+          aria-checked={heroVisualMode === mode.id}
+          onClick={() => {
+            setHeroVisualMode(mode.id)
+            onSelect?.()
+          }}
+          className={`w-full text-left px-3 py-2 rounded-lg transition-colors min-h-11 ${
+            heroVisualMode === mode.id
+              ? 'theme-accent-bg-subtle'
+              : 'hover:bg-[var(--color-bg-subtle)]'
+          }`}
+        >
+          <span className="block text-sm font-medium theme-text">{mode.label}</span>
+          <span className="block text-sm theme-text-muted">{mode.description}</span>
         </button>
       ))}
     </div>
@@ -101,7 +131,7 @@ export default function ConfigMenu() {
         id="config-menu"
         role="dialog"
         aria-label="Config"
-        className={`absolute right-0 top-full mt-2 w-56 rounded-xl theme-surface theme-shadow-lg border theme-border transition-all duration-150 z-50 ${
+        className={`absolute right-0 top-full mt-2 w-64 rounded-xl theme-surface theme-shadow-lg border theme-border transition-all duration-150 z-50 ${
           open ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
       >
@@ -112,6 +142,17 @@ export default function ConfigMenu() {
         </div>
         <div className="px-1.5">
           <ThemePicker onSelect={() => setOpen(false)} />
+        </div>
+
+        <div className="my-2 mx-3 border-t theme-border" role="separator" />
+
+        <div className="px-3 pb-1">
+          <p className="text-sm font-semibold theme-text-muted uppercase tracking-wide">
+            Home hero
+          </p>
+        </div>
+        <div className="px-1.5">
+          <HeroVisualPicker onSelect={() => setOpen(false)} />
         </div>
 
         <div className="my-2 mx-3 border-t theme-border" role="separator" />

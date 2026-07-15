@@ -5,7 +5,8 @@ export const profile = {
     '6+ years leading UX strategy, research, and product design for complex platforms in higher education and enterprise. Drawing on web, mobile, and product design experience across industries since 2000.',
   email: 'kerryhanson@gmail.com',
   phone: '612.280.5320',
-  linkedin: 'https://www.linkedin.com/in/kerry-hanson-uxc-0a975547/',
+  linkedin: 'https://www.linkedin.com/in/kerry-hanson-0a975547/',
+  website: 'https://kerryhanson.com/',
   summary: `Enterprise UX Designer with 6+ years of experience leading UX strategy, user research, and product design for complex enterprise platforms. Building on 20+ years of web, mobile, and product design across industries. Proven success delivering scalable, user-centered solutions that improve operational efficiency, product quality, and user experience through evidence-based design, systems thinking, and cross-functional collaboration.
 
 Passionate about modernizing UX practice through AI-enabled workflows that accelerate research, prototyping, and design validation while maintaining a strong focus on accessibility, usability, and measurable business outcomes.`,
@@ -59,7 +60,7 @@ Passionate about modernizing UX practice through AI-enabled workflows that accel
     'Confluence',
     'Miro',
     'Supernova',
-    'Adobe',
+    'Adobe CC',
   ],
 
   experience: [
@@ -71,23 +72,22 @@ Passionate about modernizing UX practice through AI-enabled workflows that accel
           title: 'UX Designer (Enterprise Platforms)',
           period: 'December 2023 – June 2026',
           highlights: [
-            'Led UX for a modular enterprise curriculum platform connecting catalog discovery with curriculum and course authoring for 7+ schools, 50+ academic programs and hundreds of internal users.',
-            'Modernized the UX practice by integrating AI into research synthesis, code-based prototyping, and MVP validation — reducing research synthesis time by 60% and design/prototyping time by 50%.',
-            'Planned and facilitated multi-method UX research on Capella\'s FlexPath Competency Map and competency-based grading, combining coach interviews, learner surveys, and CX support analytics.',
-            'Designed UX for curriculum and course authoring modules, including AI-assisted content generation workflows that streamlined internal curriculum production.',
-            'Led the evolution of the Canvas design system used across Strayer, Capella, and JWMI, training 30+ learning technologists.',
-            'Contributed to enterprise Canvas usability benchmarking and established UX standards across the organization.',
+            'Led end-to-end UX for a greenfield enterprise curriculum platform—catalog discovery, curriculum authoring, and course management—replacing legacy workflows for 7+ schools, 50+ academic programs, and hundreds of internal users.',
+            'Designed curriculum authoring and course management modules—including offering setup, competencies, duplication, and accreditation validations—validated with 30+ academic stakeholders through weekly Power User sessions before engineering handoff.',
+            'Planned and facilitated multi-method research on Capella\'s FlexPath Competency Map and competency-based grading: 4 coach interviews, 138 learner survey responses, and CX support analytics (Qualtrics XM Discover)—synthesized into evidence-based product recommendations.',
+            'Modernized UX practices by integrating AI into research synthesis, code-based prototyping, and MVP validation—reducing research synthesis time by 60% and design/prototyping time by 50%.',
+            'Led evolution of the cross-brand Canvas course design system (Strayer, Capella, JWMI)—documented 14 components and patterns, audited 10 courses, trained 30+ learning technologists, and contributed to enterprise usability benchmarking.',
           ],
         },
         {
           title: 'Interactive Designer',
           period: 'July 2017 – December 2023',
           highlights: [
-            'Led UX research and usability testing for digital learning products across multiple initiatives.',
-            'Designed interaction patterns and templates for an interactive media authoring platform—quizzes, video, card sorting, branching, and more—used to create thousands of formative learning activities across FlexPath, Guided Path, and Strayer courses.',
-            'Led UX strategy and redesign for learner feedback on interactive media—replacing a buried footer link with targeted completion prompts that raised pilot response rates to 10.3% and improved qualitative and satisfaction insights.',
-            'Designed and developed accessible web applications using wireframes, prototypes, and HTML/CSS.',
-            'Conducted UX and accessibility audits that improved consistency and usability across digital learning products.',
+            'Designed reusable interaction patterns, templates, and authoring workflows for a formative media platform producing 1000+ activities across FlexPath, Guided Path, and Strayer—quizzes, video, branching, card sorting, and more—with WCAG-compliant learner-facing components.',
+            'Led learner usability testing across published activities—25 sessions spanning 5 studies (~4 per year)—informing feedback, navigation, and multi-page activity patterns used platform-wide.',
+            'Led UX strategy and redesign for in-context learner feedback at activity completion—pilot response rates rose from ~0% to 10.3%, with 4/5 average satisfaction and 300+ qualitative responses in the first quarterly audit.',
+            'Ensured WCAG compliance across interaction patterns and conducted UX/accessibility audits that improved consistency across digital learning products.',
+            'Built wireframes, prototypes, and HTML/CSS for learner-facing activities and internal authoring workflows.',
           ],
         },
       ],

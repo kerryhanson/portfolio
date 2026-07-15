@@ -21,4 +21,11 @@ export const workshopNav = [
     title: 'Patterns',
     items: [{ to: '/workshop/patterns', label: 'Hero flow diagram' }],
   },
+  {
+    title: 'Project',
+    items: [
+      { to: '/workshop/tech-stack', label: 'Tech stack' },
+      { to: '/workshop/changelog', label: 'Changelog' },
+    ],
+  },
 ]

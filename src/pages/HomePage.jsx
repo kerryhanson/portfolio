@@ -3,24 +3,37 @@ import { profile } from '../data/profile'
 import { getFeaturedProjects } from '../data/projects'
 import { DecorativeIcon } from '../components/a11y'
 import ProjectCard from '../components/ProjectCard'
-import { HERO_IMAGE, HERO_IMAGE_NARROW, showHeroBackgroundImage } from '../config/heroVisual'
+import HeroVisual from '../components/HeroVisual'
+import { HERO_IMAGE } from '../config/heroVisual'
+import { useHeroVisual } from '../context/HeroVisualContext'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 export default function HomePage() {
   const featured = getFeaturedProjects()
+  const { heroVisualMode } = useHeroVisual()
 
   useDocumentMeta({ title: 'Kerry Hanson — UX Designer' })
 
+  const showHeroBackgroundImage = heroVisualMode === 'image'
+  const showHeroProfileColumn = heroVisualMode === 'profile'
+  const showCompactHeroVisual = showHeroBackgroundImage || showHeroProfileColumn
+
   const heroSectionClass = showHeroBackgroundImage
     ? 'hero-section--visual relative max-w-6xl mx-auto px-6 pt-8 md:pt-10 pb-6 md:pb-8'
-    : 'max-w-6xl mx-auto px-6 pt-8 pb-6 md:pt-12 md:pb-8'
+    : showHeroProfileColumn
+      ? 'max-w-6xl mx-auto px-6 pt-8 pb-6 md:pt-12 md:pb-8 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center'
+      : 'max-w-6xl mx-auto px-6 pt-8 pb-6 md:pt-12 md:pb-8'
 
   const heroSectionStyle = showHeroBackgroundImage
-    ? {
-        '--hero-bg-image': `url(${HERO_IMAGE.src})`,
-        '--hero-bg-image-narrow': `url(${HERO_IMAGE_NARROW.src})`,
-      }
+    ? { '--hero-bg-image': `url(${HERO_IMAGE.src})` }
     : undefined
+
+  const headerClassName = [
+    showCompactHeroVisual ? 'hero-header--with-visual' : 'space-y-5 md:space-y-6',
+    showHeroBackgroundImage ? 'relative z-10 lg:max-w-3xl' : '',
+  ]
+    .filter(Boolean)
+    .join(' ')
 
   return (
     <>
@@ -29,25 +42,31 @@ export default function HomePage() {
         style={heroSectionStyle}
         aria-labelledby="hero-heading"
       >
-        <header className="relative z-10 max-w-3xl space-y-5 md:space-y-6">
-          <p className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full theme-badge text-sm font-medium">
+        <header className={headerClassName}>
+          <p className="hero-header__badge inline-flex w-fit self-start items-center gap-2 px-3 py-1.5 rounded-full theme-badge text-sm font-medium">
             <DecorativeIcon icon={Target} size={14} />
             Senior UX Designer
           </p>
 
+          {showCompactHeroVisual && (
+            <div className="hero-header__media lg:hidden">
+              <HeroVisual compact />
+            </div>
+          )}
+
           <h1
             id="hero-heading"
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight theme-text leading-[1.1]"
+            className="hero-header__heading font-bold tracking-tight theme-text leading-[1.1] text-4xl sm:text-5xl lg:text-6xl"
           >
             Designing experiences that{' '}
             <span className="theme-accent">work for people</span>
           </h1>
 
-          <p className="text-lg theme-text-muted leading-relaxed">
+          <p className="hero-header__tagline text-lg theme-text-muted leading-relaxed">
             {profile.tagline}
           </p>
 
-          <div className="pt-2">
+          <div className="hero-header__cta pt-2">
             <a
               href={`mailto:${profile.email}`}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl theme-btn-primary text-sm font-medium"
@@ -57,11 +76,17 @@ export default function HomePage() {
             </a>
           </div>
 
-          <p className="hidden sm:flex items-center gap-2 pt-2 theme-text-muted text-sm">
+          <p className="hero-header__cert hidden sm:flex items-center gap-2 pt-2 theme-text-muted text-sm">
             <DecorativeIcon icon={Award} size={16} className="theme-accent shrink-0" />
             UX Certified (UXC) — Nielsen Norman Group, 2021
           </p>
         </header>
+
+        {showHeroProfileColumn && (
+          <div className="relative z-10 hidden lg:block">
+            <HeroVisual />
+          </div>
+        )}
       </section>
 
       <section

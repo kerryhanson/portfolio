@@ -1,51 +1,51 @@
-import { HERO_IMAGE, HERO_VISUAL_MODE } from '../config/heroVisual'
-import PlaceholderImage from './PlaceholderImage'
-import HeroFlowDiagram from './HeroFlowDiagram'
+import { HERO_IMAGE, HERO_PROFILE } from '../config/heroVisual'
+import { useHeroVisual } from '../context/HeroVisualContext'
 import ResponsiveImage from './ResponsiveImage'
 
-const desktopClassName = 'hidden lg:block max-w-md mx-auto lg:max-w-none w-full theme-shadow-lg'
-const mobileBannerClassName = 'lg:hidden w-full theme-shadow-lg'
+const compactClassName =
+  'w-[7.5rem] sm:w-32 aspect-square rounded-2xl border theme-border theme-shadow-lg object-cover'
 
-export default function HeroVisual() {
-  if (HERO_VISUAL_MODE === 'none') {
-    return null
-  }
+const fullClassName =
+  'w-full max-w-sm mx-auto lg:max-w-none aspect-square object-cover rounded-2xl border theme-border theme-shadow-lg'
 
-  if (HERO_VISUAL_MODE === 'image') {
+export default function HeroVisual({ compact = false }) {
+  const { heroVisualMode } = useHeroVisual()
+
+  if (heroVisualMode === 'profile') {
     return (
-      <ResponsiveImage
-        src={HERO_IMAGE.src}
-        alt=""
-        width={HERO_IMAGE.width}
-        height={HERO_IMAGE.height}
-        sizes={HERO_IMAGE.sizes}
-        loading="eager"
-        fetchPriority="high"
-        className="block w-full h-auto object-contain object-right pointer-events-none select-none"
-      />
-    )
-  }
-
-  if (HERO_VISUAL_MODE === 'flow-diagram') {
-    return (
-      <>
-        <PlaceholderImage
-          label="UX research, design, and impact"
-          aspectRatio="5/2"
-          className={mobileBannerClassName}
-          iconSize={32}
+      <figure className="m-0">
+        <ResponsiveImage
+          src={HERO_PROFILE.src}
+          alt="Kerry Hanson profile photo"
+          width={HERO_PROFILE.width}
+          height={HERO_PROFILE.height}
+          sizes={compact ? '128px' : HERO_PROFILE.sizes}
+          loading="eager"
+          fetchPriority="high"
+          className={compact ? compactClassName : fullClassName}
         />
-        <HeroFlowDiagram className={desktopClassName} />
-      </>
+      </figure>
     )
   }
 
-  return (
-    <PlaceholderImage
-      label="Portrait / hero image"
-      aspectRatio="4/5"
-      className="max-w-md mx-auto lg:max-w-none w-full theme-shadow-lg"
-      iconSize={40}
-    />
-  )
+  if (heroVisualMode === 'image') {
+    if (!compact) return null
+
+    return (
+      <figure className="m-0">
+        <ResponsiveImage
+          src={HERO_IMAGE.src}
+          alt=""
+          width={HERO_IMAGE.width}
+          height={HERO_IMAGE.height}
+          sizes="128px"
+          loading="eager"
+          fetchPriority="high"
+          className={`${compactClassName} object-contain theme-bg-subtle p-1`}
+        />
+      </figure>
+    )
+  }
+
+  return null
 }

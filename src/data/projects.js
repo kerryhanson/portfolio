@@ -32,7 +32,7 @@ export const projects = [
     id: 'curriculum-catalog',
     slug: 'curriculum-catalog',
     title: 'Enterprise Curriculum Platform',
-    subtitle: 'Modular greenfield platform for catalog discovery, curriculum authoring, and course authoring',
+    subtitle: 'Modular greenfield platform for catalog discovery, curriculum authoring, and course management',
     featured: true,
     tags: ['UX Strategy', 'Enterprise', 'Research', 'Information Architecture'],
     summary:
@@ -40,22 +40,22 @@ export const projects = [
     summaryBullets: [
       'Catalog Discovery: Streamlined how users explore academic programs.',
       'Curriculum Authoring: Created intuitive tools for building curriculum.',
-      'Course Authoring: Designed parallel authoring workflows for seamless content creation.',
+      'Course Management: Designed parallel management workflows for seamless content creation.',
     ],
     summaryClosing:
       'This unified design successfully modernized workflows for hundreds of internal users.',
     challenge:
       'A legacy curriculum ecosystem was fragmented across discovery, program definition, and course creation workflows. Teams faced content discoverability gaps, inconsistent institutional alignment, and disconnected experiences across a large multi-brand education organization.',
     approach: [
-      'Partnered with product, engineering, and academic stakeholders to define UX strategy and a modular platform vision for catalog, curriculum, and course authoring.',
+      'Partnered with product, engineering, and academic stakeholders to define UX strategy and a modular platform vision for catalog, curriculum, and course management.',
       'Conducted user research with internal authors, instructional designers, and program administrators to map workflows and pain points across all three modules.',
-      'Designed information architecture and interaction patterns for catalog discovery, curriculum authoring, and course authoring at enterprise scale.',
+      'Designed information architecture and interaction patterns for catalog discovery, curriculum authoring, and course management at enterprise scale.',
       'Established design standards and QA processes including design inventories and AI-assisted functional test creation.',
     ],
     outcomeStats: [
       {
         value: '12',
-        label: 'Stakeholder interviews across catalog, curriculum, and course authoring',
+        label: 'Stakeholder interviews across catalog, curriculum, and course management',
       },
       {
         value: '18',
@@ -100,7 +100,7 @@ export const projects = [
     approachImageHeight: 576,
     approachImageCaption: 'Platform catalog experience prototype',
     insightsIntro:
-      'Key findings from stakeholder interviews and workflow sessions across catalog, curriculum, and course authoring.',
+      'Key findings from stakeholder interviews and workflow sessions across catalog, curriculum, and course management.',
     insights: [
       {
         findings: [
@@ -115,7 +115,7 @@ export const projects = [
       finalDesignImage({
         src: '/images/projects/curriculum-catalog-final.jpg',
         alt: 'Stratus catalog dashboard displayed on a laptop showing pinned offerings and courses',
-        caption: 'Stratus catalog dashboard with pinned offerings and courses',
+        caption: 'Catalog dashboard with pinned offerings and courses',
         retinaSrc: retinaSrcFor('/images/projects/curriculum-catalog-final.jpg'),
       }),
       finalDesignImage({
@@ -136,24 +136,24 @@ export const projects = [
     id: 'curriculum-authoring-modules',
     slug: 'curriculum-authoring-modules',
     title: 'Curriculum Authoring Modules',
-    subtitle: 'Authoring module UX within the enterprise curriculum platform',
+    subtitle: 'Curriculum authoring and course management UX within the enterprise curriculum platform',
     featured: true,
     tags: ['AI/ML', 'Prototyping', 'Workflow Design', 'Enterprise'],
     summary:
-      'As Lead UX Designer, shaped the curriculum and course authoring modules within a modular enterprise platform—replacing legacy workflows with clearer offering setup, course management, and validation flows. Contributed to UX for AI-powered course authoring capabilities that support content generation.',
+      'As Lead UX Designer, shaped curriculum authoring and course management modules within a modular enterprise platform—curriculum authoring for offering setup and program definition; course management for competencies, alignments, duplication, and accreditation validations. Contributed to UX for AI-powered curriculum authoring capabilities that support content generation.',
     challenge:
       'Authoring teams needed clearer, more efficient ways to define offerings, manage courses, and align accreditation standards. Legacy tools were dense and inconsistent, creating rework and slowing curriculum production across a large multi-brand education organization.',
     approach: [
-      'Defined UX strategy and interaction patterns for curriculum and course authoring modules at enterprise scale.',
-      'Mapped legacy authoring workflows and redesigned offering setup, course management, and validation experiences.',
-      'Partnered on AI-powered course authoring capabilities that support content generation.',
+      'Defined UX strategy and interaction patterns for curriculum authoring and course management modules at enterprise scale.',
+      'Mapped legacy workflows and redesigned curriculum authoring experiences for offering setup and program definition, plus course management flows for competencies, alignments, and validations.',
+      'Partnered on AI-powered curriculum authoring capabilities that support content generation.',
       'Applied AI within the design process to speed research synthesis, prototyping, and MVP validation.',
       'Attended weekly Power User sessions to demo prototypes and gathered async feedback through a shareable prototype shared across academic teams—validating flows with 30+ stakeholders before engineering handoff.',
     ],
     outcomeStats: [
       {
         value: '10',
-        label: 'Core authoring workflows redesigned—from offering setup and course management to outcomes, competencies, versioning, and duplication',
+        label: 'Core workflows redesigned across curriculum authoring and course management—from offering setup and program definition through competencies, alignments, versioning, and duplication',
       },
       {
         value: '30+',
@@ -184,7 +184,7 @@ export const projects = [
     approachImageWidth: 1024,
     approachImageHeight: 576,
     approachImageCaption:
-      'Curriculum and course authoring module prototype—demoed in weekly Power User sessions and shared for async feedback across academic teams',
+      'Curriculum authoring and course management module prototypes—demoed in weekly Power User sessions and shared for async feedback across academic teams',
     finalDesignImages: [
       finalDesignImage({
         src: '/images/projects/ai-authoring-tools-final.jpg',
@@ -260,7 +260,7 @@ export const projects = [
       finalDesignImage({
         src: '/images/projects/canvas-design-system-final.jpg',
         alt: 'Canvas design system components including content cards, media hooks, accordion, blockquote, and definition tooltip',
-        caption: 'Canvas course components—content cards, media hooks, and accordion patterns',
+        caption: 'Canvas course patterns and components',
         retinaSrc: retinaSrcFor('/images/projects/canvas-design-system-final.jpg'),
       }),
       finalDesignImage({

@@ -1,11 +1,10 @@
 /**
  * Site feature flags.
  *
- * Config menu (theme picker + Workshop link):
- * Set VITE_SHOW_CONFIG_MENU=true in .env.local to show it in the global nav.
- * Hidden by default when unset or false.
+ * Config menu (theme picker, hero visual, + Workshop link):
+ * Shown by default. Set VITE_SHOW_CONFIG_MENU=false in .env.local to hide.
  */
-export const showConfigMenu = import.meta.env.VITE_SHOW_CONFIG_MENU === 'true'
+export const showConfigMenu = import.meta.env.VITE_SHOW_CONFIG_MENU !== 'false'
 
 /**
  * Client-side site access gate (soft barrier — not real security).

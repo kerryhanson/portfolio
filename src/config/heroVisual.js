@@ -1,45 +1,50 @@
 import heroImageSrc from '../assets/hero-image.png'
-import heroImageNarrowSrc from '../assets/hero-image-narrow.png'
 
 /**
  * Hero visual on the home page.
  *
  * Modes:
- * - 'image' — decorative hero image (default)
+ * - 'profile' — two-column hero with About page profile photo (default)
+ * - 'image' — decorative hero illustration (background on desktop; inline on mobile)
  * - 'none' — no hero visual (text-only hero)
- * - 'flow-diagram' — Research / Design / Measure carousel with expertise tabs
- * - 'placeholder' — static placeholder frame
  *
- * Override via VITE_HERO_VISUAL_MODE in .env.local (e.g. flow-diagram).
+ * Default via VITE_HERO_VISUAL_MODE in .env.local. Override at runtime in the Config menu.
  */
-const VALID_HERO_VISUAL_MODES = ['image', 'none', 'flow-diagram', 'placeholder']
-const configuredMode = import.meta.env.VITE_HERO_VISUAL_MODE ?? 'image'
+export const HERO_VISUAL_MODE_IDS = ['profile', 'image', 'none']
 
-export const HERO_VISUAL_MODE = VALID_HERO_VISUAL_MODES.includes(configuredMode)
+export const HERO_VISUAL_MODES = [
+  { id: 'profile', label: 'Profile photo', description: 'Traditional two-column layout' },
+  { id: 'image', label: 'Decorative', description: 'Background illustration' },
+  { id: 'none', label: 'Text only', description: 'No hero visual' },
+]
+
+const configuredMode = import.meta.env.VITE_HERO_VISUAL_MODE ?? 'profile'
+
+export function isValidHeroVisualMode(mode) {
+  return HERO_VISUAL_MODE_IDS.includes(mode)
+}
+
+export const DEFAULT_HERO_VISUAL_MODE = isValidHeroVisualMode(configuredMode)
   ? configuredMode
-  : 'image'
-
-export const showHeroVisual = HERO_VISUAL_MODE !== 'none'
-
-export const showHeroBackgroundImage = HERO_VISUAL_MODE === 'image'
+  : 'profile'
 
 export const HERO_IMAGE = {
   src: heroImageSrc,
   width: 1110,
   height: 1012,
-  sizes: '(min-width: 1280px) 45vw, 85vw',
+  sizes: '(min-width: 1024px) 45vw, 128px',
 }
 
-export const HERO_IMAGE_NARROW = {
-  src: heroImageNarrowSrc,
-  width: 504,
-  height: 1014,
-  sizes: '(min-width: 1024px) 38vw',
+export const HERO_PROFILE = {
+  src: '/images/kerry-hanson-profile.jpg',
+  width: 800,
+  height: 800,
+  sizes: '(min-width: 1024px) 45vw, 128px',
 }
 
 /**
  * Hero slider slides — one image per step (Research, Design, Measure).
- * Used when HERO_VISUAL_MODE is 'flow-diagram'.
+ * Used when hero visual mode is 'flow-diagram'.
  * Place files in public/ and set image paths. Leave null to show placeholders.
  */
 export const HERO_SLIDES = [

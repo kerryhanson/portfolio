@@ -1,8 +1,11 @@
 import HeroFlowDiagram from '../../components/HeroFlowDiagram'
-import { HERO_SLIDES, HERO_VISUAL_MODE } from '../../config/heroVisual'
+import { HERO_SLIDES } from '../../config/heroVisual'
+import { useHeroVisual } from '../../context/HeroVisualContext'
 import { Callout, CodeSnippet, DemoBlock, PageIntro } from '../components/WorkshopPrimitives'
 
 export default function WorkshopPatternsPage() {
+  const { heroVisualMode } = useHeroVisual()
+
   return (
     <>
       <PageIntro
@@ -12,9 +15,9 @@ export default function WorkshopPatternsPage() {
 
       <div className="space-y-10">
         <Callout>
-          The hero visual mode is controlled by <code>HERO_VISUAL_MODE</code> in{' '}
-          <code>src/config/heroVisual.js</code>. Current mode:{' '}
-          <strong className="theme-accent-text">{HERO_VISUAL_MODE}</strong>.
+          The home hero visual is switched in the Config menu or via{' '}
+          <code>VITE_HERO_VISUAL_MODE</code> in <code>.env.local</code>. Current mode:{' '}
+          <strong className="theme-accent-text">{heroVisualMode}</strong>.
         </Callout>
 
         <DemoBlock

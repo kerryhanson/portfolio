@@ -1,6 +1,7 @@
 import {
   Award,
   Briefcase,
+  Download,
   GraduationCap,
   Link2,
   Mail,
@@ -68,6 +69,36 @@ export default function AboutPage() {
             >
               <DecorativeIcon icon={Link2} size={15} />
               LinkedIn
+            </a>
+            {profile.website ? (
+              <a
+                href={profile.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm theme-link"
+              >
+                <DecorativeIcon icon={Link2} size={15} />
+                Portfolio
+              </a>
+            ) : null}
+          </nav>
+
+          <nav className="flex flex-wrap gap-4 pt-2" aria-label="Resume downloads">
+            <a
+              href="/resume/kerry-hanson-resume.pdf"
+              download
+              className="inline-flex items-center gap-2 text-sm theme-link"
+            >
+              <DecorativeIcon icon={Download} size={15} />
+              Download resume (PDF)
+            </a>
+            <a
+              href="/resume/kerry-hanson-resume.docx"
+              download
+              className="inline-flex items-center gap-2 text-sm theme-link"
+            >
+              <DecorativeIcon icon={Download} size={15} />
+              Download resume (Word)
             </a>
           </nav>
         </header>

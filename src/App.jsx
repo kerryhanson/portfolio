@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
+import { HeroVisualProvider } from './context/HeroVisualContext'
 import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
 import SiteAccessGate from './components/SiteAccessGate'
@@ -17,6 +18,8 @@ import WorkshopIconsPage from './workshop/pages/WorkshopIconsPage'
 import WorkshopButtonsPage from './workshop/pages/WorkshopButtonsPage'
 import WorkshopComponentsPage from './workshop/pages/WorkshopComponentsPage'
 import WorkshopPatternsPage from './workshop/pages/WorkshopPatternsPage'
+import WorkshopTechStackPage from './workshop/pages/WorkshopTechStackPage'
+import WorkshopChangelogPage from './workshop/pages/WorkshopChangelogPage'
 
 export default function App() {
   const routes = (
@@ -39,6 +42,8 @@ export default function App() {
           <Route path="buttons" element={<WorkshopButtonsPage />} />
           <Route path="components" element={<WorkshopComponentsPage />} />
           <Route path="patterns" element={<WorkshopPatternsPage />} />
+          <Route path="tech-stack" element={<WorkshopTechStackPage />} />
+          <Route path="changelog" element={<WorkshopChangelogPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
@@ -46,7 +51,9 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      {siteAccessEnabled ? <SiteAccessGate>{routes}</SiteAccessGate> : routes}
+      <HeroVisualProvider>
+        {siteAccessEnabled ? <SiteAccessGate>{routes}</SiteAccessGate> : routes}
+      </HeroVisualProvider>
     </ThemeProvider>
   )
 }

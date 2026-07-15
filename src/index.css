@@ -285,31 +285,12 @@ a.theme-card:hover {
   outline: none;
 }
 
-/* Home hero — decorative image in a right column pseudo-element (no text overlap) */
+/* Home hero — decorative background on desktop; compact inline image below 1024px */
 .hero-section--visual {
   --hero-bg-image: none;
-  --hero-bg-image-narrow: none;
-  --hero-bleed-right: max(0px, calc((100vw - 100%) / 2));
 }
 
-/* lg–xl: narrow portrait asset; hidden below 1024px */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .hero-section--visual::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: calc(-1 * var(--hero-bleed-right));
-    bottom: 0;
-    width: calc(38% + var(--hero-bleed-right));
-    background-image: var(--hero-bg-image-narrow);
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-size: auto 100%;
-    pointer-events: none;
-  }
-}
-
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .hero-section--visual::after {
     content: '';
     position: absolute;
@@ -328,5 +309,64 @@ a.theme-card:hover {
 @media (min-width: 1536px) {
   .hero-section--visual::after {
     width: 48%;
+  }
+}
+
+/* Home hero — compact mobile layout (profile + decorative) */
+.hero-header--with-visual .hero-header__badge {
+  justify-self: start;
+  align-self: start;
+  width: max-content;
+  max-width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .hero-header--with-visual {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    column-gap: 0.75rem;
+    row-gap: 1.25rem;
+    align-items: start;
+  }
+
+  .hero-header--with-visual .hero-header__badge {
+    grid-column: 1 / -1;
+  }
+
+  .hero-header--with-visual .hero-header__media {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .hero-header--with-visual .hero-header__heading {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    font-size: clamp(1.875rem, 6vw, 2.375rem);
+  }
+
+  .hero-header--with-visual .hero-header__tagline,
+  .hero-header--with-visual .hero-header__cta,
+  .hero-header--with-visual .hero-header__cert {
+    grid-column: 1 / -1;
+  }
+
+  .hero-header--with-visual .hero-header__cta {
+    padding-top: 0;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hero-header--with-visual {
+    grid-template-columns: 8rem 1fr;
+    column-gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-header--with-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 }
