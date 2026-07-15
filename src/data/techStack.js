@@ -86,7 +86,7 @@ export const techStack = {
 export const envVariables = [
   {
     name: 'VITE_SHOW_CONFIG_MENU',
-    default: 'shown (unless set to false)',
+    default: 'hidden (set to true to show)',
     purpose: 'Show or hide the Config menu in global navigation.',
   },
   {
