@@ -4,6 +4,16 @@
  */
 export const changelog = [
   {
+    date: '2026-07-16',
+    title: 'Public launch, resume, and project updates',
+    items: [
+      'Removed client-side site access gate so the portfolio is publicly viewable.',
+      'Resume generator output updated with recent profile and experience copy.',
+      'Project pages show the next featured case studies in home-page order.',
+      'Enterprise Curriculum Platform outcome labels and profile copy refinements.',
+    ],
+  },
+  {
     date: '2026-07-15',
     title: 'Profile hero, Config hero switcher, Workshop docs',
     items: [
