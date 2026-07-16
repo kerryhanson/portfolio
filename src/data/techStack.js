@@ -54,7 +54,6 @@ export const techStack = {
   features: {
     title: 'Site features',
     items: [
-      { name: 'SiteAccessGate', role: 'Client-side access gate', notes: 'Soft password barrier; env-configurable, not real security.' },
       { name: 'Config menu', role: 'Theme + hero toggles', notes: 'Hidden from search; Workshop link included.' },
       { name: 'Workshop', role: 'Internal design system docs', notes: '`noindex` via robots.txt and page meta.' },
       { name: 'useDocumentMeta', role: 'Per-route title and robots', notes: 'Dynamic `<title>` and meta tags.' },
@@ -93,15 +92,5 @@ export const envVariables = [
     name: 'VITE_HERO_VISUAL_MODE',
     default: 'profile',
     purpose: 'Default home hero: profile | image | none.',
-  },
-  {
-    name: 'VITE_SITE_ACCESS',
-    default: 'enabled',
-    purpose: 'Set to false to disable the client-side access gate.',
-  },
-  {
-    name: 'VITE_SITE_PASSWORD',
-    default: 'Summer2026',
-    purpose: 'Password for the site access gate.',
   },
 ]

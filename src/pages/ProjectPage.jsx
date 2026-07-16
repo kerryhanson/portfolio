@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft, Calendar, User, Wrench } from 'lucide-react'
-import { getProjectBySlug, projects } from '../data/projects'
+import { getNextFeaturedProjects, getProjectBySlug } from '../data/projects'
 import { DecorativeIcon } from '../components/a11y'
 import ProjectImage from '../components/ProjectImage'
 import ProjectDetailImage from '../components/ProjectDetailImage'
@@ -35,9 +35,7 @@ export default function ProjectPage() {
     )
   }
 
-  const related = projects
-    .filter((p) => p.id !== project.id)
-    .slice(0, 2)
+  const related = getNextFeaturedProjects(project)
 
   return (
     <article>

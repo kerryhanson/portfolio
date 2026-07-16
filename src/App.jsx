@@ -3,8 +3,6 @@ import { ThemeProvider } from './context/ThemeContext'
 import { HeroVisualProvider } from './context/HeroVisualContext'
 import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
-import SiteAccessGate from './components/SiteAccessGate'
-import { siteAccessEnabled } from './config/siteConfig'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ProjectPage from './pages/ProjectPage'
@@ -52,7 +50,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <HeroVisualProvider>
-        {siteAccessEnabled ? <SiteAccessGate>{routes}</SiteAccessGate> : routes}
+        {routes}
       </HeroVisualProvider>
     </ThemeProvider>
   )

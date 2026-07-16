@@ -67,11 +67,11 @@ export const projects = [
       },
       {
         value: '7+',
-        label: 'Schools supported by the design foundation',
+        label: 'Schools supported by the platform',
       },
       {
         value: '50+',
-        label: 'Academic programs supported by the design foundation',
+        label: 'Academic programs supported by the platform',
       },
     ],
     outcomes: [
@@ -533,4 +533,17 @@ export function getProjectBySlug(slug) {
 
 export function getFeaturedProjects() {
   return projects.filter((p) => p.featured)
+}
+
+/** Next N featured projects after the current one in home-page order, wrapping at the end. */
+export function getNextFeaturedProjects(project, count = 2) {
+  const featured = getFeaturedProjects()
+  if (featured.length === 0 || count <= 0) return []
+
+  const index = featured.findIndex((p) => p.id === project.id)
+  if (index === -1) return featured.slice(0, count)
+
+  return Array.from({ length: Math.min(count, featured.length) }, (_, offset) => {
+    return featured[(index + offset + 1) % featured.length]
+  })
 }

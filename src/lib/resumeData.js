@@ -11,17 +11,17 @@ const COMPACT_ROLE_SUMMARY = {
   'Robert Half, The Creative Group|UI/UX Designer':
     'Completed multiple contracts as part of Robert Half\'s Salaried Professional Services.',
   'Thrivent Financial|Email Developer (Contract)':
-    'Developed responsive marketing email templates and landing pages in HubSpot for Thrivent\'s cuLearn program; built reusable email components and tested templates across email clients for rendering consistency and deliverability.',
+    'Developed responsive marketing email templates and landing pages in HubSpot for Thrivent\'s cuLearn program. Built reusable email components and tested templates across email clients for rendering consistency and deliverability.',
   'Christopher and Banks|UI/Web Designer (Contract)':
-    'Designed and implemented UI updates for the e-commerce site in Demandware (Salesforce Commerce Cloud); produced HTML and CSS for category pages, promotional modules, and responsive layout updates.',
+    'Designed and implemented UI updates for the e-commerce site in Demandware (Salesforce Commerce Cloud). Produced HTML and CSS for category pages, promotional modules, and responsive layout updates.',
   'Schwan\'s Food Company|UX Designer (Contract)':
     'Created wireframes and mockups to refine the e-commerce checkout flow and contributed UX recommendations on layout, step progression, and content hierarchy.',
   'Colder Products Company (CPC)|Design and Production Artist':
-    'Designed and coded responsive HTML email templates and web/print assets for B2B marketing, product launches, and sales enablement in a regulated industrial environment.',
+    'Designed and coded responsive HTML email templates and web/print assets for B2B marketing, product launches, and sales enablement.',
   'Drebenstedt Consulting|UI Designer':
-    'Designed UI for Angular-based web applications—from wireframes through visual design, HTML/CSS, and Angular templates for workflows, forms, and dashboard-style interfaces.',
+    'Designed UI for Angular-based web applications from wireframes through visual design and front-end implementation. Built HTML, CSS, and Angular templates for workflows, forms, and dashboard-style interfaces.',
   'Accurate Image Marketing|UI Designer, Production, and Project Manager':
-    'Designed and maintained iOS, Android, and web applications for 30+ clients over 15 years; led end-to-end delivery as designer, production artist, and project manager including wireframes, prototypes, and HTML/CSS implementation.',
+    'Designed and maintained iOS, Android, and web applications for 30+ clients over 15 years. Led end-to-end delivery as designer, production artist, and project manager including wireframes, prototypes, and HTML/CSS implementation.',
 }
 
 export function getCompanyDisplayName(company) {
