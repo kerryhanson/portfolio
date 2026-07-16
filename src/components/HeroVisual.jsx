@@ -3,10 +3,10 @@ import { useHeroVisual } from '../context/HeroVisualContext'
 import ResponsiveImage from './ResponsiveImage'
 
 const compactClassName =
-  'w-[7.5rem] sm:w-32 aspect-square rounded-2xl border theme-border theme-shadow-lg object-cover'
+  'w-[8rem] sm:w-[8.5rem] aspect-square rounded-2xl border theme-border theme-shadow-lg object-cover'
 
 const fullClassName =
-  'w-full max-w-sm mx-auto lg:max-w-none aspect-square object-cover rounded-2xl border theme-border theme-shadow-lg'
+  'w-full max-w-[21rem] lg:max-w-[25rem] mx-auto aspect-square object-cover rounded-2xl border theme-border theme-shadow-lg'
 
 export default function HeroVisual({ compact = false }) {
   const { heroVisualMode } = useHeroVisual()
@@ -19,7 +19,7 @@ export default function HeroVisual({ compact = false }) {
           alt="Kerry Hanson profile photo"
           width={HERO_PROFILE.width}
           height={HERO_PROFILE.height}
-          sizes={compact ? '128px' : HERO_PROFILE.sizes}
+          sizes={compact ? '136px' : '(min-width: 1024px) 400px, 336px'}
           loading="eager"
           fetchPriority="high"
           className={compact ? compactClassName : fullClassName}

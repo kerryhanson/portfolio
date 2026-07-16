@@ -30,6 +30,33 @@ Personal UX designer portfolio built with React 19, Vite 7, React Router, Tailwi
 - Site changelog: `src/data/changelog.js` — add an entry when shipping meaningful updates; rendered at `/workshop/changelog`
 - Tech stack reference: `src/data/techStack.js` — update when dependencies or deployment change; rendered at `/workshop/tech-stack`
 
+## Writing style (profile and project copy)
+
+When editing `src/data/profile.js`, `src/data/projects.js`, or resume-related content, write like a human professional, not generated marketing copy.
+
+### Punctuation
+
+- Prefer **periods and commas**. Use short, clear sentences over long compound lines.
+- **Em dashes (—):** Avoid in body copy, bullets, summaries, and stat labels. At most one per paragraph when truly needed. Never use an em dash to append a list or clause that could be its own sentence.
+- **Semicolons:** Use sparingly. Do not join two independent ideas with a semicolon when two sentences read more naturally. Do not combine em dashes and semicolons in the same sentence.
+- **Colons:** Fine before a short list in case study prose. Avoid colons in resume bullets and tight stat labels when a comma or period works.
+- **En dashes (–):** Use only for **date ranges** (e.g. `2023 – 2026`) and numeric ranges where appropriate.
+- **Hyphens (-):** Standard compound adjectives only (e.g. `AI-assisted`, `cross-functional`).
+
+### Tone and structure
+
+- One main idea per sentence. If you pause more than twice while reading aloud, split the sentence.
+- Resume and About experience bullets: favor **two short sentences** over one dense line packed with metrics, em dashes, and parenthetical lists.
+- Outcome stat **labels** should be plain phrases, not keyword chains. Put detail in the case study body, not the metric caption.
+- **Do not change** punctuation inside direct quotes from interviews or stakeholders.
+- Keep metrics, but integrate them naturally: *"Pilot response rates rose from ~0% to 10.3%."* not stacked inline lists.
+
+### Before shipping copy changes
+
+1. Scan the diff for `—` and `;` in user-facing strings.
+2. Read changed paragraphs aloud once.
+3. If updating `profile.js`, run `npm run resume:generate` so PDF and Word stay in sync.
+
 ## UI patterns
 
 - Use `PlaceholderImage` for image slots without assets yet; use `ProjectImage` for project cards/pages (handles image vs placeholder).

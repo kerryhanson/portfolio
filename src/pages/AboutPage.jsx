@@ -175,7 +175,7 @@ export default function AboutPage() {
                     {role.highlights.map((highlight, i) => (
                       <li
                         key={i}
-                        className="text-sm theme-text-muted leading-relaxed flex gap-2"
+                        className="theme-text-muted leading-relaxed flex gap-2"
                       >
                         <span
                           aria-hidden="true"

@@ -104,8 +104,8 @@ export const projects = [
     insights: [
       {
         findings: [
-          'Authors need a single workspace for curriculum and course work—not a patchwork of legacy tools.',
-          'Findability is a major pain point in legacy systems; new users struggle most during onboarding.',
+          'Authors need a single workspace for curriculum and course work, not a patchwork of legacy tools.',
+          'Findability is a major pain point in legacy systems. New users struggle most during onboarding.',
           'Stakeholders switch between multiple systems to complete workflows that should be connected.',
           'Pinning frequently used offerings and courses saves navigation time and reduces workflow errors.',
         ],
@@ -140,7 +140,7 @@ export const projects = [
     featured: true,
     tags: ['AI/ML', 'Prototyping', 'Workflow Design', 'Enterprise'],
     summary:
-      'As Lead UX Designer, shaped curriculum authoring and course management modules within a modular enterprise platform—curriculum authoring for offering setup and program definition; course management for competencies, alignments, duplication, and accreditation validations. Contributed to UX for AI-powered curriculum authoring capabilities that support content generation.',
+      'As Lead UX Designer, shaped curriculum authoring and course management modules within a modular enterprise platform. Curriculum authoring covers offering setup and program definition. Course management covers competencies, alignments, duplication, and accreditation validations. Contributed to UX for AI-powered curriculum authoring capabilities that support content generation.',
     challenge:
       'Authoring teams needed clearer, more efficient ways to define offerings, manage courses, and align accreditation standards. Legacy tools were dense and inconsistent, creating rework and slowing curriculum production across a large multi-brand education organization.',
     approach: [
@@ -148,12 +148,12 @@ export const projects = [
       'Mapped legacy workflows and redesigned curriculum authoring experiences for offering setup and program definition, plus course management flows for competencies, alignments, and validations.',
       'Partnered on AI-powered curriculum authoring capabilities that support content generation.',
       'Applied AI within the design process to speed research synthesis, prototyping, and MVP validation.',
-      'Attended weekly Power User sessions to demo prototypes and gathered async feedback through a shareable prototype shared across academic teams—validating flows with 30+ stakeholders before engineering handoff.',
+      'Attended weekly Power User sessions to demo prototypes and gathered async feedback through a shareable prototype shared across academic teams, validating flows with 30+ stakeholders before engineering handoff.',
     ],
     outcomeStats: [
       {
         value: '10',
-        label: 'Core workflows redesigned across curriculum authoring and course management—from offering setup and program definition through competencies, alignments, versioning, and duplication',
+        label: 'Core workflows redesigned across curriculum authoring and course management, from offering setup and program definition through competencies, alignments, versioning, and duplication',
       },
       {
         value: '30+',
@@ -184,7 +184,7 @@ export const projects = [
     approachImageWidth: 1024,
     approachImageHeight: 576,
     approachImageCaption:
-      'Curriculum authoring and course management module prototypes—demoed in weekly Power User sessions and shared for async feedback across academic teams',
+      'Curriculum authoring and course management module prototypes, demoed in weekly Power User sessions and shared for async feedback across academic teams',
     finalDesignImages: [
       finalDesignImage({
         src: '/images/projects/ai-authoring-tools-final.jpg',
@@ -210,7 +210,7 @@ export const projects = [
     summary:
       'Led the evolution of the Canvas course design system used across three education brands, creating documentation and training 30+ learning technologists and instructional designers.',
     challenge:
-      'Three education brands shared a learning platform but lacked consistent design patterns, documentation, and adoption practices — leading to fragmented user experiences and rework.',
+      'Three education brands shared a learning platform but lacked consistent design patterns, documentation, and adoption practices, leading to fragmented user experiences and rework.',
     approach: [
       'Audited existing UI patterns and identified gaps across Strayer, Capella, and JWMI product surfaces.',
       'Evolved the Canvas design system with new components, semantic tokens, and usage guidelines.',
@@ -220,7 +220,7 @@ export const projects = [
     outcomeStats: [
       {
         value: '14',
-        label: 'Components, patterns, and foundations documented—including numerous variants',
+        label: 'Components, patterns, and foundations documented, including numerous variants',
       },
       {
         value: '10',
@@ -332,7 +332,7 @@ export const projects = [
       {
         title: 'Learners lack a clear mental model of the Competency Map',
         findings: [
-          'Students often confuse competency status with traditional grades and engage with the map reactively—typically only after grading issues arise.',
+          'Students often confuse competency status with traditional grades and engage with the map reactively, typically only after grading issues arise.',
           'Misaligned faculty feedback and limited rubric visibility make it hard to understand progress, proficiency levels, and course completion requirements.',
           'Clarity gaps increase coach intervention time and misdirect help requests to faculty who may be untrained on the tool.',
         ],
@@ -342,7 +342,7 @@ export const projects = [
         },
       },
       {
-        title: 'Coaches rely on the map; learners rarely use it consistently',
+        title: 'Coaches rely on the map while learners rarely use it consistently',
         findings: [
           'Academic coaches treat the Competency Map as a central planning tool and encourage frequent check-ins after every scored assessment.',
           'Learners rarely keep the map open while working and find navigation across multiple systems unintuitive.',
@@ -356,7 +356,7 @@ export const projects = [
       {
         title: 'Traditional grading expectations create friction with the competency model',
         findings: [
-          'Students express frustration over the absence of points, percentages, and honors—some switch to Guided Path to pursue honors eligibility.',
+          'Students express frustration over the absence of points, percentages, and honors. Some switch to Guided Path to pursue honors eligibility.',
           'Faculty congratulations or feedback do not always align with competency map logic, leading to preventable escalations and course delays.',
           'Despite learner confusion, coaches believe the model\'s complexity supports critical thinking and deeper learning when understood.',
         ],
@@ -377,7 +377,7 @@ export const projects = [
         title: 'System misalignment creates operational risk for coaches',
         findings: [
           'Inaccurate synchronization between the Competency Map and academic planning tools (e.g., CAPE) erodes trust in progress data.',
-          'Coaches lose map visibility when students drop courses, and faculty actions—such as deleting attempts—can unintentionally corrupt map data.',
+          'Coaches lose map visibility when students drop courses, and faculty actions such as deleting attempts can unintentionally corrupt map data.',
           'Micro-credentials were not a major interview theme, but coaches saw potential for clearer, portable representations of learning outcomes.',
         ],
         quote: {
@@ -395,9 +395,9 @@ export const projects = [
     featured: true,
     tags: ['Interaction Design', 'Formative Assessment', 'Accessibility', 'Higher Ed', 'Templates'],
     summary:
-      'Designed reusable interaction patterns, templates, and authoring workflows for a scalable formative media platform used across FlexPath, Guided Path, and Strayer courses—supporting quizzes, video interactions, card sorting, branching scenarios, and other activity types for thousands of learners.',
+      'Designed reusable interaction patterns, templates, and authoring workflows for a scalable formative media platform used across FlexPath, Guided Path, and Strayer courses. Supported quizzes, video interactions, card sorting, branching scenarios, and other activity types for thousands of learners.',
     challenge:
-      'Interactive designers lacked a unified way to build diverse, accessible activities while working with instructional designers on content and learning goals. Legacy, one-off tools made it hard to produce activities consistently at scale—especially for FlexPath courses, where learners must complete interactive work and schools need proof of participation.',
+      'Interactive designers lacked a unified way to build diverse, accessible activities while working with instructional designers on content and learning goals. Legacy, one-off tools made it hard to produce activities consistently at scale. This was especially true for FlexPath courses, where learners must complete interactive work and schools need proof of participation.',
     approach: [
       'Designed reusable interaction patterns and templates across activity types, from multiple-choice and open response to video, card sorting, and branching.',
       'Led usability testing with learners to validate activity usability and refine authoring workflows based on how students interacted with published media.',
@@ -407,15 +407,15 @@ export const projects = [
     outcomeStats: [
       {
         value: '1000+',
-        label: 'Formative activities produced across FlexPath, Guided Path, and Strayer—spanning quizzes, video, card sorting, branching, and other formats',
+        label: 'Formative activities produced across FlexPath, Guided Path, and Strayer, including quizzes, video, card sorting, branching, and other formats',
       },
       {
         value: '25',
-        label: 'Learner usability sessions across 5 published-activity studies, refining interaction patterns and feedback',
+        label: 'Learner usability sessions across digital learning products',
       },
       {
-        value: '4',
-        label: 'Usability studies averaged per year as an ongoing Interactive Media team practice',
+        value: '5',
+        label: 'Published studies, refining interaction patterns and feedback',
       },
     ],
     outcomes: [
@@ -447,11 +447,11 @@ export const projects = [
     insights: [
       {
         findings: [
-          'Multi-page structure confused learners—many did not understand why quizzes were split across pages or how pages related to the full activity.',
-          'Quiz length and progress were hard to gauge; per-page question counts and submit labels led learners to misjudge how much remained or think they had finished early.',
-          'Side-panel feedback was clearer for all five participants—separating feedback from answer choices made it easier to notice and interpret than inline feedback under answers.',
-          'Instructions and page-status messaging needed stronger guidance; learners wanted more visible, actionable cues for progressing through multi-page activities.',
-          'Completion left learners uncertain they were done—several expected additional steps and were unclear whether academic engagement had been recorded.',
+          'Multi-page structure confused learners. Many did not understand why quizzes were split across pages or how pages related to the full activity.',
+          'Quiz length and progress were hard to gauge. Per-page question counts and submit labels led learners to misjudge how much remained or think they had finished early.',
+          'Side-panel feedback was clearer for all five participants. Separating feedback from answer choices made it easier to notice and interpret than inline feedback under answers.',
+          'Instructions and page-status messaging needed stronger guidance. Learners wanted more visible, actionable cues for progressing through multi-page activities.',
+          'Completion left learners uncertain they were done. Several expected additional steps and were unclear whether academic engagement had been recorded.',
         ],
       },
     ],
@@ -476,9 +476,9 @@ export const projects = [
     featured: true,
     tags: ['UX Strategy', 'Survey Design', 'Interactive Media', 'Higher Ed', 'Data Quality'],
     summary:
-      'Led UX strategy and redesign of an in-context learner feedback survey presented at interactive media completion—targeting individual activities rather than a generic, site-wide survey. Partnered with product, engineering, and academic stakeholders through implementation and rollout.',
+      'Led UX strategy and redesign of an in-context learner feedback survey presented at interactive media completion, targeting individual activities rather than a generic, site-wide survey. Partnered with product, engineering, and academic stakeholders through implementation and rollout.',
     challenge:
-      'The legacy survey cast too wide a net. Because it wasn\'t tied to specific interactive media, the team couldn\'t gather meaningful insights about individual activities. Visibility was also a problem: the survey link lived in the footer and was easy to overlook—leading to very low response rates and limited qualitative or satisfaction data.',
+      'The legacy survey cast too wide a net. Because it wasn\'t tied to specific interactive media, the team couldn\'t gather meaningful insights about individual activities. Visibility was also a problem: the survey link lived in the footer and was easy to overlook, leading to very low response rates and limited qualitative or satisfaction data.',
     approach: [
       'Defined a UX strategy to target feedback to specific interactive media rather than generic, site-wide prompts.',
       'Redesigned the experience with a prominent completion CTA presented immediately after learners finished an activity.',
